@@ -6,7 +6,13 @@ This project is an investigation of Hystrix in the Kotlin language
 
 The idea of this project is to take passengers from Paris to Berlin.	However, in our simulation, the weather is bad and so the lines will be failing.	The role of kystrix here is to avoid a massive traffic flow to blocked roads and instead to get the cars somewhere else.
 
-The idea of Kystrix is the same as Hystrix. These are circuit-breakers responsible to stop the flow of requests to certain endpoints and make them fail or redirect to somewhere else.
+The idea of [Kystrix](https://github.com/johanhaleby/kystrix) is the same as Hystrix. These are circuit-breakers responsible to stop the flow of requests to certain endpoints and make them fail or redirect to somewhere else.
+
+## Buy me a coffee
+
+I hope you enjoyed this repository. If you did please buy me a coffee which enables me to constantly improve and make new free content regularly for everyone. Thank you so much!
+
+[![Buy me a coffee](https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&emoji=&slug=jesperancinha&button_colour=046c46&font_colour=ffffff&font_family=Cookie&outline_colour=ffffff&coffee_colour=FFDD00 "title")](https://www.buymeacoffee.com/jesperancinha)
 
 ## References
 
