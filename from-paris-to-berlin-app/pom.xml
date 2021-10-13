@@ -9,7 +9,7 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>org.jesperancinha.fptb.kystrix from-paris-to-berlin-app</name>
+    <name>From Paris to Berlin Kystrix Demo</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
