@@ -1,4 +1,4 @@
-package org.jesperancinha.fptb.kystrix.dto
+package org.jesperancinha.fptb.circuit.breaker.dto
 
 /**
  * Created by jofisaes on 13/10/2021

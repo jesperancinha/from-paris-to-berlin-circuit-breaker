@@ -1,4 +1,4 @@
-package groupId
+package org.jesperancinha.fptb.circuit.breaker
 
 import org.junit.Test
 import kotlin.test.assertEquals

@@ -1,6 +1,6 @@
-package org.jesperancinha.fptb.kystrix
+package org.jesperancinha.fptb.circuit.breaker
 
-import org.jesperancinha.fptb.kystrix.dto.Car
+import org.jesperancinha.fptb.circuit.breaker.dto.Car
 import org.springframework.boot.ApplicationArguments
 import org.springframework.boot.ApplicationRunner
 import org.springframework.boot.SpringApplication
