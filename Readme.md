@@ -8,8 +8,9 @@ The idea of this project is to take passengers from Paris to Berlin.	However, in
 
 The idea of [Kystrix](https://github.com/johanhaleby/kystrix) is the same as [Hystrix](https://github.com/Netflix/Hystrix). These are circuit-breakers responsible to stop the flow of requests to certain endpoints and make them fail or redirect to somewhere else.
 
-Hystrix is however no longer in development and instead we have [Resillience4J](https://github.com/resilience4j/resilience4j).
+Hystrix is however no longer in development, and instead we have [Resilience4J](https://github.com/resilience4j/resilience4j).
 
+This means that although we can hope that [Kystrix](https://github.com/johanhaleby/kystrix) gets more standardized, it appears to be that [Resilience4J](https://github.com/resilience4j/resilience4j) is the way to go at this time.
 ## Buy me a coffee
 
 I hope you enjoyed this repository. If you did please buy me a coffee which enables me to constantly improve and make new free content regularly for everyone. Thank you so much!
@@ -18,6 +19,7 @@ I hope you enjoyed this repository. If you did please buy me a coffee which enab
 
 ## References
 
+- [Resilience 4J Spring-Boot-Demo](https://github.com/resilience4j/resilience4j-spring-boot2-demo)
 - [Netflix / Hystrix](https://github.com/Netflix/Hystrix)
 - [Kystrix – A Kotlin DSL for Hystrix](http://code.haleby.se/2018/09/16/kystrix-a-kotlin-dsl-for-hystrix/)
 - [johanhaleby / kystrix](https://github.com/johanhaleby/kystrix)
