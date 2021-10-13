@@ -20,7 +20,7 @@
 
     <modules>
         <module>from-paris-to-berlin-app</module>
-        <module>from-paris-to-berlin-resillience4j-app</module>
+        <module>from-paris-to-berlin-resilience4j-app</module>
     </modules>
 
     <packaging>pom</packaging>
