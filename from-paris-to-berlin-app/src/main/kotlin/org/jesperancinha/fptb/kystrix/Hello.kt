@@ -1,5 +1,8 @@
 package org.jesperancinha.fptb.kystrix
 
+import org.jesperancinha.fptb.kystrix.dto.Car
+import org.springframework.boot.ApplicationArguments
+import org.springframework.boot.ApplicationRunner
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.web.reactive.function.client.WebClient
@@ -11,26 +14,26 @@ import se.haleby.kystrix.toMono
 
 
 @SpringBootApplication
-open class Hello {
+open class Hello : ApplicationRunner {
     companion object {
         @JvmStatic
         fun main(args: Array<String>) {
-            val webClient: WebClient = create()
-
-            println("Hello, World")
-            val greeting = hystrixObservableCommand<String> {
-                groupKey("Test")
-                commandKey("Test-Command")
-                monoCommand {
-                    webClient.get().uri("/cars/1").retrieve().bodyToMono()
-                }
-                commandProperties {
-                    withExecutionTimeoutInMilliseconds(10000)
-                    withFallbackEnabled(false)
-                }
-            }.toMono()
-
             SpringApplication.run(Hello::class.java, *args)
         }
+    }
+
+    override fun run(args: ApplicationArguments?) {
+        val webClient: WebClient = create("http://localhost:8080")
+        hystrixObservableCommand<Car> {
+            groupKey("Test")
+            commandKey("Test-Command")
+            monoCommand {
+                webClient.get().uri("/cars/carros/1").retrieve().bodyToMono()
+            }
+            commandProperties {
+                withExecutionTimeoutInMilliseconds(10000)
+                withFallbackEnabled(false)
+            }
+        }.toMono().block()
     }
 }
