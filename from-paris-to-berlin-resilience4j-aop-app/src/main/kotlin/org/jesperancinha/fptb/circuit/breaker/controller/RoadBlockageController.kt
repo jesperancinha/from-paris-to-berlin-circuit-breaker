@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
+import reactor.core.publisher.Mono
 
 /**
  * Created by jofisaes on 14/10/2021
@@ -24,7 +25,7 @@ class RoadBlockageController(
     }
 
     @GetMapping
-    fun getCurrentBlockage(): Location? {
-        return roadBlockagesMap.location
+    fun getCurrentBlockage(): Mono<Location>? {
+        return Mono.just(roadBlockagesMap.location)
     }
 }
