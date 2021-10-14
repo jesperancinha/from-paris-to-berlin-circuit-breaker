@@ -23,11 +23,13 @@
     <name>From Paris to Berlin Parent Project</name>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>17</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-
         <kotlin.version>1.6.0-M1</kotlin.version>
+        <kotlin.code.style>official</kotlin.code.style>
+
         <junit.version>4.12</junit.version>
     </properties>
 
