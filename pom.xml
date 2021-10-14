@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.jesperancinha.fptb.kystrix</groupId>
+    <groupId>org.jesperancinha.fptb.circuit.breaker</groupId>
     <artifactId>from-paris-to-berlin-circuit-breaker</artifactId>
     <version>1.0-SNAPSHOT</version>
     <build>
@@ -28,6 +28,7 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
 
         <kotlin.version>1.6.0-M1</kotlin.version>
+        <junit.version>4.12</junit.version>
     </properties>
 
     <modules>

@@ -1,4 +1,4 @@
-# org.jesperancinha.fptb.kystrix from-paris-to-berlin-app
+# from-paris-to-berlin-app
 
 ## About me 👨🏽‍💻🚀🏳️‍🌈
 
