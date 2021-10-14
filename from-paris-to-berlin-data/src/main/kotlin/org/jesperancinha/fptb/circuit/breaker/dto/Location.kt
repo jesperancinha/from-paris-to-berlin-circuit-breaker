@@ -6,7 +6,7 @@ data class Location(
     val id: Long? = null,
     val name: String? = null,
     val forward: List<Location> = listOf(),
-    val blockageType: BlockageType = UNKNOWN,
+    val blockageTimeTable: List<RoadBlockTime> = mutableListOf()
 ) {
     constructor() : this(null)
 }

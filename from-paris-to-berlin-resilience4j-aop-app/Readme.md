@@ -3,7 +3,7 @@
 ## Example request
 
 ```shell
-curl -X POST http://localhost:8080/blockage -H "Content-Type: application/json" --data '{"id":1,"name":"Paris","forward":[{"id":2,"name":"Soissons","forward":[{"id":5,"name":"Aken","forward":[{"id":8,"name":"Berlin","forward":[],"blockageType":"UNKNOWN"}],"blockageType":"UNKNOWN"},{"id":6,"name":"Heerlen","forward":[{"id":8,"name":"Berlin","forward":[],"blockageType":"UNKNOWN"}],"blockageType":"UNKNOWN"},{"id":7,"name":"Düren","forward":[{"id":8,"name":"Berlin","forward":[],"blockageType":"UNKNOWN"}],"blockageType":"UNKNOWN"}],"blockageType":"UNKNOWN"},{"id":3,"name":"Compiègne","forward":[{"id":5,"name":"Aken","forward":[{"id":8,"name":"Berlin","forward":[],"blockageType":"UNKNOWN"}],"blockageType":"UNKNOWN"},{"id":6,"name":"Heerlen","forward":[{"id":8,"name":"Berlin","forward":[],"blockageType":"UNKNOWN"}],"blockageType":"UNKNOWN"},{"id":7,"name":"Düren","forward":[{"id":8,"name":"Berlin","forward":[],"blockageType":"UNKNOWN"}],"blockageType":"UNKNOWN"}],"blockageType":"UNKNOWN"},{"id":4,"name":"Reims","forward":[{"id":5,"name":"Aken","forward":[{"id":8,"name":"Berlin","forward":[],"blockageType":"UNKNOWN"}],"blockageType":"UNKNOWN"},{"id":6,"name":"Heerlen","forward":[{"id":8,"name":"Berlin","forward":[],"blockageType":"UNKNOWN"}],"blockageType":"UNKNOWN"},{"id":7,"name":"Düren","forward":[{"id":8,"name":"Berlin","forward":[],"blockageType":"UNKNOWN"}],"blockageType":"UNKNOWN"}],"blockageType":"UNKNOWN"}],"blockageType":"UNKNOWN"}'
+curl -X POST http://localhost:8080/blockage -H "Content-Type: application/json" --data '{"id":1,"name":"Paris","forward":[{"id":2,"name":"Soissons","forward":[{"id":5,"name":"Aken","forward":[{"id":8,"name":"Berlin","forward":[],"blockageTimeTable":[]}],"blockageTimeTable":[]},{"id":6,"name":"Heerlen","forward":[{"id":8,"name":"Berlin","forward":[],"blockageTimeTable":[]}],"blockageTimeTable":[]},{"id":7,"name":"Düren","forward":[{"id":8,"name":"Berlin","forward":[],"blockageTimeTable":[]}],"blockageTimeTable":[]}],"blockageTimeTable":[]},{"id":3,"name":"Compiègne","forward":[{"id":5,"name":"Aken","forward":[{"id":8,"name":"Berlin","forward":[],"blockageTimeTable":[]}],"blockageTimeTable":[]},{"id":6,"name":"Heerlen","forward":[{"id":8,"name":"Berlin","forward":[],"blockageTimeTable":[]}],"blockageTimeTable":[]},{"id":7,"name":"Düren","forward":[{"id":8,"name":"Berlin","forward":[],"blockageTimeTable":[]}],"blockageTimeTable":[]}],"blockageTimeTable":[]},{"id":4,"name":"Reims","forward":[{"id":5,"name":"Aken","forward":[{"id":8,"name":"Berlin","forward":[],"blockageTimeTable":[]}],"blockageTimeTable":[]},{"id":6,"name":"Heerlen","forward":[{"id":8,"name":"Berlin","forward":[],"blockageTimeTable":[]}],"blockageTimeTable":[]},{"id":7,"name":"Düren","forward":[{"id":8,"name":"Berlin","forward":[],"blockageTimeTable":[]}],"blockageTimeTable":[]}],"blockageTimeTable":[]}],"blockageTimeTable":[]}'
 ```
 
 ```shell
@@ -11,7 +11,7 @@ curl -X POST http://localhost:8080/blockage -H "Content-Type: application/json" 
 ```
 
 ```shell
-curl -X POST http://localhost:8080/blockage -H "Content-Type: application/json" --data '{"id":8,"name":"Berlin","forward":[],"blockageType":"UNKNOWN"}'
+curl -X POST http://localhost:8080/blockage -H "Content-Type: application/json" --data '{"id":8,"name":"Berlin","forward":[],"blockageTimeTable":[]}'
 ```
 
 ## Payload Example
