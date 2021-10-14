@@ -17,7 +17,7 @@ class CarService {
     @CircuitBreaker(name = CARS_2)
     @Bulkhead(name = CARS_2)
     @Retry(name = CARS_2)
-    open fun monoSuccess(): Mono<String?>? {
+    open fun monoSuccess(): Mono<String> {
         return Mono.just("Fiat")
     }
 
