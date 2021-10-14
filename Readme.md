@@ -2,6 +2,8 @@
 
 This project is an investigation of Circuit-Breakers in the Kotlin language
 
+👇👇👇🚧🚧🚧 Under Construction 🚧🚧🚧👇👇👇
+
 ## Introduction
 
 The idea of this project is to take passengers from Paris to Berlin.	However, in our simulation, the weather is bad and so the lines will be failing.	The role of kystrix here is to avoid a massive traffic flow to blocked roads and instead to get the cars somewhere else.
