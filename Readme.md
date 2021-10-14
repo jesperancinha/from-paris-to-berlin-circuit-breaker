@@ -16,9 +16,9 @@ This means that although we can hope that [Kystrix](https://github.com/johanhale
 
 ## Project Layout
 
-1. [From Paris to Berlin Kystrix Demo](./from-paris-to-berlin-app) - A simplified Kystrix demo
-2. [From Paris to Berlin Resilience4J Demo](./from-paris-to-berlin-resilience4j-app) - Creating Circuit Breakers using declarative Resilience4J
-3. [From Paris to Berlin Resilience4J AOP Demo](./from-paris-to-berlin-resilience4j-aop-app) - Creating Circuit Breakers using AOP(Aspect Oriented Programming) and declarative Resilience4J
+1.  [From Paris to Berlin Kystrix Demo](./from-paris-to-berlin-app) - A simplified Kystrix demo
+2.  [From Paris to Berlin Resilience4J Demo](./from-paris-to-berlin-resilience4j-app) - Creating Circuit Breakers using declarative Resilience4J
+3.  [From Paris to Berlin Resilience4J AOP Demo](./from-paris-to-berlin-resilience4j-aop-app) - Creating Circuit Breakers using AOP(Aspect Oriented Programming) and declarative Resilience4J
 
 
 ## Buy me a coffee
@@ -29,13 +29,13 @@ I hope you enjoyed this repository. If you did please buy me a coffee which enab
 
 ## References
 
-- [Improve your Kotlin code with Detekt](https://medium.com/frichtitech/improve-your-kotlin-code-with-detekt-65795656b1ed)
-- [Resilience 4J Spring-Boot-Demo](https://github.com/resilience4j/resilience4j-spring-boot2-demo)
-- [Netflix / Hystrix](https://github.com/Netflix/Hystrix)
-- [Kystrix – A Kotlin DSL for Hystrix](http://code.haleby.se/2018/09/16/kystrix-a-kotlin-dsl-for-hystrix/)
-- [johanhaleby / kystrix](https://github.com/johanhaleby/kystrix)
-- [resilience4j / resilience4j](https://github.com/resilience4j/resilience4j)
-- [CircuitBreaker - Getting started with resilience4j-circuitbreaker](https://resilience4j.readme.io/docs/circuitbreaker)
+-   [Improve your Kotlin code with Detekt](https://medium.com/frichtitech/improve-your-kotlin-code-with-detekt-65795656b1ed)
+-   [Resilience 4J Spring-Boot-Demo](https://github.com/resilience4j/resilience4j-spring-boot2-demo)
+-   [Netflix / Hystrix](https://github.com/Netflix/Hystrix)
+-   [Kystrix – A Kotlin DSL for Hystrix](http://code.haleby.se/2018/09/16/kystrix-a-kotlin-dsl-for-hystrix/)
+-   [johanhaleby / kystrix](https://github.com/johanhaleby/kystrix)
+-   [resilience4j / resilience4j](https://github.com/resilience4j/resilience4j)
+-   [CircuitBreaker - Getting started with resilience4j-circuitbreaker](https://resilience4j.readme.io/docs/circuitbreaker)
 
 ## About me 👨🏽‍💻🚀🏳️‍🌈
 

@@ -3,7 +3,7 @@
 
 ## References
 
-- [Kystrix](https://github.com/johanhaleby/kystrix)
+-   [Kystrix](https://github.com/johanhaleby/kystrix)
 
 ## About me 👨🏽‍💻🚀🏳️‍🌈
 

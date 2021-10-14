@@ -1,9 +1,11 @@
 package org.jesperancinha.fptb.circuit.breaker.controller
 
+import org.jesperancinha.fptb.circuit.breaker.domain.RoadBlockagesMap
 import org.jesperancinha.fptb.circuit.breaker.dto.Car
 import org.jesperancinha.fptb.circuit.breaker.service.CarService
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import reactor.core.publisher.Mono
@@ -15,6 +17,7 @@ import reactor.core.publisher.Mono
 @RequestMapping("/cars")
 class CarController(
     private val carService: CarService,
+    private val roadBlockagesMap: RoadBlockagesMap
 ) {
 
     @GetMapping("/{id}")
@@ -29,7 +32,7 @@ class CarController(
 
     @GetMapping("/carros/{id}")
     private fun getCarros(@PathVariable id: Long): Mono<Car> {
-        return Mono.just(Car("Laborghini"))
+        return Mono.just(Car("Lamborghini"))
     }
 
     private fun fallback(ex: Throwable): Mono<Car> {
