@@ -11,6 +11,14 @@ The idea of [Kystrix](https://github.com/johanhaleby/kystrix) is the same as [Hy
 Hystrix is however no longer in development, and instead we have [Resilience4J](https://github.com/resilience4j/resilience4j).
 
 This means that although we can hope that [Kystrix](https://github.com/johanhaleby/kystrix) gets more standardized, it appears to be that [Resilience4J](https://github.com/resilience4j/resilience4j) is the way to go at this time.
+
+## Project Layout
+
+1. [From Paris to Berlin Kystrix Demo](./from-paris-to-berlin-app) - A simplified Kystrix demo
+2. [From Paris to Berlin Resilience4J Demo](./from-paris-to-berlin-resilience4j-app) - Creating Circuit Breakers using declarative Resilience4J
+3. [From Paris to Berlin Resilience4J AOP Demo](./from-paris-to-berlin-resilience4j-aop-app) - Creating Circuit Breakers using AOP(Aspect Oriented Programming) and declarative Resilience4J
+
+
 ## Buy me a coffee
 
 I hope you enjoyed this repository. If you did please buy me a coffee which enables me to constantly improve and make new free content regularly for everyone. Thank you so much!

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
+import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
 import java.util.concurrent.TimeoutException
 
@@ -27,7 +28,7 @@ class CarController(
     timeLimiterRegistry: TimeLimiterRegistry,
     circuitBreakerRegistry: CircuitBreakerRegistry,
     bulkheadRegistry: BulkheadRegistry
-) {
+    ) {
     private var timeLimiter: TimeLimiter = timeLimiterRegistry.timeLimiter(CARS)
     private var circuitBreaker = circuitBreakerRegistry.circuitBreaker(CARS)
     private var bulkhead = bulkheadRegistry.bulkhead(CARS)
@@ -35,20 +36,11 @@ class CarController(
     @GetMapping("/{id}")
     private fun getCars(@PathVariable id: Int): Mono<Car> {
         return carService.getCar()
-            .transform(TimeLimiterOperator.of(timeLimiter))
-            .transform(CircuitBreakerOperator.of(circuitBreaker))
-            .transform(BulkheadOperator.of(bulkhead))
-            .onErrorResume(TimeoutException::class.java, ::fallback)
     }
-
 
     @GetMapping("/test/{id}")
     private fun getCarsTest(@PathVariable id: Int): Mono<Car> {
         return carService.getCar()
-            .transform(TimeLimiterOperator.of(timeLimiter))
-            .transform(CircuitBreakerOperator.of(circuitBreaker))
-            .transform(BulkheadOperator.of(bulkhead))
-            .onErrorResume(TimeoutException::class.java, ::fallback)
     }
 
     @GetMapping("/carros/{id}")
@@ -56,7 +48,7 @@ class CarController(
         return Mono.just(Car("Laborghini"))
     }
 
-    private fun fallback(ex: Throwable): Mono<Car> {
+    private fun fallback(ex: Throwable): Mono<Car>{
         return Mono.just(Car("Rolls Royce"))
     }
 }

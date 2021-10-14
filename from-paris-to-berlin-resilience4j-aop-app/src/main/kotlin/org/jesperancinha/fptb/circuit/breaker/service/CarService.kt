@@ -24,8 +24,16 @@ const val CARS = "cars"
 @Component
 open class CarService {
 
+    @TimeLimiter(name = CARS)
+    @CircuitBreaker(name = CARS, fallbackMethod = "launch")
+    @Bulkhead(name = CARS)
     open fun getCar(): Mono<Car> {
         return Mono.just(Car("Fiat")).delayElement(Duration.ofSeconds(10));
     }
+
+    private fun launch(ex: Exception): Mono<Car> {
+        return Mono.just(Car("Jaguar"))
+    }
+
 
 }

@@ -33,6 +33,7 @@
     <modules>
         <module>from-paris-to-berlin-app</module>
         <module>from-paris-to-berlin-resilience4j-app</module>
+        <module>from-paris-to-berlin-resilience4j-aop-app</module>
     </modules>
 
     <packaging>pom</packaging>
