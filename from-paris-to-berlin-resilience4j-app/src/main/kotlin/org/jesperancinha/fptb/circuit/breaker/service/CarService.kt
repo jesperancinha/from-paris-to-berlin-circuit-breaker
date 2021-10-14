@@ -22,7 +22,7 @@ const val CARS = "backendA"
  * Created by jofisaes on 13/10/2021
  */
 @Component
-class CarService {
+open class CarService {
 
     @TimeLimiter(name = CARS)
     @CircuitBreaker(name = CARS, fallbackMethod = "launch")

@@ -35,12 +35,17 @@ class CarController(
 
     @GetMapping("/{id}")
     private fun getCars(@PathVariable id: Int): Mono<Car> {
-
         return carService.getCar()
             .transform(TimeLimiterOperator.of(timeLimiter))
             .transform(CircuitBreakerOperator.of(circuitBreaker))
             .transform(BulkheadOperator.of(bulkhead))
             .onErrorResume(TimeoutException::class.java, ::fallback)
+    }
+
+
+    @GetMapping("/test/{id}")
+    private fun getCarsTest(@PathVariable id: Int): Mono<Car> {
+        return carService.getCar()
     }
 
     @GetMapping("/carros/{id}")
