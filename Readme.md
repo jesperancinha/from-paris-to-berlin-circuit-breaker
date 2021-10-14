@@ -27,6 +27,7 @@ I hope you enjoyed this repository. If you did please buy me a coffee which enab
 
 ## References
 
+- [Improve your Kotlin code with Detekt](https://medium.com/frichtitech/improve-your-kotlin-code-with-detekt-65795656b1ed)
 - [Resilience 4J Spring-Boot-Demo](https://github.com/resilience4j/resilience4j-spring-boot2-demo)
 - [Netflix / Hystrix](https://github.com/Netflix/Hystrix)
 - [Kystrix – A Kotlin DSL for Hystrix](http://code.haleby.se/2018/09/16/kystrix-a-kotlin-dsl-for-hystrix/)
