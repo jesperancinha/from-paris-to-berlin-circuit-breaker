@@ -1,5 +1,10 @@
 # from-paris-to-berlin-app
 
+
+## References
+
+- [Kystrix](https://github.com/johanhaleby/kystrix)
+
 ## About me 👨🏽‍💻🚀🏳️‍🌈
 
 [![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-20/JEOrgLogo-20.png "João Esperancinha Homepage")](http://joaofilipesabinoesperancinha.nl)
