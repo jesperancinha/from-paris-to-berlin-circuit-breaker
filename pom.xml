@@ -34,6 +34,7 @@
         <module>from-paris-to-berlin-app</module>
         <module>from-paris-to-berlin-resilience4j-app</module>
         <module>from-paris-to-berlin-resilience4j-aop-app</module>
+        <module>from-paris-to-berlin-city-generator</module>
     </modules>
 
     <packaging>pom</packaging>
