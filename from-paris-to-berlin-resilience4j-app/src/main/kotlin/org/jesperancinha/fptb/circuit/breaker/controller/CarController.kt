@@ -1,6 +1,7 @@
 package org.jesperancinha.fptb.circuit.breaker.controller
 
 import org.jesperancinha.fptb.circuit.breaker.dto.Car
+import org.jesperancinha.fptb.circuit.breaker.service.CarService
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
@@ -12,13 +13,14 @@ import reactor.core.publisher.Mono
  */
 @RestController
 @RequestMapping("/cars")
-class CarController {
+class CarController(
+    val carService: CarService
+) {
 
 
     @GetMapping("/{id}")
     private fun getCars(@PathVariable id: Int): Mono<Car> {
-        throw RuntimeException()
-        return Mono.just(Car("Jaguar"))
+        return carService.getCar()
     }
 
     @GetMapping("/carros/{id}")
