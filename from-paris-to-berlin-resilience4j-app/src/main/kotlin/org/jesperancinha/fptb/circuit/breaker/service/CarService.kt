@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component
 import reactor.core.publisher.Mono
 import java.time.Duration
 
-const val CARS = "backendA"
+const val CARS = "cars"
 
 /**
  * Created by jofisaes on 13/10/2021
