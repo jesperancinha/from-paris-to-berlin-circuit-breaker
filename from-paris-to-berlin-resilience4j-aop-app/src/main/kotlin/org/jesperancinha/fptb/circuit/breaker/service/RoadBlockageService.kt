@@ -1,6 +1,9 @@
 package org.jesperancinha.fptb.circuit.breaker.service
 
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
 import org.jesperancinha.fptb.circuit.breaker.adapters.RoadRace
+import org.jesperancinha.fptb.circuit.breaker.domain.Car
 import org.jesperancinha.fptb.circuit.breaker.domain.Location
 import org.springframework.stereotype.Service
 
@@ -11,14 +14,22 @@ import org.springframework.stereotype.Service
 class RoadBlockageService(
     private val roadRace: RoadRace
 ) {
-    fun setRoadBlock(location: Location) {
-        roadRace.location = location
+    suspend fun setRoadBlock(location: Location) {
+        roadRace.paris = location
+        startGame()
     }
 
-    fun getStartLocation(): Location = roadRace.location
+    fun getStartLocation(): Location = roadRace.paris
 
-    fun startGame() {
-        roadRace.cars;
+    private suspend fun startGame() {
+        coroutineScope {
+            launch {
+                roadRace.init();
+            }
+        }
+    }
 
+    fun getCurrenRoadRace(): RoadRace? {
+        return roadRace
     }
 }

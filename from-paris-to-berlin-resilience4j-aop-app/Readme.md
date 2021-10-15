@@ -164,6 +164,11 @@ curl -X POST http://localhost:8080/blockage -H "Content-Type: application/json" 
 }
 ```
 
+## References
+
+- [Kotlin's coroutines on Android](https://developer.android.com/kotlin/coroutines)
+- [kotlinx-coroutines-reactor](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-reactor/index.html)
+
 ## About me 👨🏽‍💻🚀🏳️‍🌈
 
 [![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-20/JEOrgLogo-20.png "João Esperancinha Homepage")](http://joaofilipesabinoesperancinha.nl)

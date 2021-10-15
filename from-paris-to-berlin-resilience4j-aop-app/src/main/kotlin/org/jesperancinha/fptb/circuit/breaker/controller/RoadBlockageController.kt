@@ -1,5 +1,6 @@
 package org.jesperancinha.fptb.circuit.breaker.controller
 
+import org.jesperancinha.fptb.circuit.breaker.adapters.RoadRace
 import org.jesperancinha.fptb.circuit.breaker.domain.Location
 import org.jesperancinha.fptb.circuit.breaker.service.RoadBlockageService
 import org.springframework.http.MediaType
@@ -20,10 +21,14 @@ class RoadBlockageController(
 ) {
 
     @PostMapping(consumes = [MediaType.APPLICATION_JSON_VALUE])
-    fun updateBlockage(@RequestBody location: Location) = roadBlockageService.setRoadBlock(location)
+    suspend fun updateBlockage(@RequestBody location: Location) = roadBlockageService.setRoadBlock(location)
 
 
     @GetMapping
     fun getCurrentBlockage(): Mono<Location?> = Mono.just(roadBlockageService.getStartLocation())
+
+
+    @GetMapping("/roadRace")
+    fun getCurrentRoadRace(): Mono<RoadRace?> = Mono.just(roadBlockageService.getCurrenRoadRace())
 
 }
