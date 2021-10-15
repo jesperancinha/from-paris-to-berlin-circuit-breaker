@@ -3,16 +3,32 @@ package org.jesperancinha.fptb.circuit.breaker.service
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 import org.jesperancinha.fptb.circuit.breaker.adapters.RoadRace
-import org.jesperancinha.fptb.circuit.breaker.domain.Car
 import org.jesperancinha.fptb.circuit.breaker.domain.Location
+import org.jesperancinha.fptb.circuit.breaker.dto.CarDto
+import org.jesperancinha.fptb.circuit.breaker.dto.LocationDto
+import org.jesperancinha.fptb.circuit.breaker.dto.RoadRaceDto
 import org.springframework.stereotype.Service
+
+private val RoadRace.toDto: RoadRaceDto
+    get() {
+        val cars = this.cars.map { car ->
+            CarDto(car.id, car.name, car.model, LocationDto(
+                car.location.id,
+                car.location.name,
+                car.location.forward.map { location ->
+                    LocationDto(location.id, location.name, listOf(), location.blockageTimeTable)
+                },
+                car.location.blockageTimeTable))
+        }
+        return RoadRaceDto(cars, paris)
+    }
 
 /**
  * Created by jofisaes on 15/10/2021
  */
 @Service
 class RoadBlockageService(
-    private val roadRace: RoadRace
+    private val roadRace: RoadRace,
 ) {
     suspend fun setRoadBlock(location: Location) {
         roadRace.paris = location
@@ -29,7 +45,7 @@ class RoadBlockageService(
         }
     }
 
-    fun getCurrenRoadRace(): RoadRace? {
-        return roadRace
+    fun getCurrenRoadRace(): RoadRaceDto {
+        return roadRace.toDto
     }
 }

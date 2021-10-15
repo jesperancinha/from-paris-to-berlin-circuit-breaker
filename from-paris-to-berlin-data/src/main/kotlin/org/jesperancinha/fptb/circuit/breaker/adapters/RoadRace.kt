@@ -16,7 +16,7 @@ data class RoadRace(
     var paris: Location = Location(),
 ) {
     fun init() {
-        cars = (1..100).map { Car(it.toLong(), "name", "brand", paris) }
+        cars = (1..10).map { Car(it.toLong(), "name", "brand", paris) }
         addTimeTables(paris)
     }
 

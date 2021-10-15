@@ -2,9 +2,12 @@
 
 ## Roadmap to v1.0.0
 
+2021/10/15
+- Create 10 cars
+- Coroutines to advance vehicles
+
 ---
 
-- Coroutines to advance vehicles
 - Cars must have:
   - Start of Block timestamp
   - Current waiting time (can be updated)
@@ -15,7 +18,6 @@
   - If still blocked, player gets a block timestamp when applicable, and the blocking waiting time is raised for 1 minute.
 - Make case
 - Generate table of occurrences
-- Create 100 cars
 - The 100th car is the players car
 - Cars try to move every random minute(s) between 1 to 5 minutes
 - The table contains programmed road blocks on minute time stamps

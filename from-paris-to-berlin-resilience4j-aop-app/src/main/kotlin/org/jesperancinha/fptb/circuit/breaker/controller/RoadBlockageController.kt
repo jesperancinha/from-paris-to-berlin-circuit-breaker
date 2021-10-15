@@ -2,6 +2,7 @@ package org.jesperancinha.fptb.circuit.breaker.controller
 
 import org.jesperancinha.fptb.circuit.breaker.adapters.RoadRace
 import org.jesperancinha.fptb.circuit.breaker.domain.Location
+import org.jesperancinha.fptb.circuit.breaker.dto.RoadRaceDto
 import org.jesperancinha.fptb.circuit.breaker.service.RoadBlockageService
 import org.springframework.http.MediaType
 import org.springframework.web.bind.annotation.GetMapping
@@ -29,6 +30,6 @@ class RoadBlockageController(
 
 
     @GetMapping("/roadRace")
-    fun getCurrentRoadRace(): Mono<RoadRace?> = Mono.just(roadBlockageService.getCurrenRoadRace())
+    fun getCurrentRoadRace(): Mono<RoadRaceDto?> = Mono.just(roadBlockageService.getCurrenRoadRace())
 
 }
