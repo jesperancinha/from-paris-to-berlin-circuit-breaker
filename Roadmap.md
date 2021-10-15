@@ -4,6 +4,15 @@
 
 ---
 
+- Coroutines to advance vehicles
+- Cars must have:
+  - Start of Block timestamp
+  - Current waiting time (can be updated)
+  - Location
+  - Model
+  - Name
+  - Circuit break must choose randomly between the last two options
+  - If still blocked, player gets a block timestamp when applicable, and the blocking waiting time is raised for 1 minute.
 - Make case
 - Generate table of occurrences
 - Create 100 cars
