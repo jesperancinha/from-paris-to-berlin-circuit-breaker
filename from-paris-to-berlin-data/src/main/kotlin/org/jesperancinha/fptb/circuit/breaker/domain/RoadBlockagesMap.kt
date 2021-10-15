@@ -8,5 +8,5 @@ import org.springframework.stereotype.Component
  */
 @Component
 data class RoadBlockagesMap(
-    var location: Location? = null
+    var location: Location = Location(),
 )

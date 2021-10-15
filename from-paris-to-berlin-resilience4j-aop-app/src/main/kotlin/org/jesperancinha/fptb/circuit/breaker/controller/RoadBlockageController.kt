@@ -1,7 +1,7 @@
 package org.jesperancinha.fptb.circuit.breaker.controller
 
-import org.jesperancinha.fptb.circuit.breaker.domain.RoadBlockagesMap
 import org.jesperancinha.fptb.circuit.breaker.dto.Location
+import org.jesperancinha.fptb.circuit.breaker.service.RoadBlockageService
 import org.springframework.http.MediaType
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
@@ -16,16 +16,14 @@ import reactor.core.publisher.Mono
 @RestController
 @RequestMapping("/blockage")
 class RoadBlockageController(
-    private val roadBlockagesMap: RoadBlockagesMap
+    private val roadBlockageService: RoadBlockageService,
 ) {
 
     @PostMapping(consumes = [MediaType.APPLICATION_JSON_VALUE])
-    fun updateBlockage(@RequestBody location: Location) {
-        roadBlockagesMap.location= location
-    }
+    fun updateBlockage(@RequestBody location: Location) = roadBlockageService.setRoadBlock(location)
+
 
     @GetMapping
-    fun getCurrentBlockage(): Mono<Location>? {
-        return Mono.just(roadBlockagesMap.location)
-    }
+    fun getCurrentBlockage(): Mono<Location?> = Mono.just(roadBlockageService.getStartLocation())
+
 }
