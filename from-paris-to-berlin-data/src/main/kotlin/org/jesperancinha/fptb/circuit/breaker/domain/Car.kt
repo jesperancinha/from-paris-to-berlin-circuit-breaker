@@ -7,5 +7,5 @@ data class Car(
     val id: Long,
     val name: String,
     val model: String,
-    val location: Location,
+    var location: Location,
 )

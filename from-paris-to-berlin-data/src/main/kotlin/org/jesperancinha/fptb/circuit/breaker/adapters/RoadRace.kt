@@ -28,4 +28,10 @@ data class RoadRace(
             forward.forEach { addTimeTables(it) }
         }
     }
+
+    fun randomMoveFw() {
+        cars.filter { it.id != 9L }.forEach {
+            it.location = it.location.forward.random()
+        }
+    }
 }

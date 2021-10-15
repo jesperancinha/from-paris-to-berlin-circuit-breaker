@@ -8,6 +8,9 @@ import org.jesperancinha.fptb.circuit.breaker.dto.CarDto
 import org.jesperancinha.fptb.circuit.breaker.dto.LocationDto
 import org.jesperancinha.fptb.circuit.breaker.dto.RoadRaceDto
 import org.springframework.stereotype.Service
+import java.util.*
+import java.util.concurrent.TimeUnit
+import kotlin.concurrent.schedule
 
 private val RoadRace.toDto: RoadRaceDto
     get() {
@@ -41,8 +44,16 @@ class RoadBlockageService(
         coroutineScope {
             launch {
                 roadRace.init();
+                val schedule = Timer().schedule(10, TimeUnit.SECONDS.toMillis(10)) {
+                    moveCars()
+                }
+//                schedule.cancel()
             }
         }
+    }
+
+    private fun moveCars() {
+        roadRace.randomMoveFw()
     }
 
     fun getCurrenRoadRace(): RoadRaceDto {
