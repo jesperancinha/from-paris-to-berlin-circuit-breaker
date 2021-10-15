@@ -4,6 +4,7 @@ import io.github.resilience4j.bulkhead.annotation.Bulkhead
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker
 import io.github.resilience4j.timelimiter.annotation.TimeLimiter
 import org.jesperancinha.fptb.circuit.breaker.dto.Car
+import org.jesperancinha.fptb.circuit.breaker.dto.Location
 import org.springframework.stereotype.Component
 import reactor.core.publisher.Mono
 import java.time.Duration
@@ -19,11 +20,11 @@ open class CarService {
     @CircuitBreaker(name = CARS, fallbackMethod = "launch")
     @Bulkhead(name = CARS)
     open fun getCar(): Mono<Car> {
-        return Mono.just(Car("Fiat")).delayElement(Duration.ofSeconds(10));
+        return Mono.just(Car(1, "Modest","Fiat", Location())).delayElement(Duration.ofSeconds(10));
     }
 
     private fun launch(ex: Exception): Mono<Car> {
-        return Mono.just(Car("Jaguar"))
+        return Mono.just(Car(2, "Sofisticated","Jaguar", Location()))
     }
 
     companion object {

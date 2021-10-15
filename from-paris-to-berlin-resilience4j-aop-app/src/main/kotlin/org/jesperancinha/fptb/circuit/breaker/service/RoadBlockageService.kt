@@ -16,4 +16,8 @@ class RoadBlockageService(
     }
 
     fun getStartLocation(): Location = roadBlockagesMap.location
+
+    fun startGame() {
+
+    }
 }
