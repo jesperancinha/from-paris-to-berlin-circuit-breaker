@@ -21,9 +21,11 @@ data class RoadRace(
     }
 
     private fun addTimeTables(location: Location) {
-        location.blockageTimeTable.clear()
-        location.blockageTimeTable.addAll((0..(Random.nextInt(0, 2) + 1))
-            .map { RoadBlockTime(Random.nextInt(60), BlockageType.values().random()) })
-        location.forward.forEach { addTimeTables(it) }
+        location.apply {
+            blockageTimeTable.clear()
+            blockageTimeTable.addAll((0..(Random.nextInt(0, 2) + 1))
+                .map { RoadBlockTime(Random.nextInt(60), BlockageType.values().random()) })
+            forward.forEach { addTimeTables(it) }
+        }
     }
 }
