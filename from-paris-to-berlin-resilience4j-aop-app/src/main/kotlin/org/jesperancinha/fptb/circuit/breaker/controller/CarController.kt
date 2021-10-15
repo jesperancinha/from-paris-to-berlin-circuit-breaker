@@ -1,8 +1,8 @@
 package org.jesperancinha.fptb.circuit.breaker.controller
 
-import org.jesperancinha.fptb.circuit.breaker.domain.RoadBlockagesMap
-import org.jesperancinha.fptb.circuit.breaker.dto.Car
-import org.jesperancinha.fptb.circuit.breaker.dto.Location
+import org.jesperancinha.fptb.circuit.breaker.adapters.RoadRace
+import org.jesperancinha.fptb.circuit.breaker.domain.Car
+import org.jesperancinha.fptb.circuit.breaker.domain.Location
 import org.jesperancinha.fptb.circuit.breaker.service.CarService
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -17,7 +17,7 @@ import reactor.core.publisher.Mono
 @RequestMapping("/cars")
 class CarController(
     private val carService: CarService,
-    private val roadBlockagesMap: RoadBlockagesMap
+    private val roadBlockagesMap: RoadRace
 ) {
 
     @GetMapping("/{id}")

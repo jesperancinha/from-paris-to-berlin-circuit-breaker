@@ -1,6 +1,6 @@
 package org.jesperancinha.fptb.circuit.breaker.controller
 
-import org.jesperancinha.fptb.circuit.breaker.dto.Location
+import org.jesperancinha.fptb.circuit.breaker.domain.Location
 import org.jesperancinha.fptb.circuit.breaker.service.RoadBlockageService
 import org.springframework.http.MediaType
 import org.springframework.web.bind.annotation.GetMapping

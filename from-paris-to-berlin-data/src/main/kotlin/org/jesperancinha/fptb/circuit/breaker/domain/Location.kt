@@ -1,6 +1,4 @@
-package org.jesperancinha.fptb.circuit.breaker.dto
-
-import org.jesperancinha.fptb.circuit.breaker.dto.BlockageType.UNKNOWN
+package org.jesperancinha.fptb.circuit.breaker.domain
 
 data class Location(
     val id: Long? = null,

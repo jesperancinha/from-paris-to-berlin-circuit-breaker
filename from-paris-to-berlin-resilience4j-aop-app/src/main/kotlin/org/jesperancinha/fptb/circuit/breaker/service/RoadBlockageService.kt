@@ -1,7 +1,7 @@
 package org.jesperancinha.fptb.circuit.breaker.service
 
-import org.jesperancinha.fptb.circuit.breaker.domain.RoadBlockagesMap
-import org.jesperancinha.fptb.circuit.breaker.dto.Location
+import org.jesperancinha.fptb.circuit.breaker.adapters.RoadRace
+import org.jesperancinha.fptb.circuit.breaker.domain.Location
 import org.springframework.stereotype.Service
 
 /**
@@ -9,15 +9,16 @@ import org.springframework.stereotype.Service
  */
 @Service
 class RoadBlockageService(
-    private val roadBlockagesMap: RoadBlockagesMap,
+    private val roadRace: RoadRace
 ) {
     fun setRoadBlock(location: Location) {
-        roadBlockagesMap
+        roadRace.location = location
     }
 
-    fun getStartLocation(): Location = roadBlockagesMap.location
+    fun getStartLocation(): Location = roadRace.location
 
     fun startGame() {
+        roadRace.cars;
 
     }
 }

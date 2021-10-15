@@ -1,4 +1,4 @@
-package org.jesperancinha.fptb.circuit.breaker.dto
+package org.jesperancinha.fptb.circuit.breaker.domain
 
 /**
  * Created by jofisaes on 13/10/2021

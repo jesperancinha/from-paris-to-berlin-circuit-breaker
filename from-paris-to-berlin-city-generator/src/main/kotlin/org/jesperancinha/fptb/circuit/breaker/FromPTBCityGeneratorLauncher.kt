@@ -1,7 +1,7 @@
 package org.jesperancinha.fptb.circuit.breaker
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import org.jesperancinha.fptb.circuit.breaker.dto.Location
+import org.jesperancinha.fptb.circuit.breaker.domain.Location
 
 fun main(args: Array<String>) {
     val berlin = Location(8, "Berlin", listOf())
