@@ -1,3 +1,11 @@
+
+
+## References
+
+- [Angular 12 WebSocket example with Spring Boot WebSocket Server | SockJS + STOMP](https://kipalog.com/posts/Angular-12-WebSocket-example-with-Spring-Boot-WebSocket-Server---SockJS---STOMP)
+
+---
+
 # FromParisToBerlinWeb
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.7.

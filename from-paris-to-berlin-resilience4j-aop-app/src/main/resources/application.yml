@@ -1,3 +1,4 @@
+server.servlet.context-path: /api/fptb
 resilience4j.circuitbreaker:
   configs:
     default:
