@@ -43,7 +43,7 @@ data class RoadRace(
     }
 
     fun randomMoveFw() {
-        cars.filter { it.id != 9L }.forEach {
+        cars.filter { it.id != 10L }.forEach {
             if (!it.isWaiting()) {
                 it.location = it.location.forward.random()
                 it.delay(Random.nextLong(1, 5))
