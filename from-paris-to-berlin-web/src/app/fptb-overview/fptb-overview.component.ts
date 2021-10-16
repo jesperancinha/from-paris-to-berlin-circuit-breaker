@@ -18,6 +18,7 @@ export class FptbOverviewComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.sendName()
   }
 
   title = 'grokonez';
@@ -40,11 +41,13 @@ export class FptbOverviewComponent implements OnInit {
     this.stompClient.connect({}, function (frame: any) {
       _this.setConnected(true);
       console.log('Connected: ' + frame);
-
+      _this.sendName();
       _this.stompClient.subscribe('/topic/greetings', function (hello) {
-        _this.showGreeting(JSON.parse(hello.body).greeting);
+        _this.showGreeting(JSON.parse(hello.body));
       });
+      _this.stompClient.onreceive
     });
+    this.sendName()
   }
 
   disconnect() {
@@ -58,7 +61,7 @@ export class FptbOverviewComponent implements OnInit {
 
   sendName() {
     this.stompClient.send(
-      '/gkz/hello',
+      '/app/hello',
       {},
       JSON.stringify({'name': this.name})
     );

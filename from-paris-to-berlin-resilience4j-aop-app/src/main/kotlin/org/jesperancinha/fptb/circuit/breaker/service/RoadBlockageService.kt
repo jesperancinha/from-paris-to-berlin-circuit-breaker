@@ -7,6 +7,7 @@ import org.jesperancinha.fptb.circuit.breaker.domain.Location
 import org.jesperancinha.fptb.circuit.breaker.dto.CarDto
 import org.jesperancinha.fptb.circuit.breaker.dto.LocationDto
 import org.jesperancinha.fptb.circuit.breaker.dto.RoadRaceDto
+import org.springframework.messaging.simp.SimpMessagingTemplate
 import org.springframework.stereotype.Service
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -32,10 +33,17 @@ private val RoadRace.toDto: RoadRaceDto
 @Service
 class RoadBlockageService(
     private val roadRace: RoadRace,
+    private val template: SimpMessagingTemplate,
 ) {
     suspend fun setRoadBlock(location: Location) {
         roadRace.paris = location
         startGame()
+        fireResponse()
+    }
+
+    fun fireResponse() {
+        println("Fire")
+        template.convertAndSend("/topic/greetings", roadRace)
     }
 
     fun getStartLocation(): Location = roadRace.paris

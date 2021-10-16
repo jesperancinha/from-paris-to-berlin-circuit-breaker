@@ -34,11 +34,4 @@ class RoadBlockageController(
 
     @GetMapping("/roadRace")
     fun getCurrentRoadRace(): Mono<RoadRaceDto?> = Mono.just(roadBlockageService.getCurrenRoadRace())
-
-    @MessageMapping("/hello")
-    @SendTo("/topic/greetings")
-    fun greeting(message: String): RoadRaceDto {
-        Thread.sleep(1000) // simulated delay
-        return roadBlockageService.getCurrenRoadRace()
-    }
 }
