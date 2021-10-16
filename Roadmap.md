@@ -4,6 +4,7 @@
 
 2021/10/16
 - Cars try to move every random minute(s) between 1 and 5 minutes
+- Start of Block timestamp
 
 2021/10/15
 - Create 10 cars
@@ -13,7 +14,6 @@
 ---
 
 - Cars must have:
-  - Start of Block timestamp
   - Current waiting time (can be updated)
   - Location
   - Model
