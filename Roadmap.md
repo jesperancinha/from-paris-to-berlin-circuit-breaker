@@ -2,8 +2,15 @@
 
 ## Roadmap to v1.0.0
 
+
 - Every circuit break adds 5 minutes to downtime
 - A circuit break timeout adds the timeout on top of the 5 minute delay
+- Use GoJS to implement car and location developments
+- Test different GoJS formats
+
+---
+
+2021/10/17
 
 ---
 

@@ -174,7 +174,7 @@
     "symbol-observable" "4.0.0"
     "uuid" "8.3.2"
 
-"@angular/common@^12.0.0 || ^13.0.0-0", "@angular/common@~12.2.0", "@angular/common@12.2.10":
+"@angular/common@^12.0.0 || ^13.0.0-0", "@angular/common@>=11.0.0", "@angular/common@~12.2.0", "@angular/common@12.2.10":
   "integrity" "sha512-7IjD0frrKG/nt3/fo4mKDH0Tx5Nn8f2G8Ks/aq6xnJssy/V841COjua0ZyfPOkPS1r0VEaQJB5ieqMrp2T6MWg=="
   "resolved" "https://registry.npmjs.org/@angular/common/-/common-12.2.10.tgz"
   "version" "12.2.10"
@@ -208,7 +208,7 @@
   dependencies:
     "tslib" "^2.2.0"
 
-"@angular/core@^12.0.0 || ^13.0.0-0", "@angular/core@~12.2.0", "@angular/core@12.2.10":
+"@angular/core@^12.0.0 || ^13.0.0-0", "@angular/core@>=11.0.0", "@angular/core@~12.2.0", "@angular/core@12.2.10":
   "integrity" "sha512-xG1IbmEAV7gWpiY2MSFc87MlmB3yff8/TAlSE8Tj2ZFzb1lFjeFnrZ1y50Hi2AcVyX/KA1mx/RyJ0M7fmQ1ayw=="
   "resolved" "https://registry.npmjs.org/@angular/core/-/core-12.2.10.tgz"
   "version" "12.2.10"
@@ -3666,6 +3666,18 @@
     "object-assign" "^4.0.1"
     "pify" "^2.0.0"
     "pinkie-promise" "^2.0.0"
+
+"gojs-angular@^1.0.19":
+  "integrity" "sha512-JzVT19SKf6A0vdh5cZLfUAzcO/V4ENl3SdvMYZ6VXvmKzYtKL51RFu64TWKnTCJQlVWHHxz1oUwvVkzF589ZWQ=="
+  "resolved" "https://registry.npmjs.org/gojs-angular/-/gojs-angular-1.0.19.tgz"
+  "version" "1.0.19"
+  dependencies:
+    "tslib" "^2.0.0"
+
+"gojs@^2.1.52":
+  "integrity" "sha512-/iPW/Kwc4Iy/tX1QiwhXzKD6DtaYZDl29HHPXR1qy+jSsOrij3h2IpzeF0kE6AAMMEQbrvQff/Vj1P27Y8JUTA=="
+  "resolved" "https://registry.npmjs.org/gojs/-/gojs-2.1.52.tgz"
+  "version" "2.1.52"
 
 "graceful-fs@^4.1.11", "graceful-fs@^4.1.2", "graceful-fs@^4.1.6", "graceful-fs@^4.2.0", "graceful-fs@^4.2.3", "graceful-fs@^4.2.4", "graceful-fs@^4.2.6":
   "integrity" "sha512-qkIilPUYcNhJpd33n0GBXTB1MMPp14TxEsEs0pTrsSVucApsYzW5V+Q8Qxhik6KU3evy+qkAAowTByymK0avdg=="

@@ -1,6 +1,7 @@
 b: build
 build: build-npm build-maven
 build-npm:
+	cd from-paris-to-berlin-web && yarn install
 build-maven:
 	mvn clean install -DskipTests
 build-test:

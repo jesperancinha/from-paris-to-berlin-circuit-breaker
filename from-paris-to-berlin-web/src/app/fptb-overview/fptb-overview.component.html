@@ -1,1 +1,15 @@
-<p>fptb-overview works!</p>
+<mat-card>
+  <mat-card-title>
+    <p>---- **** From Paris to Berlin Game **** ----</p>
+  </mat-card-title>
+</mat-card>
+
+<gojs-diagram
+  #myDiag
+  [initDiagram]="initDiagram"
+  [modelData]="diagramModelData"
+  [nodeDataArray]="nodeDataArray"
+  [linkDataArray]="linkDataArray"
+  [divClassName]="diagramDivClassName"
+  (modelChange)="onModelChange($event)"
+></gojs-diagram>

@@ -2,7 +2,11 @@
 
 ## References
 
+- [angular-gojs-diagram](https://stackblitz.com/edit/angular-gojs-diagram)
+- [angular-gojs-family-tree on StackBlitz](https://stackblitz.com/edit/angular-gojs-family-tree?file=src%2Fapp%2Fapp.component.html)
 - [Angular 12 WebSocket example with Spring Boot WebSocket Server | SockJS + STOMP](https://kipalog.com/posts/Angular-12-WebSocket-example-with-Spring-Boot-WebSocket-Server---SockJS---STOMP)
+- [GoJS – a JavaScript and TypeScript library for implementing interactive diagrams](https://modeling-languages.com/gojs-javascript-library-build-diagrams/)
+- [Using GoJS with Angular](https://gojs.net/latest/intro/angular.html)
 
 ---
 
