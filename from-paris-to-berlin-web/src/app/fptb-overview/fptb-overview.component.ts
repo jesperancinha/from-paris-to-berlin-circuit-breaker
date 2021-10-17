@@ -98,11 +98,12 @@ export class FptbOverviewComponent implements OnInit {
   }
 
   private static toNodeLocation(location: Location) {
+    let status = location.blockageTimeTable.filter(t => t.minute == new Date().getMinutes()).length == 0 ? "FREE" : "BLOCK";
     return {
       key: location.id,
       text: location.name,
       color: "green",
-      status: "FREE"
+      status: status
     };
   }
 
