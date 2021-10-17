@@ -4,6 +4,8 @@
   </mat-card-title>
 </mat-card>
 
+
+<mat-card>
 <gojs-diagram
   #myDiag
   [initDiagram]="initDiagram"
@@ -13,3 +15,41 @@
   [divClassName]="diagramDivClassName"
   (modelChange)="onModelChange($event)"
 ></gojs-diagram>
+</mat-card>
+<mat-card *ngIf="roadRace">
+  <table class="short-display-table" mat-table [dataSource]="roadRace.cars" style="width: 100%">
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef><p>Id</p></th>
+      <td mat-cell *matCellDef="let element" style="width: 20px">
+        <p>{{element.id}}</p>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef><p>Name</p></th>
+      <td mat-cell *matCellDef="let element" style="text-align: justify">
+        <p>{{element.name}}</p>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="model">
+      <th mat-header-cell *matHeaderCellDef><p>Model</p></th>
+      <td mat-cell *matCellDef="let element" style="text-align: justify">
+        <p>{{element.model}}</p>
+
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="location">
+      <th mat-header-cell *matHeaderCellDef><p>Location</p></th>
+      <td mat-cell *matCellDef="let element" style="text-align: justify">
+        <p>{{element.location.name}}</p>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</mat-card>
+

@@ -52,7 +52,7 @@ class RoadBlockageService(
         coroutineScope {
             launch {
                 roadRace.init();
-                val schedule = Timer().schedule(10, TimeUnit.SECONDS.toMillis(10)) {
+                val schedule = Timer().schedule( TimeUnit.SECONDS.toMillis(10), TimeUnit.SECONDS.toMillis(10)) {
                     moveCars()
                 }
 //                schedule.cancel()
@@ -62,6 +62,7 @@ class RoadBlockageService(
 
     private fun moveCars() {
         roadRace.randomMoveFw()
+        fireResponse()
     }
 
     fun getCurrenRoadRace(): RoadRaceDto {

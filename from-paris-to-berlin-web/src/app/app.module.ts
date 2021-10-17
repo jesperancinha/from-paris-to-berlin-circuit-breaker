@@ -7,6 +7,7 @@ import {FptbOverviewComponent} from './fptb-overview/fptb-overview.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {GojsAngularModule} from "gojs-angular";
 import {MatCardModule} from "@angular/material/card";
+import {MatTableModule} from "@angular/material/table";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {MatCardModule} from "@angular/material/card";
     AppRoutingModule,
     BrowserAnimationsModule,
     GojsAngularModule,
-    MatCardModule
+    MatCardModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

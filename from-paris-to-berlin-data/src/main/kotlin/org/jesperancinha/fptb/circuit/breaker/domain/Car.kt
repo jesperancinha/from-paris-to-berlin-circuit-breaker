@@ -18,12 +18,12 @@ data class Car(
 ) {
 
     fun delay(minutes: Long) {
-        if (isWaiting()) {
-            downtimeTLMS += TimeUnit.MINUTES.toMillis(minutes)
-        } else {
-            downtimeTLMS = currentTimeStamp()
-            downtimeTLMS = TimeUnit.MINUTES.toMillis(minutes)
-        }
+//        if (isWaiting()) {
+//            downtimeTLMS += TimeUnit.MINUTES.toMillis(minutes)
+//        } else {
+//            downtimeTLMS = currentTimeStamp()
+//            downtimeTLMS = TimeUnit.MINUTES.toMillis(minutes)
+//        }
     }
 
 

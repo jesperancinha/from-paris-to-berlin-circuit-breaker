@@ -33,7 +33,7 @@ export class FptbOverviewComponent implements OnInit {
   title = 'grokonez';
 
   description = 'Angular-WebSocket Demo';
-  private roadRace: RoadRace | undefined;
+  roadRace: RoadRace | undefined;
   disabled = true;
   name: string | undefined;
 
@@ -48,7 +48,7 @@ export class FptbOverviewComponent implements OnInit {
       console.log('Connected: ' + frame);
       _this.sendName();
       _this.stompClient.subscribe('/topic/greetings', function (hello) {
-        _this.showGreeting(_this, JSON.parse(hello.body) as RoadRace);
+        _this.processRoadRace(JSON.parse(hello.body) as RoadRace);
       });
     });
     // this.sendName()
@@ -71,19 +71,17 @@ export class FptbOverviewComponent implements OnInit {
     );
   }
 
-  showGreeting(_this: FptbOverviewComponent, message: RoadRace) {
-    console.log(message)
-    this.roadRace = message;
-
-    let nodes: any[] = []
-    let links: any[] = []
-    let location = message.paris;
+  processRoadRace(roadRace: RoadRace) {
+    this.roadRace = roadRace;
+    let nodes: any[] = [];
+    let links: any[] = [];
+    let location = roadRace.paris;
     this.addNodesRecursively(nodes, links, location);
-    this.dia?.model.startTransaction("changing data")
-    this.nodeDataArray = Array.from(new Set(nodes.map(t => JSON.stringify(t)))).map(t => JSON.parse(t))
-    this.linkDataArray = Array.from(new Set(links.map(t => JSON.stringify(t)))).map(t => JSON.parse(t))
-    this.dia?.model.commitTransaction("changed data")
-
+    this.dia?.model.startTransaction("changing data");
+    this.nodeDataArray = Array.from(new Set(nodes.map(t => JSON.stringify(t)))).map(t => JSON.parse(t));
+    this.linkDataArray = Array.from(new Set(links.map(t => JSON.stringify(t)))).map(t => JSON.parse(t));
+    this.dia?.model.commitTransaction("changed data");
+    this.roadRace = roadRace;
   }
 
   private addNodesRecursively(nodes: any[], links: any[], location: Location) {
@@ -123,6 +121,7 @@ export class FptbOverviewComponent implements OnInit {
   public diagramModelData = {prop: 'value', color: 'red'};
 
   public dia: go.Diagram | undefined;
+  displayedColumns = ["id", "name", "model", "location"];
 
   initDiagram(): go.Diagram {
     const $ = go.GraphObject.make;
