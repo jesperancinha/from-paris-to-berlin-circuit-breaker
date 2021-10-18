@@ -4,8 +4,8 @@
   </mat-card-title>
 </mat-card>
 
-<mat-card style="display: flex; flex-wrap: wrap;">
-  <mat-card class="inline" style="width: 48%">
+<mat-card style="display: flex; flex-wrap: wrap; vertical-align: middle">
+  <mat-card class="inline" style="width: 48%; vertical-align: middle">
     <gojs-diagram
       #myDiag
       [initDiagram]="initDiagram"
@@ -16,8 +16,8 @@
       (modelChange)="onModelChange($event)"
     ></gojs-diagram>
   </mat-card>
-  <mat-card class="inline" style="width: 48%" *ngIf="locations">
-    <table class="short-display-table" mat-table [dataSource]="locations" style="width: 100%">
+  <mat-card class="inline" style="width: 48%" *ngIf="timeTables">
+    <table class="short-display-table" mat-table [dataSource]="timeTables" style="width: 100%">
 
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef><p>Id</p></th>
@@ -36,14 +36,14 @@
       <ng-container matColumnDef="minute">
         <th mat-header-cell *matHeaderCellDef><p>Minute</p></th>
         <td mat-cell *matCellDef="let element" style="text-align: justify">
-          <p>test</p>
+          <p>{{element.minute}}</p>
         </td>
       </ng-container>
 
       <ng-container matColumnDef="type">
         <th mat-header-cell *matHeaderCellDef><p>Type</p></th>
         <td mat-cell *matCellDef="let element" style="text-align: justify">
-          <p>test</p>
+          <p>{{element.type}}</p>
         </td>
       </ng-container>
 

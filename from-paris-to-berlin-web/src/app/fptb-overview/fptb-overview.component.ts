@@ -5,6 +5,8 @@ import {RoadRace} from "../model/road.race";
 import {DiagramComponent} from "gojs-angular";
 import * as go from 'gojs';
 import {Location} from "../model/location";
+import {RoadBlockageTime} from "../model/road.blockage.time";
+import {TimeTable} from "../model/time.table";
 
 @Component({
   selector: 'app-fptb-overview',
@@ -20,7 +22,8 @@ export class FptbOverviewComponent implements OnInit {
 
   @ViewChild(DiagramComponent, {static: false}) public diagramComponent: DiagramComponent | undefined;
 
-  public locations: Location[] | undefined
+  private locations: Map<string, RoadBlockageTime[]> | undefined
+  public timeTables: TimeTable[] | undefined;
 
   constructor() {
     const socket = new SockJS('/api/fptb/broker');
@@ -82,8 +85,14 @@ export class FptbOverviewComponent implements OnInit {
     this.linkDataArray = Array.from(new Set(links.map(t => JSON.stringify(t)))).map(t => JSON.parse(t));
     this.dia?.model.commitTransaction("changed data");
     this.roadRace = roadRace;
-    this.locations = []
+    this.locations = new Map()
     this.addLocations(this.locations, roadRace.cars.map(car => car.location))
+    this.timeTables = [];
+    this.locations.forEach((value, key) => {
+      value.forEach(blockage => {
+        this.timeTables?.push(new TimeTable(key, blockage.minute, blockage.blockageType))
+      })
+    })
   }
 
   private addNodesRecursively(nodes: any[], links: any[], location: Location) {
@@ -204,9 +213,9 @@ export class FptbOverviewComponent implements OnInit {
     return formerLocations.map(t => t.name).join(" - 🚙 - ") + " 🚙"
   }
 
-  private addLocations(locations: Location[], locations2: Location[]) {
-    locations.push(...locations2)
+  private addLocations(locations: Map<string, RoadBlockageTime[]>, locations2: Location[]) {
     locations2.forEach(subLocation => {
+      locations.set(subLocation.name, subLocation.blockageTimeTable)
       if (subLocation.forward && subLocation.forward.length > 0) {
         this.addLocations(locations, subLocation.forward)
       }
