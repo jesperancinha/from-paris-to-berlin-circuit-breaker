@@ -3,7 +3,10 @@ package org.jesperancinha.fptb.circuit.breaker.service
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 import org.jesperancinha.fptb.circuit.breaker.adapters.RoadRace
+import org.jesperancinha.fptb.circuit.breaker.domain.Car
 import org.jesperancinha.fptb.circuit.breaker.domain.Location
+import org.jesperancinha.fptb.circuit.breaker.domain.toDto
+import org.jesperancinha.fptb.circuit.breaker.domain.toDtoAll
 import org.jesperancinha.fptb.circuit.breaker.dto.CarDto
 import org.jesperancinha.fptb.circuit.breaker.dto.LocationDto
 import org.jesperancinha.fptb.circuit.breaker.dto.RoadRaceDto
@@ -16,13 +19,7 @@ import kotlin.concurrent.schedule
 private val RoadRace.toDto: RoadRaceDto
     get() {
         val cars = this.cars.map { car ->
-            CarDto(car.id, car.name, car.model, LocationDto(
-                car.location.id,
-                car.location.name,
-                car.location.forward.map { location ->
-                    LocationDto(location.id, location.name, listOf(), location.blockageTimeTable)
-                },
-                car.location.blockageTimeTable))
+           car.toDto()
         }
         return RoadRaceDto(cars, paris)
     }
@@ -52,7 +49,7 @@ class RoadBlockageService(
         coroutineScope {
             launch {
                 roadRace.init();
-                val schedule = Timer().schedule( TimeUnit.SECONDS.toMillis(10), TimeUnit.SECONDS.toMillis(10)) {
+                val schedule = Timer().schedule(TimeUnit.SECONDS.toMillis(10), TimeUnit.SECONDS.toMillis(10)) {
                     moveCars()
                 }
 //                schedule.cancel()

@@ -10,4 +10,5 @@ data class CarDto (
     val name: String,
     val model: String,
     val location: LocationDto,
+    var formerLocations: MutableList<LocationDto>
 )

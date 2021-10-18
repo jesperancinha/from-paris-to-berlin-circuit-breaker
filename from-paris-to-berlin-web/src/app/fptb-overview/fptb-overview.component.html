@@ -16,7 +16,7 @@
   (modelChange)="onModelChange($event)"
 ></gojs-diagram>
 </mat-card>
-<mat-card *ngIf="roadRace">
+<mat-card *ngIf="roadRace && roadRace.cars">
   <table class="short-display-table" mat-table [dataSource]="roadRace.cars" style="width: 100%">
 
     <ng-container matColumnDef="id">

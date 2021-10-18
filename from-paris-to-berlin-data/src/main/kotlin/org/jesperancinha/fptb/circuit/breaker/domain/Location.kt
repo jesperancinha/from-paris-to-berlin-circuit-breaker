@@ -1,12 +1,29 @@
 package org.jesperancinha.fptb.circuit.breaker.domain
 
-import com.fasterxml.jackson.annotation.JsonIgnore
+import org.jesperancinha.fptb.circuit.breaker.dto.LocationDto
 
 data class Location(
     val id: Long? = null,
     val name: String? = null,
     val forward: List<Location> = listOf(),
-    val blockageTimeTable: MutableList<RoadBlockTime> = mutableListOf()
+    val blockageTimeTable: MutableList<RoadBlockTime> = mutableListOf(),
 ) {
     constructor() : this(null)
 }
+
+fun Location.toDto(): LocationDto = LocationDto(
+    id = this.id,
+    name = this.name,
+    forward = listOf(),
+    blockageTimeTable = this.blockageTimeTable)
+
+fun Location.toDtoAll(): LocationDto = LocationDto(
+    id = this.id,
+    name = this.name,
+    forward = this.forward.map { location ->
+        location.toDto()
+    },
+    blockageTimeTable = this.blockageTimeTable)
+
+fun MutableList<Location>.toDtos(): MutableList<LocationDto> = this.map { location -> location.toDto() }.toMutableList()
+

@@ -27,7 +27,8 @@ data class RoadRace(
                 model = "brand",
                 location = paris,
                 downtimeTSMS = LocalDateTime.now().toInstant(OffsetTime.now().offset).toEpochMilli(),
-                downtimeTLMS = TimeUnit.MINUTES.toMillis(1)
+                downtimeTLMS = TimeUnit.MINUTES.toMillis(1),
+                formerLocations = mutableListOf()
             )
         }
         addTimeTables(paris)
