@@ -15,8 +15,10 @@ import {TimeTable} from "../model/time.table";
 })
 export class FptbOverviewComponent implements OnInit {
 
-  private stompClient;
+  private readonly stompClient;
+  private readonly stompClockClient;
 
+  public currentServerTime: string | undefined;
 
   @ViewChild('myDiag', {static: false}) public myDiag: DiagramComponent | undefined;
 
@@ -27,7 +29,9 @@ export class FptbOverviewComponent implements OnInit {
 
   constructor() {
     const socket = new SockJS('/api/fptb/broker');
+    const stompClockClient = new SockJS('/api/fptb/broker');
     this.stompClient = Stomp.over(socket);
+    this.stompClockClient = Stomp.over(stompClockClient);
   }
 
   ngOnInit(): void {
@@ -50,8 +54,15 @@ export class FptbOverviewComponent implements OnInit {
       _this.setConnected(true);
       console.log('Connected: ' + frame);
       _this.sendName();
-      _this.stompClient.subscribe('/topic/greetings', function (hello) {
+      _this.stompClient.subscribe('/topic/game', function (hello) {
         _this.processRoadRace(JSON.parse(hello.body) as RoadRace);
+      });
+    });
+
+    this.stompClockClient.connect({}, function (frame: any) {
+      _this.setConnected(true);
+      _this.stompClockClient.subscribe('/topic/clock', function (clock) {
+        _this.processClock(clock.body);
       });
     });
     // this.sendName()
@@ -72,6 +83,10 @@ export class FptbOverviewComponent implements OnInit {
       {},
       JSON.stringify({'name': this.name})
     );
+  }
+
+  processClock(clock: string) {
+    this.currentServerTime = clock;
   }
 
   processRoadRace(roadRace: RoadRace) {

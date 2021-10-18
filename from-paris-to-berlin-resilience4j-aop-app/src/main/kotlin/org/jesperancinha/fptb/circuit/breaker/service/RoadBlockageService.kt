@@ -3,15 +3,12 @@ package org.jesperancinha.fptb.circuit.breaker.service
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 import org.jesperancinha.fptb.circuit.breaker.adapters.RoadRace
-import org.jesperancinha.fptb.circuit.breaker.domain.Car
 import org.jesperancinha.fptb.circuit.breaker.domain.Location
 import org.jesperancinha.fptb.circuit.breaker.domain.toDto
-import org.jesperancinha.fptb.circuit.breaker.domain.toDtoAll
-import org.jesperancinha.fptb.circuit.breaker.dto.CarDto
-import org.jesperancinha.fptb.circuit.breaker.dto.LocationDto
 import org.jesperancinha.fptb.circuit.breaker.dto.RoadRaceDto
 import org.springframework.messaging.simp.SimpMessagingTemplate
 import org.springframework.stereotype.Service
+import java.time.LocalDateTime
 import java.util.*
 import java.util.concurrent.TimeUnit
 import kotlin.concurrent.schedule
@@ -19,7 +16,7 @@ import kotlin.concurrent.schedule
 private val RoadRace.toDto: RoadRaceDto
     get() {
         val cars = this.cars.map { car ->
-           car.toDto()
+            car.toDto()
         }
         return RoadRaceDto(cars, paris)
     }
@@ -32,6 +29,7 @@ class RoadBlockageService(
     private val roadRace: RoadRace,
     private val template: SimpMessagingTemplate,
 ) {
+
     suspend fun setRoadBlock(location: Location) {
         roadRace.paris = location
         startGame()
@@ -39,8 +37,7 @@ class RoadBlockageService(
     }
 
     fun fireResponse() {
-        println("Fire")
-        template.convertAndSend("/topic/greetings", roadRace)
+        template.convertAndSend("/topic/game", roadRace)
     }
 
     fun getStartLocation(): Location = roadRace.paris
