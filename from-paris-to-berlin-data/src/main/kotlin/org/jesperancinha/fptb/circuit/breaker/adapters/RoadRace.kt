@@ -2,8 +2,10 @@ package org.jesperancinha.fptb.circuit.breaker.adapters
 
 import org.jesperancinha.fptb.circuit.breaker.domain.BlockageType
 import org.jesperancinha.fptb.circuit.breaker.domain.Car
+import org.jesperancinha.fptb.circuit.breaker.domain.Car.Companion.currentTimeStamp
 import org.jesperancinha.fptb.circuit.breaker.domain.Location
 import org.jesperancinha.fptb.circuit.breaker.domain.RoadBlockTime
+import org.jesperancinha.fptb.circuit.breaker.domain.isWaiting
 import org.jesperancinha.fptb.circuit.breaker.exception.PlayerNotFoundException
 import org.springframework.stereotype.Component
 import java.time.LocalDateTime
@@ -27,8 +29,8 @@ data class RoadRace(
                 name = "name",
                 model = "brand",
                 location = paris,
-                downtimeTSMS = LocalDateTime.now().toInstant(OffsetTime.now().offset).toEpochMilli(),
-                downtimeTLMS = TimeUnit.MINUTES.toMillis(1),
+                downtimeTSMS = currentTimeStamp(),
+                downtimeTLMS = TimeUnit.SECONDS.toMillis(10),
                 formerLocations = mutableListOf(paris)
             )
         }
@@ -43,6 +45,8 @@ data class RoadRace(
                 blockageTimeTable.addAll((0..(Random.nextInt(0, 3) + 1))
                     .map { RoadBlockTime(Random.nextInt(10), BlockageType.values().random()) })
                 timeTables[name] = blockageTimeTable
+            } else if (blockageTimeTable.isEmpty()) {
+                blockageTimeTable.addAll(roadBlockTime)
             }
             forward.forEach { addTimeTables(it) }
         }
@@ -50,13 +54,13 @@ data class RoadRace(
 
     fun randomMoveFw() {
         cars.filter { it.id != 5L }.forEach {
-//            if (!it.isWaiting()) {
-            if (it.location.forward.isNotEmpty()) {
-                it.location = it.location.forward.random()
-                it.delay(Random.nextLong(1, 5))
-                it.formerLocations.add(it.location)
+            if (!it.isWaiting()) {
+                if (it.location.forward.isNotEmpty()) {
+                    it.location = it.location.forward.random()
+                    it.delay(Random.nextLong(1, 5))
+                    it.formerLocations.add(it.location)
+                }
             }
-//            }
         }
     }
 }

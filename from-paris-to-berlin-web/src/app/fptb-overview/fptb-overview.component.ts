@@ -8,6 +8,7 @@ import {Location} from "../model/location";
 import {RoadBlockageTime} from "../model/road.blockage.time";
 import {TimeTable} from "../model/time.table";
 import {BlockageService} from "../service/blockage.service";
+import {Car} from "../model/car";
 
 @Component({
   selector: 'app-fptb-overview',
@@ -29,7 +30,7 @@ export class FptbOverviewComponent implements OnInit {
   public timeTables: TimeTable[] | undefined;
   private static blockageService: BlockageService;
 
-  constructor(private blockageService:BlockageService) {
+  constructor(private blockageService: BlockageService) {
     const socket = new SockJS('/api/fptb/broker');
     const stompClockClient = new SockJS('/api/fptb/broker');
     this.stompClient = Stomp.over(socket);
@@ -94,10 +95,12 @@ export class FptbOverviewComponent implements OnInit {
 
   processRoadRace(roadRace: RoadRace) {
     this.roadRace = roadRace;
+    this.roadRace.cars = this.roadRace.cars.sort((a, b) => b.id - a.id);
     let nodes: any[] = [];
     let links: any[] = [];
     let location = roadRace.paris;
-    this.addNodesRecursively(nodes, links, location);
+    let myCar = this.roadRace.cars.filter(car => car.id == 5)[0];
+    this.addNodesRecursively(nodes, links, location, myCar);
     this.dia?.model.startTransaction("changing data");
     this.nodeDataArray = Array.from(new Set(nodes.map(t => JSON.stringify(t)))).map(t => JSON.parse(t));
     this.linkDataArray = Array.from(new Set(links.map(t => JSON.stringify(t)))).map(t => JSON.parse(t));
@@ -106,9 +109,14 @@ export class FptbOverviewComponent implements OnInit {
     this.locations = new Map()
     this.addLocations(this.locations, roadRace.cars.map(car => car.location))
     this.timeTables = [];
-    this.locations.forEach((value, key) => {
-      value.forEach(blockage => {
-        this.timeTables?.push(new TimeTable(key, blockage.minute, blockage.blockageType))
+    // this.locations.forEach((value, key) => {
+    //   value.forEach(blockage => {
+    //     this.timeTables?.push(new TimeTable(key, blockage.minute, blockage.blockageType))
+    //   })
+    // })
+    myCar.location.forward?.forEach((value, key) => {
+      this.locations?.get(value.name)?.forEach(blockage => {
+        this.timeTables?.push(new TimeTable(value.name, blockage.minute, blockage.blockageType))
       })
     })
     this.timeTables.sort((a, b) => {
@@ -116,32 +124,35 @@ export class FptbOverviewComponent implements OnInit {
     })
   }
 
-  private addNodesRecursively(nodes: any[], links: any[], location: Location) {
-    nodes.push(FptbOverviewComponent.toNodeLocation(location))
+  private addNodesRecursively(nodes: any[], links: any[], location: Location, myCar: Car) {
+    nodes.push(FptbOverviewComponent.toNodeLocation(location, myCar))
     location.forward.forEach(subLocation => {
       links.push({
         from: location.id,
         to: subLocation.id
       })
-      this.addNodesRecursively(nodes, links, subLocation);
+      this.addNodesRecursively(nodes, links, subLocation, myCar);
     })
   }
 
-  private static toNodeLocation(location: Location) {
-    let status = location.blockageTimeTable.filter(t => t.minute == new Date().getMinutes()).length == 0 ? "FREE" : "BLOCK";
+  private static toNodeLocation(location: Location, myCar: Car) {
+    let status = location.blockageTimeTable.filter(t => this.lastDigit(t.minute) == this.lastDigit(new Date().getMinutes())).length == 0 ? "FREE" : "BLOCK";
+    let newStatus = myCar.formerLocations.filter(l => l.name === location.name).length > 0 ? "DONE" : status;
     return {
       key: location.id,
       text: location.name,
-      color: "green",
-      status: status
+      status: newStatus
     };
   }
 
-  public nodeDataArray = [
-    {key: 1, text: "Wait a moment, your map is being generated...", color: "lightblue", status: "BLOCK"},
-    {key: 2, text: "Wait a moment, your map is being generated...", color: "orange"},
-    {key: 3, text: "Wait a moment, your map is being generated...", color: "orange"}
+  private static lastDigit(t: number) {
+    return t - Math.floor(t / 10) * 10
+  }
 
+  public nodeDataArray = [
+    {key: 1, text: "Wait a moment, your map is being generated...", status: "BLOCK"},
+    {key: 2, text: "Wait a moment, your map is being generated...", status: "FREE"},
+    {key: 3, text: "Wait a moment, your map is being generated...", status: "FREE"}
   ]
 
   public linkDataArray = [
@@ -167,6 +178,7 @@ export class FptbOverviewComponent implements OnInit {
 
     const red = '#FF0000';
     const green = '#00FF00';
+    const gray = '#4F4F4F';
 
     dia.add(
       $(go.Part, 'Table', {position: new go.Point(600, 10), selectable: false},
@@ -176,8 +188,10 @@ export class FptbOverviewComponent implements OnInit {
           $(go.TextBlock, 'Blocked', {font: '700 13px Droid Serif, sans-serif'})),
         $(go.Panel, 'Horizontal', {row: 2, alignment: go.Spot.Left},
           $(go.Shape, 'Rectangle', {desiredSize: new go.Size(30, 30), fill: green, margin: 5}),
-          $(go.TextBlock, 'Free', {font: '700 13px Droid Serif, sans-serif'})
-        )
+          $(go.TextBlock, 'Free', {font: '700 13px Droid Serif, sans-serif'})),
+        $(go.Panel, 'Horizontal', {row: 3, alignment: go.Spot.Left},
+          $(go.Shape, 'Rectangle', {desiredSize: new go.Size(30, 30), fill: gray, margin: 5}),
+          $(go.TextBlock, 'Done', {font: '700 13px Droid Serif, sans-serif'}))
       )
     );
 
@@ -197,12 +211,15 @@ export class FptbOverviewComponent implements OnInit {
         if (status === 'FREE') {
           return green;
         }
+        if (status === 'DONE') {
+          return gray;
+        }
         return 'orange';
       })),
       $(go.TextBlock, {
         font: '700 12px Droid Serif, sans-serif',
         textAlign: 'center',
-        margin: 10, maxSize: new go.Size(80, NaN)
+        margin: 10, maxSize: new go.Size(100, NaN)
       }, new go.Binding('text', 'text'))
     );
 
@@ -241,9 +258,11 @@ export class FptbOverviewComponent implements OnInit {
 
   private addLocations(locations: Map<string, RoadBlockageTime[]>, locations2: Location[]) {
     locations2.forEach(subLocation => {
-      locations.set(subLocation.name, subLocation.blockageTimeTable)
-      if (subLocation.forward && subLocation.forward.length > 0) {
-        this.addLocations(locations, subLocation.forward)
+      if (subLocation.blockageTimeTable && subLocation.blockageTimeTable.length > 0) {
+        locations.set(subLocation.name, subLocation.blockageTimeTable)
+        if (subLocation.forward && subLocation.forward.length > 0) {
+          this.addLocations(locations, subLocation.forward)
+        }
       }
     })
   }

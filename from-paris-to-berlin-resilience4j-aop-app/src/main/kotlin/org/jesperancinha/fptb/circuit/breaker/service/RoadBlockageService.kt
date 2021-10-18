@@ -45,7 +45,7 @@ open class RoadBlockageService(
     }
 
     fun fireResponse() {
-        template.convertAndSend("/topic/game", roadRace)
+        template.convertAndSend("/topic/game", roadRace.toDto)
     }
 
     fun getStartLocation(): Location = roadRace.paris
@@ -54,7 +54,7 @@ open class RoadBlockageService(
         coroutineScope {
             launch {
                 roadRace.init();
-                val schedule = Timer().schedule(TimeUnit.SECONDS.toMillis(10), TimeUnit.SECONDS.toMillis(10)) {
+                val schedule = Timer().schedule(TimeUnit.SECONDS.toMillis(1), TimeUnit.SECONDS.toMillis(1)) {
                     moveCars()
                 }
 //                schedule.cancel()
@@ -77,13 +77,20 @@ open class RoadBlockageService(
     open fun moveToCity(id: Long): Mono<RoadRace> {
         val myCar = roadRace.getMyCar()
         val destination = myCar.location.forward.find { it.id == id }
-        val blockage = destination?.blockageTimeTable?.find { it.minute == LocalDateTime.now().minute }
+        val blockage = destination?.blockageTimeTable?.find { it.minute.toString().last() == LocalDateTime.now().minute.toString().last() }
         blockage?.let { roadBlockTime ->
             when (roadBlockTime.blockageType) {
                 BlockageType.TIMEOUT -> return Mono.just(roadRace).delayElement(Duration.ofSeconds(10))
                 BlockageType.ERROR -> return Mono.create { it.error(BlockageException()) }
+                BlockageType.UNKNOWN -> return listOf(Mono.create { it.error(BlockageException()) },
+                    Mono.just(roadRace).delayElement(Duration.ofSeconds(10))).random()
                 else -> print("Nothing to do here!")
             }
+        }
+
+        destination?.let {
+            myCar.location = it
+            myCar.formerLocations.add(myCar.location)
         }
         return Mono.just(roadRace)
     }

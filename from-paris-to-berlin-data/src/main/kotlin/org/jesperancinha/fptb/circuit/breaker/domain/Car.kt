@@ -4,6 +4,7 @@ import org.jesperancinha.fptb.circuit.breaker.domain.Car.Companion.currentTimeSt
 import org.jesperancinha.fptb.circuit.breaker.dto.CarDto
 import java.time.LocalDateTime
 import java.time.OffsetTime
+import java.util.concurrent.TimeUnit
 
 /**
  * Created by jofisaes on 13/10/2021
@@ -19,12 +20,12 @@ data class Car(
 ) {
 
     fun delay(minutes: Long) {
-//        if (isWaiting()) {
-//            downtimeTLMS += TimeUnit.MINUTES.toMillis(minutes)
-//        } else {
-//            downtimeTLMS = currentTimeStamp()
-//            downtimeTLMS = TimeUnit.MINUTES.toMillis(minutes)
-//        }
+        if (isWaiting()) {
+            downtimeTLMS += TimeUnit.SECONDS.toMillis(minutes)
+        } else {
+            downtimeTSMS = currentTimeStamp()
+            downtimeTLMS = TimeUnit.SECONDS.toMillis(minutes)
+        }
     }
 
 
@@ -34,7 +35,7 @@ data class Car(
 }
 
 fun Car.isWaiting(): Boolean =
-    currentTimeStamp() - downtimeTSMS < downtimeTLMS
+    (currentTimeStamp() - downtimeTSMS)  < downtimeTLMS
 
 fun Car.toDto(): CarDto = CarDto(
     id = this.id,
