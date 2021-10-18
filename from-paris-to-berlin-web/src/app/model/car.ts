@@ -5,5 +5,6 @@ export interface Car {
   name: string,
   model: string,
   location: Location,
-  formerLocations: Location[]
+  formerLocations: Location[],
+  secondsHold: number
 }

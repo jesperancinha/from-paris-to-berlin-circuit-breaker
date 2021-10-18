@@ -21,6 +21,7 @@ export class FptbOverviewComponent implements OnInit {
   private readonly stompClockClient;
 
   public currentServerTime: string | undefined;
+  public secondsHold: number = 0;
 
   @ViewChild('myDiag', {static: false}) public myDiag: DiagramComponent | undefined;
 
@@ -109,11 +110,6 @@ export class FptbOverviewComponent implements OnInit {
     this.locations = new Map()
     this.addLocations(this.locations, roadRace.cars.map(car => car.location))
     this.timeTables = [];
-    // this.locations.forEach((value, key) => {
-    //   value.forEach(blockage => {
-    //     this.timeTables?.push(new TimeTable(key, blockage.minute, blockage.blockageType))
-    //   })
-    // })
     myCar.location.forward?.forEach((value, key) => {
       this.locations?.get(value.name)?.forEach(blockage => {
         this.timeTables?.push(new TimeTable(value.name, blockage.minute, blockage.blockageType))
@@ -122,6 +118,7 @@ export class FptbOverviewComponent implements OnInit {
     this.timeTables.sort((a, b) => {
       return (a.name as string).localeCompare(b.name as string)
     })
+    this.secondsHold = myCar.secondsHold;
   }
 
   private addNodesRecursively(nodes: any[], links: any[], location: Location, myCar: Car) {
@@ -266,4 +263,7 @@ export class FptbOverviewComponent implements OnInit {
       }
     })
   }
+
+  secondsHoldValid = () => this.secondsHold > 0
+
 }

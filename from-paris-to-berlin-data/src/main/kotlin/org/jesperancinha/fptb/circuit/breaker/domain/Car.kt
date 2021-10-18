@@ -19,12 +19,12 @@ data class Car(
     var formerLocations: MutableList<Location> = mutableListOf(),
 ) {
 
-    fun delay(minutes: Long) {
+    fun delay(seconds: Long) {
         if (isWaiting()) {
-            downtimeTLMS += TimeUnit.SECONDS.toMillis(minutes)
+            downtimeTLMS += TimeUnit.SECONDS.toMillis(seconds)
         } else {
             downtimeTSMS = currentTimeStamp()
-            downtimeTLMS = TimeUnit.SECONDS.toMillis(minutes)
+            downtimeTLMS = TimeUnit.SECONDS.toMillis(seconds)
         }
     }
 
@@ -35,12 +35,13 @@ data class Car(
 }
 
 fun Car.isWaiting(): Boolean =
-    (currentTimeStamp() - downtimeTSMS)  < downtimeTLMS
+    (currentTimeStamp() - downtimeTSMS) < downtimeTLMS
 
 fun Car.toDto(): CarDto = CarDto(
     id = this.id,
     name = this.name,
     model = this.model,
     location = this.location.toDtoAll(),
-    formerLocations = this.formerLocations.toDtos())
+    formerLocations = this.formerLocations.toDtos(),
+    secondsHold = (this.downtimeTLMS - (currentTimeStamp() - this.downtimeTSMS)) / 1000)
 

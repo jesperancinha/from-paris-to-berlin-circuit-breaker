@@ -5,29 +5,31 @@ import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker
 import io.github.resilience4j.timelimiter.annotation.TimeLimiter
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
+import mu.KotlinLogging
 import org.jesperancinha.fptb.circuit.breaker.adapters.RoadRace
 import org.jesperancinha.fptb.circuit.breaker.adapters.getMyCar
 import org.jesperancinha.fptb.circuit.breaker.domain.BlockageType
 import org.jesperancinha.fptb.circuit.breaker.domain.Location
+import org.jesperancinha.fptb.circuit.breaker.domain.isWaiting
 import org.jesperancinha.fptb.circuit.breaker.domain.toDto
 import org.jesperancinha.fptb.circuit.breaker.dto.RoadRaceDto
 import org.jesperancinha.fptb.circuit.breaker.exception.BlockageException
 import org.springframework.messaging.simp.SimpMessagingTemplate
 import org.springframework.stereotype.Service
 import reactor.core.publisher.Mono
-import java.lang.Thread.sleep
 import java.time.Duration
 import java.time.LocalDateTime
 import java.util.*
 import java.util.concurrent.TimeUnit
+import java.util.concurrent.TimeoutException
 import kotlin.concurrent.schedule
 
 private val RoadRace?.toDto: RoadRaceDto
     get() = this?.cars?.let {
         return RoadRaceDto(it.map { car ->
             car.toDto()
-        }, paris)
-    } ?: RoadRaceDto(listOf(), Location())
+        }, paris, errorReports)
+    } ?: RoadRaceDto(listOf(), Location(), mutableListOf())
 
 /**
  * Created by jofisaes on 15/10/2021
@@ -37,6 +39,13 @@ open class RoadBlockageService(
     open val template: SimpMessagingTemplate,
     open val roadRace: RoadRace,
 ) {
+
+    init {
+        Timer().schedule(TimeUnit.SECONDS.toMillis(1), TimeUnit.SECONDS.toMillis(1)) {
+            moveCars()
+        }
+    }
+    private val logger = KotlinLogging.logger {}
 
     suspend fun setRoadBlock(location: Location) {
         roadRace.paris = location
@@ -53,11 +62,7 @@ open class RoadBlockageService(
     private suspend fun startGame() {
         coroutineScope {
             launch {
-                roadRace.init();
-                val schedule = Timer().schedule(TimeUnit.SECONDS.toMillis(1), TimeUnit.SECONDS.toMillis(1)) {
-                    moveCars()
-                }
-//                schedule.cancel()
+                roadRace.init()
             }
         }
     }
@@ -71,56 +76,46 @@ open class RoadBlockageService(
         return roadRace.toDto
     }
 
-    @TimeLimiter(name = CarService.CARS)
-    @CircuitBreaker(name = CarService.CARS, fallbackMethod = "moveToAlternative1")
+    @TimeLimiter(name = CarService.CARS, fallbackMethod = "reportTimeout")
+    @CircuitBreaker(name = CarService.CARS, fallbackMethod = "reportError")
     @Bulkhead(name = CarService.CARS)
     open fun moveToCity(id: Long): Mono<RoadRace> {
         val myCar = roadRace.getMyCar()
-        val destination = myCar.location.forward.find { it.id == id }
-        val blockage = destination?.blockageTimeTable?.find { it.minute.toString().last() == LocalDateTime.now().minute.toString().last() }
-        blockage?.let { roadBlockTime ->
-            when (roadBlockTime.blockageType) {
-                BlockageType.TIMEOUT -> return Mono.just(roadRace).delayElement(Duration.ofSeconds(10))
-                BlockageType.ERROR -> return Mono.create { it.error(BlockageException()) }
-                BlockageType.UNKNOWN -> return listOf(Mono.create { it.error(BlockageException()) },
-                    Mono.just(roadRace).delayElement(Duration.ofSeconds(10))).random()
-                else -> print("Nothing to do here!")
+        if (!myCar.isWaiting()) {
+            val destination = myCar.location.forward.find { it.id == id }
+            val blockage = destination?.blockageTimeTable?.find {
+                it.minute.toString().last() == LocalDateTime.now().minute.toString().last()
             }
-        }
+            blockage?.let { roadBlockTime ->
+                when (roadBlockTime.blockageType) {
+                    BlockageType.TIMEOUT -> return Mono.just(roadRace).delayElement(Duration.ofSeconds(10))
+                    BlockageType.ERROR -> return Mono.create { it.error(BlockageException()) }
+                    BlockageType.UNKNOWN -> return listOf(Mono.create { it.error(BlockageException()) },
+                        Mono.just(roadRace).delayElement(Duration.ofSeconds(10))).random()
+                    else -> print("Nothing to do here!")
+                }
+            }
 
-        destination?.let {
-            myCar.location = it
-            myCar.formerLocations.add(myCar.location)
+            destination?.let {
+                myCar.delay(10)
+                myCar.location = it
+                myCar.formerLocations.add(myCar.location)
+            }
         }
         return Mono.just(roadRace)
     }
 
-
-    //    @TimeLimiter(name = CarService.CARS)
-//    @CircuitBreaker(name = CarService.CARS, fallbackMethod = "moveToAlternative2")
-//    @Bulkhead(name = CarService.CARS)
-    private fun moveToAlternative1(exception: Exception): Mono<RoadRace> {
-        print("alternative1 Reached!")
-//        val myCar = roadRace.getMyCar()
-//        val destination = myCar.location.forward.find { it.id == id }
-//        val blockage = destination?.blockageTimeTable?.find { it.minute == LocalDateTime.now().minute }
-//        blockage?.let { when(it.blockageType){
-//            BlockageType.TIMEOUT-> sleep(1000)
-//            BlockageType.ERROR-> throw BlockageException()
-//        } }
-        return Mono.just(roadRace)
+    private fun reportError(exception: Exception): Mono<RoadRace> {
+        logger.info("---- **** error reported! I wll try 3 times more just for kicks")
+        roadRace.getMyCar().delay(10L)
+        roadRace.errorReports.add("Error reported! at ${LocalDateTime.now()}")
+        return Mono.create { it.error(BlockageException()) }
     }
 
-    fun moveToAlternative2(id: Long) {
-        print("alternative2 Reached!")
-        val myCar = roadRace.getMyCar()
-        val destination = myCar.location.forward.find { it.id == id }
-        val blockage = destination?.blockageTimeTable?.find { it.minute == LocalDateTime.now().minute }
-        blockage?.let {
-            when (it.blockageType) {
-                BlockageType.TIMEOUT -> sleep(1000)
-                BlockageType.ERROR -> throw BlockageException()
-            }
-        }
+    private fun reportTimeout(exception: TimeoutException): Mono<RoadRace> {
+        logger.info("---- **** timeout reported!")
+        roadRace.getMyCar().delay(50L)
+        roadRace.errorReports.add("Timeout reported! at ${LocalDateTime.now()}")
+        return Mono.just(roadRace)
     }
 }

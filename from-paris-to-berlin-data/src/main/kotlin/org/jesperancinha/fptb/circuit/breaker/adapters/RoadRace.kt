@@ -20,9 +20,11 @@ import kotlin.random.Random
 data class RoadRace(
     var cars: List<Car> = listOf(),
     var paris: Location = Location(),
+    var errorReports: MutableList<String> = mutableListOf()
 ) {
     private val timeTables = mutableMapOf<String, List<RoadBlockTime>>()
     fun init() {
+        errorReports.clear()
         cars = (1..5).map {
             Car(
                 id = it.toLong(),
@@ -57,7 +59,7 @@ data class RoadRace(
             if (!it.isWaiting()) {
                 if (it.location.forward.isNotEmpty()) {
                     it.location = it.location.forward.random()
-                    it.delay(Random.nextLong(1, 5))
+                    it.delay(Random.nextLong(10, 30))
                     it.formerLocations.add(it.location)
                 }
             }

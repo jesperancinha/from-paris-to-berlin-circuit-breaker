@@ -11,6 +11,7 @@ import kotlin.random.Random
  * Created by jofisaes on 14/10/2021
  */
 data class RoadRaceDto(
-    var cars: List<CarDto>,
-    var paris: Location
+    val cars: List<CarDto>,
+    val paris: Location,
+    val errorReports: MutableList<String>
 )

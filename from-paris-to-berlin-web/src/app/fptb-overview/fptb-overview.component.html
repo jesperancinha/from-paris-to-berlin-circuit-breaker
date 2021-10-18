@@ -2,6 +2,7 @@
   <mat-card-title>
     <p>---- **** From Paris to Berlin Game **** ----</p>
     <p *ngIf="currentServerTime">{{currentServerTime}}</p>
+    <p *ngIf="secondsHoldValid()">Your car is on hold for {{secondsHold}}</p>
   </mat-card-title>
 </mat-card>
 
@@ -16,6 +17,9 @@
       [divClassName]="diagramDivClassName"
       (modelChange)="onModelChange($event)"
     ></gojs-diagram>
+    <mat-list *ngIf="roadRace && roadRace.errorReports">
+      <mat-list-item *ngFor="let item of roadRace.errorReports">{{item}}</mat-list-item>
+    </mat-list>
   </mat-card>
   <mat-card class="inline" style="width: 48%" *ngIf="timeTables && timeTables.length > 0">
     <table class="short-display-table" mat-table [dataSource]="timeTables" style="width: 100%">

@@ -11,21 +11,23 @@ import {MatTableModule} from "@angular/material/table";
 import {MAT_DIALOG_DEFAULT_OPTIONS} from "@angular/material/dialog";
 import {LocationStrategy, PathLocationStrategy} from "@angular/common";
 import {HttpClientModule} from "@angular/common/http";
+import {MatListModule} from "@angular/material/list";
 
 @NgModule({
   declarations: [
     AppComponent,
     FptbOverviewComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    GojsAngularModule,
-    MatCardModule,
-    MatTableModule,
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        GojsAngularModule,
+        MatCardModule,
+        MatTableModule,
+        HttpClientModule,
+        MatListModule
+    ],
   providers: [
     {
       provide: LocationStrategy,
