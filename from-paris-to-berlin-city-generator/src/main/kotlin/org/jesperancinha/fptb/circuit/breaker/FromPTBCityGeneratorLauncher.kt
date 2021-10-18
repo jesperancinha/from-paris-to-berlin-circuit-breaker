@@ -4,11 +4,15 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import org.jesperancinha.fptb.circuit.breaker.domain.Location
 
 fun main(args: Array<String>) {
-    val berlin = Location(8, "Berlin", listOf())
+    val berlin = Location(10, "Berlin", listOf())
 
-    val aken = Location(5, "Aken", listOf(berlin))
-    val heerlen = Location(6, "Heerlen", listOf(berlin))
-    val duren = Location(7, "Düren", listOf(berlin))
+    val wolfsburg = Location(8, "Wolfsburg", listOf(berlin))
+    val braunschweig = Location(9, "Braunschweig", listOf(berlin))
+
+
+    val aken = Location(5, "Aken", listOf(wolfsburg, braunschweig))
+    val heerlen = Location(6, "Heerlen", listOf(wolfsburg, braunschweig))
+    val duren = Location(7, "Düren", listOf( ))
 
 
     val soissons = Location(2, "Soissons", listOf(aken, heerlen, duren))
