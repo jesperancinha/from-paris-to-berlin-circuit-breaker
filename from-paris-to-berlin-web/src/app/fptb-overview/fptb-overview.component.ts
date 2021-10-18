@@ -121,7 +121,7 @@ export class FptbOverviewComponent implements OnInit {
   public diagramModelData = {prop: 'value', color: 'red'};
 
   public dia: go.Diagram | undefined;
-  displayedColumns = ["id", "name", "model", "location"];
+  displayedColumns = ["id", "name", "model", "location", "progress"];
 
   initDiagram(): go.Diagram {
     const $ = go.GraphObject.make;
@@ -136,7 +136,7 @@ export class FptbOverviewComponent implements OnInit {
     const pinkgrad = '#00FF00';
 
     dia.add(
-      $(go.Part, 'Table', {position: new go.Point(800, 10), selectable: false},
+      $(go.Part, 'Table', {position: new go.Point(600, 10), selectable: false},
         $(go.TextBlock, 'Key', {row: 0, font: '700 14px Droid Serif, sans-serif'}),
         $(go.Panel, 'Horizontal', {row: 1, alignment: go.Spot.Left},
           $(go.Shape, 'Rectangle', {desiredSize: new go.Size(30, 30), fill: bluegrad, margin: 5}),
@@ -197,4 +197,7 @@ export class FptbOverviewComponent implements OnInit {
     console.log('Event: ', event);
   }
 
+  getFormerLocationText(formerLocations: Location[]): string {
+    return formerLocations.map(t=>t.name).join(" - 🚙 - ") + " 🚙"
+  }
 }

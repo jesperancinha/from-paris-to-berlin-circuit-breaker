@@ -4,5 +4,6 @@ export interface Car {
   id: number,
   name: string,
   model: string,
-  location: Location
+  location: Location,
+  formerLocations: Location[]
 }

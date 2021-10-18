@@ -4,7 +4,6 @@ import org.jesperancinha.fptb.circuit.breaker.domain.BlockageType
 import org.jesperancinha.fptb.circuit.breaker.domain.Car
 import org.jesperancinha.fptb.circuit.breaker.domain.Location
 import org.jesperancinha.fptb.circuit.breaker.domain.RoadBlockTime
-import org.jesperancinha.fptb.circuit.breaker.domain.isWaiting
 import org.springframework.stereotype.Component
 import java.time.LocalDateTime
 import java.time.OffsetTime
@@ -20,7 +19,7 @@ data class RoadRace(
     var paris: Location = Location(),
 ) {
     fun init() {
-        cars = (1..10).map {
+        cars = (1..5).map {
             Car(
                 id = it.toLong(),
                 name = "name",
@@ -28,7 +27,7 @@ data class RoadRace(
                 location = paris,
                 downtimeTSMS = LocalDateTime.now().toInstant(OffsetTime.now().offset).toEpochMilli(),
                 downtimeTLMS = TimeUnit.MINUTES.toMillis(1),
-                formerLocations = mutableListOf()
+                formerLocations = mutableListOf(paris)
             )
         }
         addTimeTables(paris)
@@ -44,10 +43,11 @@ data class RoadRace(
     }
 
     fun randomMoveFw() {
-        cars.filter { it.id != 10L }.forEach {
+        cars.filter { it.id != 5L }.forEach {
 //            if (!it.isWaiting()) {
-                it.location = it.location.forward.random()
-                it.delay(Random.nextLong(1, 5))
+            it.location = it.location.forward.random()
+            it.delay(Random.nextLong(1, 5))
+            it.formerLocations.add(it.location)
 //            }
         }
     }
