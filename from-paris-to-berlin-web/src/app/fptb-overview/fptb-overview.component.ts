@@ -20,6 +20,8 @@ export class FptbOverviewComponent implements OnInit {
 
   @ViewChild(DiagramComponent, {static: false}) public diagramComponent: DiagramComponent | undefined;
 
+  public locations: Location[] | undefined
+
   constructor() {
     const socket = new SockJS('/api/fptb/broker');
     this.stompClient = Stomp.over(socket);
@@ -30,9 +32,7 @@ export class FptbOverviewComponent implements OnInit {
     this.connect()
   }
 
-  title = 'grokonez';
-
-  description = 'Angular-WebSocket Demo';
+  description = 'From Paris To Berlin Game Demo';
   roadRace: RoadRace | undefined;
   disabled = true;
   name: string | undefined;
@@ -82,6 +82,8 @@ export class FptbOverviewComponent implements OnInit {
     this.linkDataArray = Array.from(new Set(links.map(t => JSON.stringify(t)))).map(t => JSON.parse(t));
     this.dia?.model.commitTransaction("changed data");
     this.roadRace = roadRace;
+    this.locations = []
+    this.addLocations(this.locations, roadRace.cars.map(car => car.location))
   }
 
   private addNodesRecursively(nodes: any[], links: any[], location: Location) {
@@ -122,6 +124,7 @@ export class FptbOverviewComponent implements OnInit {
 
   public dia: go.Diagram | undefined;
   displayedColumns = ["id", "name", "model", "location", "progress"];
+  scheduleColumns = ["id", "name", "minute", "type"];
 
   initDiagram(): go.Diagram {
     const $ = go.GraphObject.make;
@@ -132,17 +135,17 @@ export class FptbOverviewComponent implements OnInit {
         $(go.LayeredDigraphLayout)
     });
 
-    const bluegrad = '#FF0000';
-    const pinkgrad = '#00FF00';
+    const red = '#FF0000';
+    const green = '#00FF00';
 
     dia.add(
       $(go.Part, 'Table', {position: new go.Point(600, 10), selectable: false},
         $(go.TextBlock, 'Key', {row: 0, font: '700 14px Droid Serif, sans-serif'}),
         $(go.Panel, 'Horizontal', {row: 1, alignment: go.Spot.Left},
-          $(go.Shape, 'Rectangle', {desiredSize: new go.Size(30, 30), fill: bluegrad, margin: 5}),
+          $(go.Shape, 'Rectangle', {desiredSize: new go.Size(30, 30), fill: red, margin: 5}),
           $(go.TextBlock, 'Blocked', {font: '700 13px Droid Serif, sans-serif'})),
         $(go.Panel, 'Horizontal', {row: 2, alignment: go.Spot.Left},
-          $(go.Shape, 'Rectangle', {desiredSize: new go.Size(30, 30), fill: pinkgrad, margin: 5}),
+          $(go.Shape, 'Rectangle', {desiredSize: new go.Size(30, 30), fill: green, margin: 5}),
           $(go.TextBlock, 'Free', {font: '700 13px Droid Serif, sans-serif'})
         )
       )
@@ -159,10 +162,10 @@ export class FptbOverviewComponent implements OnInit {
         alignment: go.Spot.Center
       }, new go.Binding('fill', 'status', (status) => {
         if (status === 'BLOCK') {
-          return bluegrad;
+          return red;
         }
         if (status === 'FREE') {
-          return pinkgrad;
+          return green;
         }
         return 'orange';
       })),
@@ -198,6 +201,15 @@ export class FptbOverviewComponent implements OnInit {
   }
 
   getFormerLocationText(formerLocations: Location[]): string {
-    return formerLocations.map(t=>t.name).join(" - 🚙 - ") + " 🚙"
+    return formerLocations.map(t => t.name).join(" - 🚙 - ") + " 🚙"
+  }
+
+  private addLocations(locations: Location[], locations2: Location[]) {
+    locations.push(...locations2)
+    locations2.forEach(subLocation => {
+      if (subLocation.forward && subLocation.forward.length > 0) {
+        this.addLocations(locations, subLocation.forward)
+      }
+    })
   }
 }

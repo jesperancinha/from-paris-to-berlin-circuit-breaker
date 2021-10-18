@@ -1,22 +1,58 @@
-<mat-card>
+<mat-card style="width: 100%; text-align: center">
   <mat-card-title>
     <p>---- **** From Paris to Berlin Game **** ----</p>
   </mat-card-title>
 </mat-card>
 
+<mat-card style="display: flex; flex-wrap: wrap;">
+  <mat-card class="inline" style="width: 48%">
+    <gojs-diagram
+      #myDiag
+      [initDiagram]="initDiagram"
+      [modelData]="diagramModelData"
+      [nodeDataArray]="nodeDataArray"
+      [linkDataArray]="linkDataArray"
+      [divClassName]="diagramDivClassName"
+      (modelChange)="onModelChange($event)"
+    ></gojs-diagram>
+  </mat-card>
+  <mat-card class="inline" style="width: 48%" *ngIf="locations">
+    <table class="short-display-table" mat-table [dataSource]="locations" style="width: 100%">
 
-<mat-card>
-<gojs-diagram
-  #myDiag
-  [initDiagram]="initDiagram"
-  [modelData]="diagramModelData"
-  [nodeDataArray]="nodeDataArray"
-  [linkDataArray]="linkDataArray"
-  [divClassName]="diagramDivClassName"
-  (modelChange)="onModelChange($event)"
-></gojs-diagram>
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef><p>Id</p></th>
+        <td mat-cell *matCellDef="let element" style="width: 20px">
+          <p>{{element.id}}</p>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef><p>Name</p></th>
+        <td mat-cell *matCellDef="let element" style="text-align: justify">
+          <p>{{element.name}}</p>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="minute">
+        <th mat-header-cell *matHeaderCellDef><p>Minute</p></th>
+        <td mat-cell *matCellDef="let element" style="text-align: justify">
+          <p>test</p>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef><p>Type</p></th>
+        <td mat-cell *matCellDef="let element" style="text-align: justify">
+          <p>test</p>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="scheduleColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: scheduleColumns;"></tr>
+    </table>
+  </mat-card>
 </mat-card>
-<mat-card *ngIf="roadRace && roadRace.cars">
+<mat-card *ngIf="roadRace && roadRace.cars && roadRace.cars.length>0">
   <table class="short-display-table" mat-table [dataSource]="roadRace.cars" style="width: 100%">
 
     <ng-container matColumnDef="id">
