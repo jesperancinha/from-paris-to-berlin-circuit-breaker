@@ -78,10 +78,10 @@ open class RoadBlockageService(
         val myCar = roadRace.getMyCar()
         val destination = myCar.location.forward.find { it.id == id }
         val blockage = destination?.blockageTimeTable?.find { it.minute == LocalDateTime.now().minute }
-        blockage?.let {
-            when (it.blockageType) {
+        blockage?.let { roadBlockTime ->
+            when (roadBlockTime.blockageType) {
                 BlockageType.TIMEOUT -> return Mono.just(roadRace).delayElement(Duration.ofSeconds(10))
-                BlockageType.ERROR -> throw BlockageException()
+                BlockageType.ERROR -> return Mono.create { it.error(BlockageException()) }
                 else -> print("Nothing to do here!")
             }
         }
