@@ -1,17 +1,16 @@
 package org.jesperancinha.fptb.circuit.breaker.controller
 
+import org.jesperancinha.fptb.circuit.breaker.adapters.RoadRace
 import org.jesperancinha.fptb.circuit.breaker.domain.Location
 import org.jesperancinha.fptb.circuit.breaker.dto.RoadRaceDto
 import org.jesperancinha.fptb.circuit.breaker.service.RoadBlockageService
 import org.springframework.http.MediaType
-import org.springframework.messaging.handler.annotation.MessageMapping
-import org.springframework.messaging.handler.annotation.SendTo
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
-import org.springframework.web.util.HtmlUtils
 import reactor.core.publisher.Mono
 
 
@@ -34,4 +33,7 @@ class RoadBlockageController(
 
     @GetMapping("/roadRace")
     fun getCurrentRoadRace(): Mono<RoadRaceDto?> = Mono.just(roadBlockageService.getCurrenRoadRace())
+
+    @GetMapping("/moveToCity/{cityId}")
+    fun moveToCity(@PathVariable cityId: Long): Mono<RoadRace> = roadBlockageService.moveToCity(cityId)
 }

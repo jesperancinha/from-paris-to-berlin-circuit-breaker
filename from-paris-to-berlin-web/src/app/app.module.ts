@@ -8,6 +8,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {GojsAngularModule} from "gojs-angular";
 import {MatCardModule} from "@angular/material/card";
 import {MatTableModule} from "@angular/material/table";
+import {MAT_DIALOG_DEFAULT_OPTIONS} from "@angular/material/dialog";
+import {LocationStrategy, PathLocationStrategy} from "@angular/common";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -20,9 +23,18 @@ import {MatTableModule} from "@angular/material/table";
     BrowserAnimationsModule,
     GojsAngularModule,
     MatCardModule,
-    MatTableModule
+    MatTableModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: LocationStrategy,
+      useClass: PathLocationStrategy,
+    }, {
+      provide: MAT_DIALOG_DEFAULT_OPTIONS,
+      useValue: {hasBackdrop: true}
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -7,6 +7,7 @@ import * as go from 'gojs';
 import {Location} from "../model/location";
 import {RoadBlockageTime} from "../model/road.blockage.time";
 import {TimeTable} from "../model/time.table";
+import {BlockageService} from "../service/blockage.service";
 
 @Component({
   selector: 'app-fptb-overview',
@@ -26,12 +27,14 @@ export class FptbOverviewComponent implements OnInit {
 
   private locations: Map<string, RoadBlockageTime[]> | undefined
   public timeTables: TimeTable[] | undefined;
+  private static blockageService: BlockageService;
 
-  constructor() {
+  constructor(private blockageService:BlockageService) {
     const socket = new SockJS('/api/fptb/broker');
     const stompClockClient = new SockJS('/api/fptb/broker');
     this.stompClient = Stomp.over(socket);
     this.stompClockClient = Stomp.over(stompClockClient);
+    FptbOverviewComponent.blockageService = blockageService
   }
 
   ngOnInit(): void {
@@ -218,6 +221,11 @@ export class FptbOverviewComponent implements OnInit {
     dia.model = graphLinksModel;
 
     this.dia = dia;
+
+    dia.addDiagramListener("ObjectSingleClicked", (ev) => {
+      let cityId = ev.subject.panel.ob.key;
+      FptbOverviewComponent.blockageService.moveMyCarTo(cityId)
+    });
 
     return dia;
   }

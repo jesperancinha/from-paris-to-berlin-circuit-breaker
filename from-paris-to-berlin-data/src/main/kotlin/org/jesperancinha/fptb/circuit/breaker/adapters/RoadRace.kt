@@ -4,6 +4,7 @@ import org.jesperancinha.fptb.circuit.breaker.domain.BlockageType
 import org.jesperancinha.fptb.circuit.breaker.domain.Car
 import org.jesperancinha.fptb.circuit.breaker.domain.Location
 import org.jesperancinha.fptb.circuit.breaker.domain.RoadBlockTime
+import org.jesperancinha.fptb.circuit.breaker.exception.PlayerNotFoundException
 import org.springframework.stereotype.Component
 import java.time.LocalDateTime
 import java.time.OffsetTime
@@ -50,11 +51,16 @@ data class RoadRace(
     fun randomMoveFw() {
         cars.filter { it.id != 5L }.forEach {
 //            if (!it.isWaiting()) {
-            it.location = it.location.forward.random()
-            it.delay(Random.nextLong(1, 5))
-            it.formerLocations.add(it.location)
+            if (it.location.forward.isNotEmpty()) {
+                it.location = it.location.forward.random()
+                it.delay(Random.nextLong(1, 5))
+                it.formerLocations.add(it.location)
+            }
 //            }
         }
     }
+}
 
+fun RoadRace.getMyCar(): Car {
+    return this.cars.find { it.id == 5L } ?: throw PlayerNotFoundException()
 }

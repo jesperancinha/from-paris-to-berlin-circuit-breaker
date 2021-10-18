@@ -17,7 +17,7 @@
       (modelChange)="onModelChange($event)"
     ></gojs-diagram>
   </mat-card>
-  <mat-card class="inline" style="width: 48%" *ngIf="timeTables">
+  <mat-card class="inline" style="width: 48%" *ngIf="timeTables && timeTables.length > 0">
     <table class="short-display-table" mat-table [dataSource]="timeTables" style="width: 100%">
 
       <ng-container matColumnDef="id">

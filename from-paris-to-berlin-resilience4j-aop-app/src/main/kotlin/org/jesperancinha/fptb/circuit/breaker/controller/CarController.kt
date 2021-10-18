@@ -1,6 +1,5 @@
 package org.jesperancinha.fptb.circuit.breaker.controller
 
-import org.jesperancinha.fptb.circuit.breaker.adapters.RoadRace
 import org.jesperancinha.fptb.circuit.breaker.domain.Car
 import org.jesperancinha.fptb.circuit.breaker.domain.Location
 import org.jesperancinha.fptb.circuit.breaker.service.CarService
@@ -17,7 +16,6 @@ import reactor.core.publisher.Mono
 @RequestMapping("/cars")
 class CarController(
     private val carService: CarService,
-    private val roadBlockagesMap: RoadRace
 ) {
 
     @GetMapping("/{id}")
@@ -32,10 +30,10 @@ class CarController(
 
     @GetMapping("/carros/{id}")
     private fun getCarros(@PathVariable id: Long): Mono<Car> {
-        return Mono.just(Car(3,"The boss bling bling man", "Lamborghini", Location()))
+        return Mono.just(Car(3, "The boss bling bling man", "Lamborghini", Location()))
     }
 
     private fun fallback(ex: Throwable): Mono<Car> {
-        return Mono.just(Car(4,"Mega Mega Bills Bills", "Rolls Royce", Location()))
+        return Mono.just(Car(4, "Mega Mega Bills Bills", "Rolls Royce", Location()))
     }
 }
