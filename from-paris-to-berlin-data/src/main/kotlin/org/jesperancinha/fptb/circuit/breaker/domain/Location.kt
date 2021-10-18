@@ -4,11 +4,11 @@ import org.jesperancinha.fptb.circuit.breaker.dto.LocationDto
 
 data class Location(
     val id: Long? = null,
-    val name: String? = null,
+    val name: String,
     val forward: List<Location> = listOf(),
     val blockageTimeTable: MutableList<RoadBlockTime> = mutableListOf(),
 ) {
-    constructor() : this(null)
+    constructor() : this(null, "Berlin")
 }
 
 fun Location.toDto(): LocationDto = LocationDto(

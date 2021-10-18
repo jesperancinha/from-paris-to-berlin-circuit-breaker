@@ -93,6 +93,9 @@ export class FptbOverviewComponent implements OnInit {
         this.timeTables?.push(new TimeTable(key, blockage.minute, blockage.blockageType))
       })
     })
+    this.timeTables.sort((a, b) => {
+      return (a.name as string).localeCompare(b.name as string)
+    })
   }
 
   private addNodesRecursively(nodes: any[], links: any[], location: Location) {

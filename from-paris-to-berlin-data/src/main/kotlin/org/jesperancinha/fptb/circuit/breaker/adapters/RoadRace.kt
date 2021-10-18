@@ -18,6 +18,7 @@ data class RoadRace(
     var cars: List<Car> = listOf(),
     var paris: Location = Location(),
 ) {
+    private val timeTables = mutableMapOf<String, List<RoadBlockTime>>()
     fun init() {
         cars = (1..5).map {
             Car(
@@ -30,14 +31,18 @@ data class RoadRace(
                 formerLocations = mutableListOf(paris)
             )
         }
+        timeTables.clear()
         addTimeTables(paris)
     }
 
     private fun addTimeTables(location: Location) {
         location.apply {
-            blockageTimeTable.clear()
-            blockageTimeTable.addAll((0..(Random.nextInt(0, 2) + 1))
-                .map { RoadBlockTime(Random.nextInt(60), BlockageType.values().random()) })
+            val roadBlockTime = timeTables[name]
+            if (roadBlockTime == null) {
+                blockageTimeTable.addAll((0..(Random.nextInt(0, 3) + 1))
+                    .map { RoadBlockTime(Random.nextInt(10), BlockageType.values().random()) })
+                timeTables[name] = blockageTimeTable
+            }
             forward.forEach { addTimeTables(it) }
         }
     }
