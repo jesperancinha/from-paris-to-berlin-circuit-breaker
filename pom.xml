@@ -79,7 +79,7 @@
 
     <modules>
         <module>from-paris-to-berlin-resilience4j-runnable-app</module>
-        <module>from-paris-to-berlin-hystrix-runnable-app</module>
+        <module>from-paris-to-berlin-kystrix-runnable-app</module>
         <module>from-paris-to-berlin-resilience4j-spring-app</module>
         <module>from-paris-to-berlin-resilience4j-aop-spring-app</module>
         <module>from-paris-to-berlin-city-generator</module>
