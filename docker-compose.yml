@@ -1,0 +1,42 @@
+version: "3.7"
+
+networks:
+  newscast:
+    driver: bridge
+
+services:
+
+  from_paris_to_berlin_web:
+    hostname: from_paris_to_berlin_web
+    container_name: from_paris_to_berlin_web
+    build:
+      context: from-paris-to-berlin-resilience4j-aop-spring-app/.
+    ports:
+      - "8080:8080"
+    restart: on-failure
+    deploy:
+      resources:
+        limits:
+          memory: 200M
+        reservations:
+          memory: 200M
+    networks:
+      - newscast
+
+  from_paris_to_berlin_fe:
+    hostname: from_paris_to_berlin_fe
+    container_name: from_paris_to_berlin_fe
+    build:
+      context: from-paris-to-berlin-web/.
+    ports:
+      - 9000:9000
+    restart: on-failure
+    deploy:
+      resources:
+        limits:
+          memory: 300M
+        reservations:
+          memory: 300M
+    networks:
+      - newscast
+
