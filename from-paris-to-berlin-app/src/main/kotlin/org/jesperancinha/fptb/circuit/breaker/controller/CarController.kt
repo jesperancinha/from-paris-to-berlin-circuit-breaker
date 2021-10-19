@@ -20,7 +20,7 @@ import se.haleby.kystrix.toMono
 @RequestMapping("/cars")
 class CarController {
 
-    val webClient: WebClient = create("http://localhost:8080")
+    private val webClient: WebClient = create("http://localhost:8080")
 
     @GetMapping("/{id}")
     private fun getCars(@PathVariable id: Int): Mono<Car> {
