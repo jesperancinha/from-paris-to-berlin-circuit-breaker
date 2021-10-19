@@ -10,7 +10,7 @@
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/db670c80127c412d95d74ec2a10145ff)](https://www.codacy.com/gh/jesperancinha/from-paris-to-berlin-circuit-breaker/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jesperancinha/from-paris-to-berlin-circuit-breaker&amp;utm_campaign=Badge_Grade)
 [![codebeat badge](https://codebeat.co/badges/d02c6697-4f3f-486a-9297-c45fc0f46402)](https://codebeat.co/projects/bitbucket-org-jesperancinha-from-paris-to-berlin-circuit-breaker-master)
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/f49ddf491c1c4eff8addac23e08b9a91)](https://www.codacy.com/gh/jesperancinha/from-paris-to-berlin-circuit-breaker/dashboard?utm_source=jesperancinha@bitbucket.org&utm_medium=referral&utm_content=jesperancinha/from-paris-to-berlin-circuit-breaker&utm_campaign=Badge_Coverage)
+[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/db670c80127c412d95d74ec2a10145ff)](https://www.codacy.com/gh/jesperancinha/from-paris-to-berlin-circuit-breaker/dashboard?utm_source=github.com&utm_medium=referral&utm_content=jesperancinha/from-paris-to-berlin-circuit-breaker&utm_campaign=Badge_Coverage)
 [![codecov](https://codecov.io/gh/jesperancinha/from-paris-to-berlin-circuit-breaker/branch/master/graph/badge.svg?token=M7ZOccsNUq)](https://codecov.io/gh/jesperancinha/from-paris-to-berlin-circuit-breaker)
 
 [//]: # ([![Coverage Status]&#40;https://coveralls.io/repos/github/jesperancinha/from-paris-to-berlin-circuit-breaker/badge.svg?branch=main&#41;]&#40;https://coveralls.io/github/jesperancinha/from-paris-to-berlin-circuit-breaker?branch=main&#41;)
