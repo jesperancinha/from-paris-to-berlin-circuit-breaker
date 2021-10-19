@@ -17,8 +17,8 @@ import java.time.Duration
  * Created by jofisaes on 13/10/2021
  */
 @RestController
-@RequestMapping("/cars/default")
-class CarControllerDefault {
+@RequestMapping("/cars/timelimiter")
+class CarControllerTimeLimiter {
 
     var timeLimiterConfig: TimeLimiterConfig = TimeLimiterConfig.custom()
         .timeoutDuration(Duration.ofMillis(100))
