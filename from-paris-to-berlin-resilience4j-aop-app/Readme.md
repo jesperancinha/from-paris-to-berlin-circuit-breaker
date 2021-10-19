@@ -170,9 +170,9 @@ curl -X POST http://localhost:8080/api/fptb/blockage -H "Content-Type: applicati
 
 ## References
 
-- [How to send message to client through websocket using Spring](https://stackoverflow.com/questions/28250719/how-to-send-message-to-client-through-websocket-using-spring)
-- [Kotlin's coroutines on Android](https://developer.android.com/kotlin/coroutines)
-- [kotlinx-coroutines-reactor](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-reactor/index.html)
+-   [How to send message to client through websocket using Spring](https://stackoverflow.com/questions/28250719/how-to-send-message-to-client-through-websocket-using-spring)
+-   [Kotlin's coroutines on Android](https://developer.android.com/kotlin/coroutines)
+-   [kotlinx-coroutines-reactor](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-reactor/index.html)
 
 ## About me 👨🏽‍💻🚀🏳️‍🌈
 

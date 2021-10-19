@@ -65,10 +65,20 @@
         <jacoco-maven-plugin.version>0.8.7</jacoco-maven-plugin.version>
         <coveralls-maven-plugin.version>4.3.0</coveralls-maven-plugin.version>
         <jaxb-api.version>2.3.1</jaxb-api.version>
+        <jackson.version>2.13.0</jackson.version>
+        <spring-context.version>5.3.10</spring-context.version>
+        <rest-assured.version>4.4.0</rest-assured.version>
+        <kystrix-core.version>0.1.16</kystrix-core.version>
+        <spring-boot-starter-webflux.version>2.5.5</spring-boot-starter-webflux.version>
+        <spring-boot-starter-websocket.version>2.4.0</spring-boot-starter-websocket.version>
+        <spring-boot-starter-aop.version>2.5.0</spring-boot-starter-aop.version>
+        <resilience4j.version>1.7.1</resilience4j.version>
+        <kotlinx-coroutines-reactor.version>1.5.2</kotlinx-coroutines-reactor.version>
     </properties>
 
     <modules>
-        <module>from-paris-to-berlin-app</module>
+        <module>from-paris-to-berlin-resilience4j-runnable-app</module>
+        <module>from-paris-to-berlin-hystrix-runnable-app</module>
         <module>from-paris-to-berlin-resilience4j-app</module>
         <module>from-paris-to-berlin-resilience4j-aop-app</module>
         <module>from-paris-to-berlin-city-generator</module>
@@ -76,4 +86,130 @@
     </modules>
 
     <packaging>pom</packaging>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.jesperancinha.fptb.circuit.breaker</groupId>
+                <artifactId>from-paris-to-berlin-data</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jetbrains.kotlin</groupId>
+                <artifactId>kotlin-stdlib</artifactId>
+                <version>${kotlin.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring-context.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jetbrains.kotlin</groupId>
+                <artifactId>kotlin-test-junit</artifactId>
+                <version>${kotlin.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>2.8.8</version>
+            </dependency>
+            <dependency>
+                <groupId>io.projectreactor</groupId>
+                <artifactId>reactor-core</artifactId>
+                <version>3.4.11</version>
+            </dependency>
+            <dependency>
+                <groupId>se.haleby.kystrix</groupId>
+                <artifactId>kystrix-core</artifactId>
+                <version>${kystrix-core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>se.haleby.kystrix</groupId>
+                <artifactId>kystrix-spring</artifactId>
+                <version>${kystrix-core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webflux</artifactId>
+                <version>${spring-context.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-webflux</artifactId>
+                <version>${spring-boot-starter-webflux.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.rest-assured</groupId>
+                <artifactId>rest-assured</artifactId>
+                <version>${rest-assured.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.microutils</groupId>
+                <artifactId>kotlin-logging-jvm</artifactId>
+                <version>2.0.11</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jetbrains.kotlinx</groupId>
+                <artifactId>kotlinx-coroutines-core</artifactId>
+                <version>1.5.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jetbrains.kotlin</groupId>
+                <artifactId>kotlin-reflect</artifactId>
+                <version>${kotlin.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jetbrains.kotlinx</groupId>
+                <artifactId>kotlinx-coroutines-reactor</artifactId>
+                <version>${kotlinx-coroutines-reactor.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.resilience4j</groupId>
+                <artifactId>resilience4j-spring-boot2</artifactId>
+                <version>${resilience4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.resilience4j</groupId>
+                <artifactId>resilience4j-all</artifactId>
+                <version>${resilience4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.resilience4j</groupId>
+                <artifactId>resilience4j-reactor</artifactId>
+                <version>${resilience4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-aop</artifactId>
+                <version>${spring-boot-starter-aop.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-websocket</artifactId>
+                <version>${spring-boot-starter-websocket.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring-boot-starter-webflux.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>
