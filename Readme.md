@@ -7,7 +7,7 @@
 
 [![CircleCI](https://circleci.com/gh/jesperancinha/from-paris-to-berlin-circuit-breaker.svg?style=svg)](https://circleci.com/gh/jesperancinha/from-paris-to-berlin-circuit-breaker)
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/f49ddf491c1c4eff8addac23e08b9a91)](https://www.codacy.com/gh/jesperancinha/from-paris-to-berlin-circuit-breaker/dashboard?utm_source=jesperancinha@github.org&amp;utm_medium=referral&amp;utm_content=jesperancinha/from-paris-to-berlin-circuit-breaker&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/db670c80127c412d95d74ec2a10145ff)](https://www.codacy.com/gh/jesperancinha/from-paris-to-berlin-circuit-breaker/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jesperancinha/from-paris-to-berlin-circuit-breaker&amp;utm_campaign=Badge_Grade)
 [![codebeat badge](https://codebeat.co/badges/d02c6697-4f3f-486a-9297-c45fc0f46402)](https://codebeat.co/projects/bitbucket-org-jesperancinha-from-paris-to-berlin-circuit-breaker-master)
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/f49ddf491c1c4eff8addac23e08b9a91)](https://www.codacy.com/gh/jesperancinha/from-paris-to-berlin-circuit-breaker/dashboard?utm_source=jesperancinha@bitbucket.org&utm_medium=referral&utm_content=jesperancinha/from-paris-to-berlin-circuit-breaker&utm_campaign=Badge_Coverage)
