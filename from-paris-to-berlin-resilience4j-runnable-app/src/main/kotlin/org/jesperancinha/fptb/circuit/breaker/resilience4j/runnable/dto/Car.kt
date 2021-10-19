@@ -1,4 +1,4 @@
-package org.jesperancinha.fptb.circuit.breaker.dto
+package org.jesperancinha.fptb.circuit.breaker.resilience4j.runnable.dto
 
 /**
  * Created by jofisaes on 13/10/2021

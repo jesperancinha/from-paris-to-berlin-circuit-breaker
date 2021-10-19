@@ -1,6 +1,6 @@
-package org.jesperancinha.fptb.circuit.breaker.controller
+package org.jesperancinha.fptb.circuit.breaker.resilience4j.runnable
 
-import org.jesperancinha.fptb.circuit.breaker.dto.Car
+import org.jesperancinha.fptb.circuit.breaker.resilience4j.runnable.dto.Car
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping

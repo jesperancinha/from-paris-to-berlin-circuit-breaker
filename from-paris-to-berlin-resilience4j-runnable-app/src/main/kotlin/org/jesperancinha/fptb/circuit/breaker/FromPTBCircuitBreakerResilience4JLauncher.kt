@@ -1,6 +1,6 @@
 package org.jesperancinha.fptb.circuit.breaker
 
-import org.jesperancinha.fptb.circuit.breaker.dto.Car
+import org.jesperancinha.fptb.circuit.breaker.resilience4j.runnable.dto.Car
 import org.springframework.boot.ApplicationArguments
 import org.springframework.boot.ApplicationRunner
 import org.springframework.boot.SpringApplication
@@ -14,11 +14,11 @@ import se.haleby.kystrix.toMono
 
 
 @SpringBootApplication
-open class FromPTBCircuitBreakerKystrixLauncher : ApplicationRunner {
+open class FromPTBCircuitBreakerResilience4JLauncher : ApplicationRunner {
     companion object {
         @JvmStatic
         fun main(args: Array<String>) {
-            SpringApplication.run(FromPTBCircuitBreakerKystrixLauncher::class.java, *args)
+            SpringApplication.run(FromPTBCircuitBreakerResilience4JLauncher::class.java, *args)
         }
     }
 
