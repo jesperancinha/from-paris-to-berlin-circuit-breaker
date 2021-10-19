@@ -135,6 +135,12 @@
                 <groupId>org.eluder.coveralls</groupId>
                 <artifactId>coveralls-maven-plugin</artifactId>
                 <version>${coveralls-maven-plugin.version}</version>
+                <configuration>
+                    <sourceEncoding>UTF-8</sourceEncoding>
+                    <sourceDirectories>
+                        <sourceDirectory>${basedir}/src/main/kotlin</sourceDirectory>
+                    </sourceDirectories>
+                </configuration>
                 <dependencies>
                     <dependency>
                         <groupId>javax.xml.bind</groupId>
