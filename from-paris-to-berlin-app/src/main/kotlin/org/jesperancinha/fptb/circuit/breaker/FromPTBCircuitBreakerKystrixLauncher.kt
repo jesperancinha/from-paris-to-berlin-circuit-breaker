@@ -14,11 +14,11 @@ import se.haleby.kystrix.toMono
 
 
 @SpringBootApplication
-open class Hello : ApplicationRunner {
+open class FromPTBCircuitBreakerKystrixLauncher : ApplicationRunner {
     companion object {
         @JvmStatic
         fun main(args: Array<String>) {
-            SpringApplication.run(Hello::class.java, *args)
+            SpringApplication.run(FromPTBCircuitBreakerKystrixLauncher::class.java, *args)
         }
     }
 

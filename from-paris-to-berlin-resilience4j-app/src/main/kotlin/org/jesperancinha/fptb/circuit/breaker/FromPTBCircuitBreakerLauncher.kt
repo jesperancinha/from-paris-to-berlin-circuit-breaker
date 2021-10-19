@@ -4,12 +4,11 @@ import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 
 @SpringBootApplication
-open class Hello {
+open class FromPTBCircuitBreakerLauncher {
     companion object {
         @JvmStatic
         fun main(args: Array<String>) {
-            println("Hello, World")
-            SpringApplication.run(Hello::class.java, *args)
+            SpringApplication.run(FromPTBCircuitBreakerLauncher::class.java, *args)
         }
     }
 }
