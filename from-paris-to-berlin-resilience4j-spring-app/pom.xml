@@ -9,7 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>from-paris-to-berlin-resilience4j-app</artifactId>
+    <artifactId>from-paris-to-berlin-resilience4j-spring-app</artifactId>
     <packaging>jar</packaging>
 
     <name>From Paris to Berlin Resilience4J Spring Demo</name>

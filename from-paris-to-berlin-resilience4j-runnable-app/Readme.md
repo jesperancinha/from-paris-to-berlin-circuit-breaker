@@ -3,7 +3,7 @@
 
 ## References
 
--   [Kystrix](https://github.com/johanhaleby/kystrix)
+-   [Resilience4j Circuit Breaker](https://resilience4j.readme.io/docs/circuitbreaker)
 
 ## About me 👨🏽‍💻🚀🏳️‍🌈
 

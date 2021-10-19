@@ -58,6 +58,7 @@
         <java.version>17</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <kotlin.version>1.6.0-M1</kotlin.version>
         <kotlin.code.style>official</kotlin.code.style>
 
@@ -79,8 +80,8 @@
     <modules>
         <module>from-paris-to-berlin-resilience4j-runnable-app</module>
         <module>from-paris-to-berlin-hystrix-runnable-app</module>
-        <module>from-paris-to-berlin-resilience4j-app</module>
-        <module>from-paris-to-berlin-resilience4j-aop-app</module>
+        <module>from-paris-to-berlin-resilience4j-spring-app</module>
+        <module>from-paris-to-berlin-resilience4j-aop-spring-app</module>
         <module>from-paris-to-berlin-city-generator</module>
         <module>from-paris-to-berlin-data</module>
     </modules>
@@ -193,6 +194,21 @@
             <dependency>
                 <groupId>io.github.resilience4j</groupId>
                 <artifactId>resilience4j-reactor</artifactId>
+                <version>${resilience4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.resilience4j</groupId>
+                <artifactId>resilience4j-kotlin</artifactId>
+                <version>${resilience4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.resilience4j</groupId>
+                <artifactId>resilience4j-retry</artifactId>
+                <version>${resilience4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.resilience4j</groupId>
+                <artifactId>resilience4j-circuitbreaker</artifactId>
                 <version>${resilience4j.version}</version>
             </dependency>
             <dependency>
