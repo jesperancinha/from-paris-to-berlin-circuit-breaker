@@ -12,7 +12,8 @@
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/f49ddf491c1c4eff8addac23e08b9a91)](https://www.codacy.com/gh/jesperancinha/from-paris-to-berlin-circuit-breaker/dashboard?utm_source=jesperancinha@bitbucket.org&utm_medium=referral&utm_content=jesperancinha/from-paris-to-berlin-circuit-breaker&utm_campaign=Badge_Coverage)
 [![codecov](https://codecov.io/gh/jesperancinha/from-paris-to-berlin-circuit-breaker/branch/master/graph/badge.svg?token=M7ZOccsNUq)](https://codecov.io/gh/jesperancinha/from-paris-to-berlin-circuit-breaker)
-[![Coverage Status](https://coveralls.io/repos/github/jesperancinha/from-paris-to-berlin-circuit-breaker/badge.svg?branch=main)](https://coveralls.io/github/jesperancinha/from-paris-to-berlin-circuit-breaker?branch=main)
+
+[//]: # ([![Coverage Status]&#40;https://coveralls.io/repos/github/jesperancinha/from-paris-to-berlin-circuit-breaker/badge.svg?branch=main&#41;]&#40;https://coveralls.io/github/jesperancinha/from-paris-to-berlin-circuit-breaker?branch=main&#41;)
 
 ---
 
