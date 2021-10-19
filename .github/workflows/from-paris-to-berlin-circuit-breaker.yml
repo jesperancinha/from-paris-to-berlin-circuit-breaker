@@ -5,9 +5,9 @@ name: from-paris-to-berlin-circuit-breaker
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build:

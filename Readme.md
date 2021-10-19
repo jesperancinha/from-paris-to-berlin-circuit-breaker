@@ -6,6 +6,7 @@
 [![Generic badge](https://img.shields.io/static/v1.svg?label=GitHub&message=From%20Paris%20to%20Berlin&color=informational)](https://github.com/jesperancinha/from-paris-to-berlin-circuit-breaker)
 
 [![CircleCI](https://circleci.com/gh/jesperancinha/from-paris-to-berlin-circuit-breaker.svg?style=svg)](https://circleci.com/gh/jesperancinha/from-paris-to-berlin-circuit-breaker)
+[![from-paris-to-berlin-circuit-breaker](https://github.com/jesperancinha/from-paris-to-berlin-circuit-breaker/actions/workflows/from-paris-to-berlin-circuit-breaker.yml/badge.svg)](https://github.com/jesperancinha/from-paris-to-berlin-circuit-breaker/actions/workflows/from-paris-to-berlin-circuit-breaker.yml)
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/db670c80127c412d95d74ec2a10145ff)](https://www.codacy.com/gh/jesperancinha/from-paris-to-berlin-circuit-breaker/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jesperancinha/from-paris-to-berlin-circuit-breaker&amp;utm_campaign=Badge_Grade)
 [![codebeat badge](https://codebeat.co/badges/d02c6697-4f3f-486a-9297-c45fc0f46402)](https://codebeat.co/projects/bitbucket-org-jesperancinha-from-paris-to-berlin-circuit-breaker-master)
