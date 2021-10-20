@@ -29,9 +29,9 @@ class CarControllerTimeLimiter {
     private suspend fun getPublicCar(): Car {
         return timeLimiter.decorateSuspendFunction {
             getPrivateCar()
-        }.let { funct ->
+        }.let { suspendFunction ->
             try {
-                funct()
+                suspendFunction()
             } catch (exception: Exception) {
                 Car("Opel Corsa")
             }

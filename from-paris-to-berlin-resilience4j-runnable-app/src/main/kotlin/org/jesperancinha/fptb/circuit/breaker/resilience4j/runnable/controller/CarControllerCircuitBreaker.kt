@@ -36,9 +36,9 @@ class CarControllerCircuitBreaker {
     private suspend fun getPublicCar(id: Long): Car {
         return circuitBreaker.decorateSuspendFunction {
             getPrivateCar(id)
-        }.let { funct ->
+        }.let { suspendFunction ->
             try {
-                funct()
+                suspendFunction()
             } catch (exception: Exception) {
                 Car("Opel Corsa")
             }
