@@ -108,6 +108,7 @@ open class RoadBlockageService(
     private fun reportError(exception: Exception): Mono<RoadRace> {
         logger.info("---- **** error reported")
         roadRace.getMyCar().delay(10L)
+        roadRace.getMyCar().location = roadRace.getMyCar().formerLocations.random()
         roadRace.errorReports.add("Error reported! at ${LocalDateTime.now()}")
         return Mono.create { it.error(BlockageException()) }
     }
@@ -115,6 +116,7 @@ open class RoadBlockageService(
     private fun reportTimeout(exception: TimeoutException): Mono<RoadRace> {
         logger.info("---- **** timeout reported!")
         roadRace.getMyCar().delay(50L)
+        roadRace.getMyCar().location = roadRace.getMyCar().formerLocations.random()
         roadRace.errorReports.add("Timeout reported! at ${LocalDateTime.now()}")
         return Mono.just(roadRace)
     }
