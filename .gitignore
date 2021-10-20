@@ -28,3 +28,6 @@ hs_err_pid*
 
 # Build
 target
+
+# MAC-OS
+.DS_Store
