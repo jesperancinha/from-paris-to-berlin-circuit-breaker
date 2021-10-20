@@ -41,7 +41,6 @@ class CarController(
             .onErrorResume(TimeoutException::class.java, ::fallback)
     }
 
-
     @GetMapping("/test/{id}")
     private fun getCarsTest(@PathVariable id: Int): Mono<Car> {
         return carService.getCar()

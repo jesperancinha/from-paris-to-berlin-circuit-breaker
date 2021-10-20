@@ -106,7 +106,7 @@ open class RoadBlockageService(
     }
 
     private fun reportError(exception: Exception): Mono<RoadRace> {
-        logger.info("---- **** error reported! I wll try 3 times more just for kicks")
+        logger.info("---- **** error reported")
         roadRace.getMyCar().delay(10L)
         roadRace.errorReports.add("Error reported! at ${LocalDateTime.now()}")
         return Mono.create { it.error(BlockageException()) }
