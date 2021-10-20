@@ -45,3 +45,13 @@ fun Car.toDto(): CarDto = CarDto(
     formerLocations = this.formerLocations.toDtos(),
     secondsHold = (this.downtimeTLMS - (currentTimeStamp() - this.downtimeTSMS)) / 1000)
 
+
+fun Car.moveTo(random: Location) {
+    this.formerLocations.add(this.location)
+    this.location = random
+}
+
+fun Car.randomFw() {
+    val random = this.location.forward.random()
+    moveTo(random)
+}

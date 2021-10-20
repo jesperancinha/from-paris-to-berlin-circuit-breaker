@@ -9,8 +9,10 @@ import mu.KotlinLogging
 import org.jesperancinha.fptb.circuit.breaker.adapters.RoadRace
 import org.jesperancinha.fptb.circuit.breaker.adapters.getMyCar
 import org.jesperancinha.fptb.circuit.breaker.domain.BlockageType
+import org.jesperancinha.fptb.circuit.breaker.domain.Car
 import org.jesperancinha.fptb.circuit.breaker.domain.Location
 import org.jesperancinha.fptb.circuit.breaker.domain.isWaiting
+import org.jesperancinha.fptb.circuit.breaker.domain.randomFw
 import org.jesperancinha.fptb.circuit.breaker.domain.toDto
 import org.jesperancinha.fptb.circuit.breaker.dto.RoadRaceDto
 import org.jesperancinha.fptb.circuit.breaker.exception.BlockageException
@@ -45,6 +47,7 @@ open class RoadBlockageService(
             moveCars()
         }
     }
+
     private val logger = KotlinLogging.logger {}
 
     suspend fun setRoadBlock(location: Location) {
@@ -107,8 +110,8 @@ open class RoadBlockageService(
 
     private fun reportError(exception: Exception): Mono<RoadRace> {
         logger.info("---- **** error reported")
-        roadRace.getMyCar().delay(10L)
-        roadRace.getMyCar().location = roadRace.getMyCar().location.forward.random()
+        roadRace.getMyCar().delay(20L)
+        roadRace.getMyCar().randomFw()
         roadRace.errorReports.add("Error reported! at ${LocalDateTime.now()}")
         return Mono.create { it.error(BlockageException()) }
     }
@@ -116,7 +119,7 @@ open class RoadBlockageService(
     private fun reportTimeout(exception: TimeoutException): Mono<RoadRace> {
         logger.info("---- **** timeout reported!")
         roadRace.getMyCar().delay(50L)
-        roadRace.getMyCar().location = roadRace.getMyCar().location.forward.random()
+        roadRace.getMyCar().randomFw()
         roadRace.errorReports.add("Timeout reported! at ${LocalDateTime.now()}")
         return Mono.just(roadRace)
     }
