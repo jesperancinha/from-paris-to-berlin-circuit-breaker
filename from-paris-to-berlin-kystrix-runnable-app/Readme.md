@@ -4,8 +4,8 @@
 
 ### Timeout
 
-- [http://localhost:8080/cars/2](http://localhost:8080/cars/2)
-- [http://localhost:8080/cars/timeout/2](http://localhost:8080/cars/timeout/2)
+-   [http://localhost:8080/cars/2](http://localhost:8080/cars/2)
+-   [http://localhost:8080/cars/timeout/2](http://localhost:8080/cars/timeout/2)
 
 ## References
 

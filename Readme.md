@@ -57,10 +57,13 @@ This repo is the official support article to my article on medium:
 	
 ## Project Layout
 
-1.  [From Paris to Berlin Kystrix Demo](./from-paris-to-berlin-app) - A simplified Kystrix demo
-2.  [From Paris to Berlin Resilience4J Demo](./from-paris-to-berlin-resilience4j-app) - Creating Circuit Breakers using declarative Resilience4J
-3.  [From Paris to Berlin Resilience4J AOP Demo](./from-paris-to-berlin-resilience4j-aop-app) - Creating Circuit Breakers using AOP(Aspect Oriented Programming) and declarative Resilience4J
-
+1. [From Paris to Berlin Data](./from-paris-to-berlin-data) - Common Data Library used in all executable projects
+2. [From Paris to Brlin City Generator](./from-paris-to-berlin-city-generator) - Generates a City JSON which can be fed to the main application
+3. [From Paris to Berlin Kystrix Demo](./from-paris-to-berlin-kystrix-runnable-app) - A simplified Kystrix demo independently of Spring
+4. [From Paris to Berlin Resilience4J Runnable Demo](./from-paris-to-berlin-resilience4j-runnable-app) - Creating Circuit Breakers using programmatic Resilience4J independently of Spring
+5. [From Paris to Berlin Resilience4J Spring Demo](./from-paris-to-berlin-resilience4j-spring-app) - Creating Circuit Breakers using programmatic Resilience4J using Spring
+6. [From Paris to Berlin Resilience4J AOP Spring Demo](./from-paris-to-berlin-resilience4j-aop-app) - Creating Circuit Breakers using AOP(Aspect Oriented Programming) and declarative Resilience4J
+7. [From Paris to Berlin Web](./from-paris-to-berlin-web) - Front end application to support the Paris to Berlin Game
 
 ## Buy me a coffee
 
