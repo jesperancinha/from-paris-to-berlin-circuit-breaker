@@ -50,7 +50,7 @@ Hystrix is however no longer in development, and instead we have [Resilience4J](
 
 This means that although we can hope that [Kystrix](https://github.com/johanhaleby/kystrix) gets more standardized, it appears to be that [Resilience4J](https://github.com/resilience4j/resilience4j) is the way to go at this time.
 
-This repo is the official support article to my article on medium:
+This repo is also the official support article to my article on medium:
 
 [![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-20/medium-20.png "Medium")](https://medium.com/@jofisaes/from-paris-to-berlin-creating-circuit-breakers-in-kotlin-3c8be96876ca) [From Paris to Berlin — Creating Circuit-Breakers in Kotlin](https://medium.com/@jofisaes/from-paris-to-berlin-creating-circuit-breakers-in-kotlin-3c8be96876ca)
 
