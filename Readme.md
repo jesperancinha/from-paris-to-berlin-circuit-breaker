@@ -3,7 +3,7 @@
 ---
 
 [![Twitter URL](https://img.shields.io/twitter/url?logoColor=blue&style=social&url=https%3A%2F%2Fimg.shields.io%2Ftwitter%2Furl%3Fstyle%3Dsocial)](https://twitter.com/intent/tweet?text=Checkout%20this%20@bitbucket%20repo%20by%20@joaofse%20%F0%9F%91%A8%F0%9F%8F%BD%E2%80%8D%F0%9F%92%BB:%20https://github.com/jesperancinha/from-paris-to-berlin-circuit-breaker)
-[![Generic badge](https://img.shields.io/static/v1.svg?label=GitHub&message=From%20Paris%20to%20Berlin&color=informational)](https://github.com/jesperancinha/from-paris-to-berlin-circuit-breaker)
+[![Generic badge](https://img.shields.io/static/v1.svg?label=GitHub&message=From%20Paris%20to%20Berlin%20🛣&color=informational)](https://github.com/jesperancinha/from-paris-to-berlin-circuit-breaker)
 
 [![CircleCI](https://circleci.com/gh/jesperancinha/from-paris-to-berlin-circuit-breaker.svg?style=svg)](https://circleci.com/gh/jesperancinha/from-paris-to-berlin-circuit-breaker)
 [![from-paris-to-berlin-circuit-breaker](https://github.com/jesperancinha/from-paris-to-berlin-circuit-breaker/actions/workflows/from-paris-to-berlin-circuit-breaker.yml/badge.svg)](https://github.com/jesperancinha/from-paris-to-berlin-circuit-breaker/actions/workflows/from-paris-to-berlin-circuit-breaker.yml)
