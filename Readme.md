@@ -71,6 +71,13 @@ This repo is also the official support article to my article on medium:
 6.  [From Paris to Berlin Resilience4J AOP Spring Demo](./from-paris-to-berlin-resilience4j-aop-app) - Creating Circuit Breakers using AOP(Aspect Oriented Programming) and declarative Resilience4J
 7.  [From Paris to Berlin Web](./from-paris-to-berlin-web) - Front end application to support the Paris to Berlin Game
 
+## Java Setup
+
+```shell
+sdk install java 17-open
+sdk use java 17-open
+```
+
 ## Buy me a coffee
 
 I hope you enjoyed this repository. If you did please buy me a coffee which enables me to constantly improve and make new free content regularly for everyone. Thank you so much!
