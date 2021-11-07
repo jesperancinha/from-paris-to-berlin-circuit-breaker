@@ -1,8 +1,12 @@
 version: "3.7"
 
 networks:
-  newscast:
+  paris_to_berlin_net:
     driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: ${NETWORK_SUBNET}
 
 services:
 
@@ -21,7 +25,8 @@ services:
         reservations:
           memory: 200M
     networks:
-      - newscast
+      paris_to_berlin_net:
+        ipv4_address: ${FPTB_BACK_END_WEB_IP}
 
   from_paris_to_berlin_fe:
     hostname: from_paris_to_berlin_fe
@@ -29,7 +34,7 @@ services:
     build:
       context: from-paris-to-berlin-web/.
     ports:
-      - 9000:9000
+      - "9000:9000"
     restart: on-failure
     deploy:
       resources:
@@ -37,6 +42,8 @@ services:
           memory: 300M
         reservations:
           memory: 300M
+    env_file:
+      - .env
     networks:
-      - newscast
-
+      paris_to_berlin_net:
+        ipv4_address: ${FPTB_FRONT_END_WEB_IP}
