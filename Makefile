@@ -33,3 +33,4 @@ prune-all: stop
 	docker builder prune
 	docker system prune --all --volumes
 case:
+	cd from-paris-to-berlin-demo && ./make-demo.sh
