@@ -60,6 +60,14 @@ This repo is also the official support article to my article on medium:
 
 [![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-20/medium-20.png "Medium")](https://medium.com/@jofisaes/from-paris-to-berlin-creating-circuit-breakers-in-kotlin-3c8be96876ca) [From Paris to Berlin — Creating Circuit-Breakers in Kotlin](https://medium.com/@jofisaes/from-paris-to-berlin-creating-circuit-breakers-in-kotlin-3c8be96876ca)
 
+<div align="center">
+      <a title="From Paris to Berlin — Creating Circuit-Breakers in Kotlin" href="https://medium.com/@jofisaes/from-paris-to-berlin-creating-circuit-breakers-in-kotlin-3c8be96876ca">
+     <img 
+          src="./docs/images/article.paris.berlin.banner.png" 
+          style="width:100%;">
+      </a>
+</div>
+
 	
 ## Project Layout
 

@@ -24,11 +24,13 @@ docker-local:
 	docker-compose up -d --build --remove-orphans
 docker-clean-build-start: docker-clean b docker
 docker-clean-start: docker-clean docker
+docker-delete: stop
+	docker ps -a --format '{{.ID}}' -q --filter="name=from_paris_to_berlin"| xargs -I {}  docker stop {}
+	docker ps -a --format '{{.ID}}' -q --filter="name=from_paris_to_berlin"| xargs -I {}  docker rm {}
 stop:
 	docker-compose down --remove-orphans
-prune-all: stop
-	docker ps -a --format '{{.ID}}' -q | xargs docker stop
-	docker ps -a --format '{{.ID}}' -q | xargs docker rm
+prune-all: docker-delete
+	docker network prune
 	docker system prune --all
 	docker builder prune
 	docker system prune --all --volumes
