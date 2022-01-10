@@ -63,7 +63,7 @@
         <commons-io.version>2.6</commons-io.version>
         <jacoco-maven-plugin.version>0.8.7</jacoco-maven-plugin.version>
         <jackson.version>2.13.0</jackson.version>
-        <spring-context.version>5.3.10</spring-context.version>
+        <spring-context.version>5.3.14</spring-context.version>
         <rest-assured.version>4.4.0</rest-assured.version>
         <kystrix-core.version>0.1.16</kystrix-core.version>
         <spring-boot-starter-webflux.version>2.5.5</spring-boot-starter-webflux.version>
