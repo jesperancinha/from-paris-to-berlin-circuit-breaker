@@ -68,7 +68,7 @@
         <kystrix-core.version>0.1.16</kystrix-core.version>
         <spring-boot-starter-webflux.version>2.6.2</spring-boot-starter-webflux.version>
         <spring-boot-starter-websocket.version>2.4.0</spring-boot-starter-websocket.version>
-        <spring-boot-starter-aop.version>2.5.0</spring-boot-starter-aop.version>
+        <spring-boot-starter-aop.version>2.6.2</spring-boot-starter-aop.version>
         <resilience4j.version>1.7.1</resilience4j.version>
         <kotlinx-coroutines-reactor.version>1.5.2</kotlinx-coroutines-reactor.version>
         <kotlin-logging-jvm.version>2.0.11</kotlin-logging-jvm.version>
