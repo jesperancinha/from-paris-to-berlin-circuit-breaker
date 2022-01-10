@@ -70,7 +70,7 @@
         <spring-context.version>5.3.10</spring-context.version>
         <rest-assured.version>4.4.0</rest-assured.version>
         <kystrix-core.version>0.1.16</kystrix-core.version>
-        <spring-boot-starter-webflux.version>2.5.5</spring-boot-starter-webflux.version>
+        <spring-boot-starter-webflux.version>2.6.2</spring-boot-starter-webflux.version>
         <spring-boot-starter-websocket.version>2.4.0</spring-boot-starter-websocket.version>
         <spring-boot-starter-aop.version>2.5.0</spring-boot-starter-aop.version>
         <resilience4j.version>1.7.1</resilience4j.version>
