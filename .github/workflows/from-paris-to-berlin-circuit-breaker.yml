@@ -23,11 +23,11 @@ jobs:
     - name: Build and Test
       run:  mvn clean install jacoco:prepare-agent package jacoco:report
 
-    - name: Use Node.js
+    - name: Node.js Build and Test
       uses: actions/setup-node@v1
       with:
         node-version: '12.x'
-    - run: cd from-paris-to-berlin-web && npm install && npm run build
+      run: cd from-paris-to-berlin-web && yarn install && npm run build
 
     - name: Coverage Reports
       run: mvn omni-coveragereporter:report
