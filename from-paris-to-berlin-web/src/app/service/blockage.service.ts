@@ -1,7 +1,7 @@
-import {catchError, retry} from 'rxjs/internal/operators';
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {handleError} from './error.handler';
+import {catchError, retry} from 'rxjs';
 
 const localUrl = '/api/fptb/blockage/moveToCity/';
 
