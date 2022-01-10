@@ -24,7 +24,7 @@
     "gojs": "^2.1.52",
     "gojs-angular": "^2.0.4",
     "ng2-stomp-service": "^1.2.2",
-    "rxjs": "~6.6.0",
+    "rxjs": "~7.5.1",
     "sockjs-client": "^1.5.2",
     "stompjs": "^2.3.3",
     "tslib": "^2.3.0",
