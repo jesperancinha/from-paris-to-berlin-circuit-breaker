@@ -57,18 +57,18 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
-        <kotlin.version>1.6.0-M1</kotlin.version>
+        <kotlin.version>1.6.10</kotlin.version>
         <kotlin.code.style>official</kotlin.code.style>
 
         <commons-io.version>2.6</commons-io.version>
         <jacoco-maven-plugin.version>0.8.7</jacoco-maven-plugin.version>
-        <jackson.version>2.13.0</jackson.version>
+        <jackson.version>2.13.1</jackson.version>
         <spring-context.version>5.3.14</spring-context.version>
         <rest-assured.version>4.4.0</rest-assured.version>
         <kystrix-core.version>0.1.16</kystrix-core.version>
         <spring-boot-starter-webflux.version>2.6.2</spring-boot-starter-webflux.version>
         <spring-boot-starter-websocket.version>2.4.0</spring-boot-starter-websocket.version>
-        <spring-boot-starter-aop.version>2.5.0</spring-boot-starter-aop.version>
+        <spring-boot-starter-aop.version>2.6.2</spring-boot-starter-aop.version>
         <resilience4j.version>1.7.1</resilience4j.version>
         <kotlinx-coroutines-reactor.version>1.5.2</kotlinx-coroutines-reactor.version>
         <kotlin-logging-jvm.version>2.0.11</kotlin-logging-jvm.version>
