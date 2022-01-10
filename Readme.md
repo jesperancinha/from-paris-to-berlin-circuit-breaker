@@ -85,6 +85,16 @@ sdk install java 17-open
 sdk use java 17-open
 ```
 
+## Coverage report Graphs
+
+<div align="center">
+<img width="30%" src="https://codecov.io/gh/jesperancinha/from-paris-to-berlin-circuit-breaker/branch/main/graphs/sunburst.svg"/>
+<img width="30%" src="https://codecov.io/gh/jesperancinha/from-paris-to-berlin-circuit-breaker/branch/main/graphs/tree.svg"/>
+</div>
+<div align="center">
+<img width="60%" src="https://codecov.io/gh/jesperancinha/from-paris-to-berlin-circuit-breaker/branch/main/graphs/icicle.svg"/>
+</div>
+
 ## Buy me a coffee
 
 I hope you enjoyed this repository. If you did, you can optionally please buy me a coffee, which supports me to constantly improve and make new free content regularly for everyone. Thank you so much!
