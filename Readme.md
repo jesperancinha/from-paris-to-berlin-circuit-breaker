@@ -14,7 +14,7 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/jesperancinha/from-paris-to-berlin-circuit-breaker/badge.svg)](https://snyk.io/test/github/jesperancinha/from-paris-to-berlin-circuit-breaker)
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/db670c80127c412d95d74ec2a10145ff)](https://www.codacy.com/gh/jesperancinha/from-paris-to-berlin-circuit-breaker/dashboard?utm_source=github.com&utm_medium=referral&utm_content=jesperancinha/from-paris-to-berlin-circuit-breaker&utm_campaign=Badge_Coverage)
-[![codecov](https://codecov.io/gh/jesperancinha/from-paris-to-berlin-circuit-breaker/branch/master/graph/badge.svg?token=M7ZOccsNUq)](https://codecov.io/gh/jesperancinha/from-paris-to-berlin-circuit-breaker)
+[![codecov](https://codecov.io/gh/jesperancinha/from-paris-to-berlin-circuit-breaker/branch/main/graph/badge.svg?token=M7ZOccsNUq)](https://codecov.io/gh/jesperancinha/from-paris-to-berlin-circuit-breaker)
 [![Coverage Status](https://coveralls.io/repos/github/jesperancinha/from-paris-to-berlin-circuit-breaker/badge.svg?branch=main)](https://coveralls.io/github/jesperancinha/from-paris-to-berlin-circuit-breaker?branch=main)
 
 [![GitHub language count](https://img.shields.io/github/languages/count/jesperancinha/from-paris-to-berlin-circuit-breaker.svg)](#)
