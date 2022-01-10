@@ -37,16 +37,14 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.eluder.coveralls</groupId>
-                <artifactId>coveralls-maven-plugin</artifactId>
-                <version>${coveralls-maven-plugin.version}</version>
-                <dependencies>
-                    <dependency>
-                        <groupId>javax.xml.bind</groupId>
-                        <artifactId>jaxb-api</artifactId>
-                        <version>${jaxb-api.version}</version>
-                    </dependency>
-                </dependencies>
+                <groupId>org.jesperancinha.plugins</groupId>
+                <artifactId>omni-coveragereporter-maven-plugin</artifactId>
+                <version>${omni-coveragereporter-maven-plugin.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin.version}</version>
             </plugin>
         </plugins>
     </build>
@@ -59,26 +57,26 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
-        <kotlin.version>1.6.0-M1</kotlin.version>
+        <kotlin.version>1.6.10</kotlin.version>
         <kotlin.code.style>official</kotlin.code.style>
 
         <commons-io.version>2.6</commons-io.version>
         <jacoco-maven-plugin.version>0.8.7</jacoco-maven-plugin.version>
-        <coveralls-maven-plugin.version>4.3.0</coveralls-maven-plugin.version>
-        <jaxb-api.version>2.3.1</jaxb-api.version>
-        <jackson.version>2.13.0</jackson.version>
-        <spring-context.version>5.3.10</spring-context.version>
+        <jackson.version>2.13.1</jackson.version>
+        <spring-context.version>5.3.14</spring-context.version>
         <rest-assured.version>4.4.0</rest-assured.version>
         <kystrix-core.version>0.1.16</kystrix-core.version>
-        <spring-boot-starter-webflux.version>2.5.5</spring-boot-starter-webflux.version>
+        <spring-boot-starter-webflux.version>2.6.2</spring-boot-starter-webflux.version>
         <spring-boot-starter-websocket.version>2.4.0</spring-boot-starter-websocket.version>
-        <spring-boot-starter-aop.version>2.5.0</spring-boot-starter-aop.version>
+        <spring-boot-starter-aop.version>2.6.2</spring-boot-starter-aop.version>
         <resilience4j.version>1.7.1</resilience4j.version>
         <kotlinx-coroutines-reactor.version>1.5.2</kotlinx-coroutines-reactor.version>
-        <kotlin-logging-jvm.version>2.0.11</kotlin-logging-jvm.version>
+        <kotlin-logging-jvm.version>2.1.21</kotlin-logging-jvm.version>
         <kotlinx-coroutines-core.version>1.5.1</kotlinx-coroutines-core.version>
-        <reactor-core.version>3.4.11</reactor-core.version>
-        <gson.version>2.8.8</gson.version>
+        <reactor-core.version>3.4.13</reactor-core.version>
+        <gson.version>2.8.9</gson.version>
+        <omni-coveragereporter-maven-plugin.version>0.0.10</omni-coveragereporter-maven-plugin.version>
+        <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
     </properties>
 
     <modules>
