@@ -17,13 +17,11 @@ jobs:
     steps:
       - checkout
 
-      - name: Build
-        run: mvn clean install
+      - run: mvn clean install
 
       - save_cache:
           paths:
             - ~/.m2
           key: v1-dependencies-{{ checksum "pom.xml" }}
 
-      - name: Coverage Report Creation
-        run: jacoco:prepare-agent package jacoco:report
+      - run: mvn jacoco:prepare-agent package jacoco:report
