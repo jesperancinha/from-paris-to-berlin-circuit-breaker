@@ -3770,11 +3770,12 @@ globby@^6.1.0:
     pify "^2.0.0"
     pinkie-promise "^2.0.0"
 
-gojs-angular@^1.0.19:
-  version "1.0.19"
-  resolved "https://registry.npmjs.org/gojs-angular/-/gojs-angular-1.0.19.tgz"
-  integrity sha512-JzVT19SKf6A0vdh5cZLfUAzcO/V4ENl3SdvMYZ6VXvmKzYtKL51RFu64TWKnTCJQlVWHHxz1oUwvVkzF589ZWQ==
+gojs-angular@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/gojs-angular/-/gojs-angular-2.0.4.tgz#bcf00d330ae007c2533af2b9050f25605d481351"
+  integrity sha512-5ZHjAX+wUXGi5i03z+yk+lNKYBdLdANrknpQBYK4+pA3pxryhmMmPEN+ZXM0MjpaWcccIyM9dRmdLeQwa71Uxg==
   dependencies:
+    immer "^9.0.1"
     tslib "^2.0.0"
 
 gojs@^2.1.52:
@@ -4039,6 +4040,11 @@ image-size@~0.5.0:
   version "0.5.5"
   resolved "https://registry.npmjs.org/image-size/-/image-size-0.5.5.tgz"
   integrity sha1-Cd/Uq50g4p6xw+gLiZA3jfnjy5w=
+
+immer@^9.0.1:
+  version "9.0.7"
+  resolved "https://registry.yarnpkg.com/immer/-/immer-9.0.7.tgz#b6156bd7db55db7abc73fd2fdadf4e579a701075"
+  integrity sha512-KGllzpbamZDvOIxnmJ0jI840g7Oikx58lBPWV0hUh7dtAyZpFqqrBZdKka5GlTwMTZ1Tjc/bKKW4VSFAt6BqMA==
 
 import-fresh@^3.2.1:
   version "3.3.0"
