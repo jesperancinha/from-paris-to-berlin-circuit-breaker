@@ -20,12 +20,13 @@ jobs:
         java-version: '17'
         distribution: 'adopt'
 
-    - name: Build and Test
+    - name: Maven Build and Test
       run:  mvn clean install jacoco:prepare-agent package jacoco:report
 
-    - name: Use Node.js
+    - name: Set up Node 12
       uses: actions/setup-node@v1
       with:
         node-version: '12.x'
-    - run: cd from-paris-to-berlin-web && npm install && npm run build
 
+    - name: Node.js Build and Test
+      run: cd from-paris-to-berlin-web && yarn install && npm run build
