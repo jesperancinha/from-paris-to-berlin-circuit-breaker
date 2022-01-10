@@ -17,14 +17,13 @@ jobs:
     steps:
       - checkout
 
-      - run: mvn clean install
+      - name: Build
+        run: mvn clean install
 
       - save_cache:
           paths:
             - ~/.m2
           key: v1-dependencies-{{ checksum "pom.xml" }}
 
-      - run: mvn package
-#       - run: mvn coveralls:report -Dconsolerizer.show=false -DrepoToken=${COVERALLS_REPO_TOKEN}
-      - run: bash <(curl -s https://codecov.io/bash)
-      - run: bash <(curl -Ls https://coverage.codacy.com/get.sh) report -l Java $(find **/jacoco*.xml -printf '-r %p ')
+      - name: Coverage Report Creation
+        run: jacoco:prepare-agent package jacoco:report
