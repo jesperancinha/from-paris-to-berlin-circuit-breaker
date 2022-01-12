@@ -1,4 +1,12 @@
+# From Paris to Berlin Web
 
+## Installation
+
+```shell
+ncu -u
+npm update
+yarn
+```
 
 ## References
 
