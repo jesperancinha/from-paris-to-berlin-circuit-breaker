@@ -95,12 +95,6 @@ sdk use java 17-open
 <img width="60%" src="https://codecov.io/gh/jesperancinha/from-paris-to-berlin-circuit-breaker/branch/main/graphs/icicle.svg"/>
 </div>
 
-## Buy me a coffee
-
-I hope you enjoyed this repository. If you did, you can optionally please buy me a coffee, which supports me to constantly improve and make new free content regularly for everyone. Thank you so much!
-
-[![Buy me a coffee](https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&emoji=&slug=jesperancinha&button_colour=046c46&font_colour=ffffff&font_family=Cookie&outline_colour=ffffff&coffee_colour=FFDD00 "title")](https://www.buymeacoffee.com/jesperancinha)
-
 ## References
 
 -   [Improve your Kotlin code with Detekt](https://medium.com/frichtitech/improve-your-kotlin-code-with-detekt-65795656b1ed)
@@ -110,6 +104,12 @@ I hope you enjoyed this repository. If you did, you can optionally please buy me
 -   [johanhaleby / kystrix](https://github.com/johanhaleby/kystrix)
 -   [resilience4j / resilience4j](https://github.com/resilience4j/resilience4j)
 -   [CircuitBreaker - Getting started with resilience4j-circuitbreaker](https://resilience4j.readme.io/docs/circuitbreaker)
+
+## Buy me a coffee
+
+I hope you enjoyed this repository. If you did, you can optionally please buy me a coffee, which supports me in constantly improve and make new free content regularly for everyone. Thank you so much!
+
+[![Buy me a coffee](https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&emoji=&slug=jesperancinha&button_colour=046c46&font_colour=ffffff&font_family=Cookie&outline_colour=ffffff&coffee_colour=FFDD00 "title")](https://www.buymeacoffee.com/jesperancinha)
 
 ## About me 👨🏽‍💻🚀🏳️‍🌈
 
