@@ -75,7 +75,7 @@
         <omni-coveragereporter-maven-plugin.version>0.3.0</omni-coveragereporter-maven-plugin.version>
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
         <spring-boot.version>2.6.4</spring-boot.version>
-        <kotest.version>5.1.0</kotest.version>
+        <kotest.version>5.2.1</kotest.version>
     </properties>
 
     <modules>
