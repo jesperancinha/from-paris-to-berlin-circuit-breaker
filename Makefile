@@ -38,7 +38,7 @@ case:
 	cd from-paris-to-berlin-demo && ./make-demo.sh
 update:
 	npm install -g npm-check-updates
-	cd from-paris-to-berlin-web && ncu -u && yarn
+	cd from-paris-to-berlin-web && npx browserslist --update-db && ncu -u && yarn
 install-update: update
 	npm i -g snyk
 audit:
