@@ -68,7 +68,7 @@
         <rest-assured.version>5.0.0</rest-assured.version>
         <kystrix-core.version>0.1.16</kystrix-core.version>
         <resilience4j.version>1.7.1</resilience4j.version>
-        <kotlinx-coroutines-reactor.version>1.6.0-native-mt</kotlinx-coroutines-reactor.version>
+        <kotlinx-coroutines-reactor.version>1.6.1-native-mt</kotlinx-coroutines-reactor.version>
         <kotlin-logging-jvm.version>2.1.21</kotlin-logging-jvm.version>
         <kotlinx-coroutines-core.version>1.6.0-native-mt</kotlinx-coroutines-core.version>
         <reactor-core.version>3.4.16</reactor-core.version>
