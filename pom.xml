@@ -62,7 +62,7 @@
 
         <commons-io.version>2.6</commons-io.version>
         <jacoco-maven-plugin.version>0.8.8</jacoco-maven-plugin.version>
-        <jackson.version>2.13.2</jackson.version>
+        <jackson.version>2.13.3</jackson.version>
         <jackson.databind.version>2.13.3</jackson.databind.version>
         <spring-context.version>5.3.20</spring-context.version>
         <rest-assured.version>5.0.1</rest-assured.version>
