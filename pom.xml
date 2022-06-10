@@ -65,7 +65,7 @@
         <jackson.version>2.13.3</jackson.version>
         <jackson.databind.version>2.13.3</jackson.databind.version>
         <spring-context.version>5.3.20</spring-context.version>
-        <rest-assured.version>5.1.0</rest-assured.version>
+        <rest-assured.version>5.1.1</rest-assured.version>
         <kystrix-core.version>0.1.16</kystrix-core.version>
         <resilience4j.version>1.7.1</resilience4j.version>
         <kotlinx-coroutines-reactor.version>1.6.1-native-mt</kotlinx-coroutines-reactor.version>
