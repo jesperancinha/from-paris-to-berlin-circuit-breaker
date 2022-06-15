@@ -6524,10 +6524,10 @@ test-exclude@^6.0.0:
     glob "^7.1.4"
     minimatch "^3.0.4"
 
-test@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/test/-/test-3.0.0.tgz#fdfa090c3e0b77a2283e2e6c0d69c585fd826ee3"
-  integrity sha512-MmKSHRj6K5aVu8Kn8HctQIxwZqjeo9M2AzirnzJv4f0JeagyFoSN4T2EGFALota4Vw2lrvcvt83TkR8INMNHaQ==
+test@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/test/-/test-3.0.1.tgz#d5cfbec291f48d427ea9fe809aef072fc7f25be7"
+  integrity sha512-4wOJGleojd+hwR9a/l02damXIf6ED4ZPJ1MYFKgBUfIDC4fCMZLErtWT4CpuyEsI5AOaxX6vlATPR4qetUxf/A==
   dependencies:
     minimist "^1.2.6"
     string.prototype.replaceall "^1.0.6"
