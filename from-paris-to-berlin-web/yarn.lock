@@ -6521,10 +6521,10 @@ test-exclude@^6.0.0:
     glob "^7.1.4"
     minimatch "^3.0.4"
 
-test@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/test/-/test-3.1.0.tgz#3605b6204561a0e49d85a8ed6192ed6b270df81e"
-  integrity sha512-3lO5M33Y4JoWYNzhJeKBSaZCcyFf2LJS5EsRwI5J//keVINQAWBybLZXoXZNHm8fFe2kcASb2EfjEodDY4kqRg==
+test@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/test/-/test-3.2.0.tgz#f375dcc183d28a483cfe7bd05561236f59dd0d74"
+  integrity sha512-c09Wx2+QkX4aHsGV/LCJGIEnQWZhdXixDtFmHvcVLZbItVZJIEOuFv0Vv+GdKPsMkuZ8DeAuGhx6gT+xBN8E3g==
   dependencies:
     minimist "^1.2.6"
     string.prototype.replaceall "^1.0.6"
