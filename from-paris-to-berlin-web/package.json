@@ -23,7 +23,7 @@
     "@stomp/stompjs": "^6.1.2",
     "build": "^0.1.4",
     "gojs": "^2.2.14",
-    "gojs-angular": "^2.0.4",
+    "gojs-angular": "^2.0.5",
     "ng2-stomp-service": "^1.2.2",
     "rxjs": "~7.5.6",
     "sockjs-client": "^1.6.1",
