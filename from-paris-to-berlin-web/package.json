@@ -31,7 +31,7 @@
     "test": "^3.2.1",
     "tslib": "^2.4.0",
     "zone.js": "~0.11.8",
-    "typescript": ">=4.6.4"
+    "typescript": ">=4.7.4"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~14.1.2",
