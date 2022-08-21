@@ -29,5 +29,34 @@ hs_err_pid*
 # Build
 target
 
-# MAC-OS
+# Node
+node_modules
+.angular
+
+# MacOS
+.DS_store
 .DS_Store
+
+# Logs
+logs
+
+# Security
+*.pem
+objects.private.key
+objects.public.key
+
+# Cypress
+videos
+screenshots
+
+# VSCode
+bin
+.VSCode
+.vscode
+
+# Generated Files
+okta.config.ts
+
+# Draw.IO
+*.bkp
+*.dtmp
