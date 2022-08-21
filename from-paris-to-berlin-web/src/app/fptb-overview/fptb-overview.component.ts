@@ -237,7 +237,7 @@ export class FptbOverviewComponent implements OnInit {
     this.dia = dia;
 
     dia.addDiagramListener("ObjectSingleClicked", (ev) => {
-      let cityId = ev.subject.panel.ob.key;
+      let cityId = ev.subject.panel.key;
       FptbOverviewComponent.blockageService.moveMyCarTo(cityId)
     });
 
