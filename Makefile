@@ -56,6 +56,24 @@ prune-all: docker-delete
 	docker system prune --all --volumes
 case:
 	cd from-paris-to-berlin-demo && ./make-demo.sh
+audit:
+	cd from-paris-to-berlin-web && npm audit fix && yarn
+cypress-install:
+	cd e2e && make build
+cypress-open:
+	cd e2e && make cypress-open
+cypress-open-docker:
+	cd e2e && make cypress-open-docker
+cypress-electron:
+	cd e2e && make cypress-electron
+cypress-chrome:
+	cd e2e && make cypress-chrome
+cypress-firefox:
+	cd e2e && make cypress-firefox
+cypress-firefox-full:
+	cd e2e && make cypress-firefox-full
+cypress-edge:
+	cd e2e && make cypress-edge
 update:
 	npm install -g npm-check-updates
 	cd from-paris-to-berlin-web && npx browserslist --update-db && ncu -u && yarn

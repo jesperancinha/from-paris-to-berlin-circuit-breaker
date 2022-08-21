@@ -9,7 +9,7 @@ services:
       - ./e2e:/opt/e2e
     user: "root:1000"
     networks:
-      - from-paris-to-berlin-kystrix_paris_to_berlin_net
+      - paris_to_berlin_net
 
   cypress-builder:
     container_name: from-paris-to-berlin-cypress-build
@@ -19,4 +19,4 @@ services:
       - ./e2e:/opt/e2e
     user: "root:1000"
     networks:
-      - from-paris-to-berlin-kystrix_paris_to_berlin_net
+      - paris_to_berlin_net
