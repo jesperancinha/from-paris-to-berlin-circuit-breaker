@@ -10,7 +10,7 @@ networks:
 
 services:
 
-  from_paris_to_berlin_web:
+  from_paris_to_berlin_service:
     ports:
       - "8080:8080"
 

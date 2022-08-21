@@ -44,7 +44,7 @@ docker-delete: stop
 	docker ps -a --format '{{.ID}}' -q --filter="name=from_paris_to_berlin"| xargs -I {}  docker stop {}
 	docker ps -a --format '{{.ID}}' -q --filter="name=from_paris_to_berlin"| xargs -I {}  docker rm {}
 docker-action: build-npm-docker
-	docker-compose -f docker-compose.yml -f docker-compose.builder.yml up -d from_paris_to_berlin_web from_paris_to_berlin_fe
+	docker-compose -f docker-compose.yml -f docker-compose.builder.yml up -d from_paris_to_berlin_service from_paris_to_berlin_fe
 docker-clean-network:
 	docker network prune
 stop:

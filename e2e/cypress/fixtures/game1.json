@@ -1,0 +1,145 @@
+{
+  "id": 1,
+  "name": "Paris",
+  "forward": [
+    {
+      "id": 2,
+      "name": "Soissons",
+      "forward": [
+        {
+          "id": 5,
+          "name": "Aken",
+          "forward": [
+            {
+              "id": 8,
+              "name": "Berlin",
+              "forward": [],
+              "blockageTimeTable": []
+            }
+          ],
+          "blockageTimeTable": []
+        },
+        {
+          "id": 6,
+          "name": "Heerlen",
+          "forward": [
+            {
+              "id": 8,
+              "name": "Berlin",
+              "forward": [],
+              "blockageTimeTable": []
+            }
+          ],
+          "blockageTimeTable": []
+        },
+        {
+          "id": 7,
+          "name": "Düren",
+          "forward": [
+            {
+              "id": 8,
+              "name": "Berlin",
+              "forward": [],
+              "blockageTimeTable": []
+            }
+          ],
+          "blockageTimeTable": []
+        }
+      ],
+      "blockageTimeTable": []
+    },
+    {
+      "id": 3,
+      "name": "Compiègne",
+      "forward": [
+        {
+          "id": 5,
+          "name": "Aken",
+          "forward": [
+            {
+              "id": 8,
+              "name": "Berlin",
+              "forward": [],
+              "blockageTimeTable": []
+            }
+          ],
+          "blockageTimeTable": []
+        },
+        {
+          "id": 6,
+          "name": "Heerlen",
+          "forward": [
+            {
+              "id": 8,
+              "name": "Berlin",
+              "forward": [],
+              "blockageTimeTable": []
+            }
+          ],
+          "blockageTimeTable": []
+        },
+        {
+          "id": 7,
+          "name": "Düren",
+          "forward": [
+            {
+              "id": 8,
+              "name": "Berlin",
+              "forward": [],
+              "blockageTimeTable": []
+            }
+          ],
+          "blockageTimeTable": []
+        }
+      ],
+      "blockageTimeTable": []
+    },
+    {
+      "id": 4,
+      "name": "Reims",
+      "forward": [
+        {
+          "id": 5,
+          "name": "Aken",
+          "forward": [
+            {
+              "id": 8,
+              "name": "Berlin",
+              "forward": [],
+              "blockageTimeTable": []
+            }
+          ],
+          "blockageTimeTable": []
+        },
+        {
+          "id": 6,
+          "name": "Heerlen",
+          "forward": [
+            {
+              "id": 8,
+              "name": "Berlin",
+              "forward": [],
+              "blockageTimeTable": []
+            }
+          ],
+          "blockageTimeTable": []
+        },
+        {
+          "id": 7,
+          "name": "Düren",
+          "forward": [
+            {
+              "id": 8,
+              "name": "Berlin",
+              "forward": [],
+              "blockageTimeTable": []
+            }
+          ],
+          "blockageTimeTable": []
+        }
+      ],
+      "blockageTimeTable": []
+    }
+  ],
+  "blockageTimeTable": []
+}

@@ -10,9 +10,9 @@ networks:
 
 services:
 
-  from_paris_to_berlin_web:
-    hostname: from_paris_to_berlin_web
-    container_name: from_paris_to_berlin_web
+  from_paris_to_berlin_service:
+    hostname: from_paris_to_berlin_service
+    container_name: from_paris_to_berlin_service
     build:
       context: from-paris-to-berlin-resilience4j-aop-spring-app/.
     restart: on-failure

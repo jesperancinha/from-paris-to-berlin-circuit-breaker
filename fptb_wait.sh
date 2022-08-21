@@ -23,5 +23,5 @@ function checkServiceByNameAndMessage() {
     echo "Succeeded $name Service after $counter tries!"
 }
 
-checkServiceByNameAndMessage from_paris_to_berlin_web 'Tomcat started on port(s): 8080'
+checkServiceByNameAndMessage from_paris_to_berlin_service 'Tomcat started on port(s): 8080'
 checkServiceByNameAndMessage from_paris_to_berlin_fe 'nginx: configuration file /etc/nginx/nginx.conf test is successful'
