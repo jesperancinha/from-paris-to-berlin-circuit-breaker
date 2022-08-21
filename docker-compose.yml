@@ -15,8 +15,6 @@ services:
     container_name: from_paris_to_berlin_web
     build:
       context: from-paris-to-berlin-resilience4j-aop-spring-app/.
-    ports:
-      - "8080:8080"
     restart: on-failure
     deploy:
       resources:
@@ -33,8 +31,6 @@ services:
     container_name: from_paris_to_berlin_fe
     build:
       context: from-paris-to-berlin-web/.
-    ports:
-      - "9000:9000"
     restart: on-failure
     deploy:
       resources:
