@@ -1,4 +1,4 @@
-name: from-paris-to-berlin-circuit-breaker-pull_request
+name: PR from-paris-to-berlin-circuit-breaker-pull_request
 
 on:
   pull_request:

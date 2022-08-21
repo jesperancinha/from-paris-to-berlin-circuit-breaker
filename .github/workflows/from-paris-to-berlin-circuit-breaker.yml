@@ -1,4 +1,4 @@
-name: from-paris-to-berlin-circuit-breaker
+name: Build from-paris-to-berlin-circuit-breaker
 
 on:
   push:
