@@ -52,7 +52,7 @@ class CarController(
 
     @GetMapping("/carros/{id}")
     private fun getCarros(@PathVariable id: Long): Mono<Car> {
-        return Mono.just(Car("Laborghini"))
+        return Mono.just(Car("Lamborghini"))
     }
 
     private fun fallback(ex: Throwable): Mono<Car> {

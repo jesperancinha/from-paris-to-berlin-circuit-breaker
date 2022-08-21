@@ -6,6 +6,22 @@ build-maven:
 	mvn clean install -DskipTests
 build-test:
 	mvn clean install
+build-npm-docker:
+	cd from-paris-to-berlin-web && [ -d node_modules ] || mkdir node_modules
+	cd from-paris-to-berlin-web && chmod 777 node_modules
+	touch from-paris-to-berlin-web/yarn.lock
+	chmod 777 from-paris-to-berlin-web
+	chmod 777 from-paris-to-berlin-web/yarn.lock
+	docker-compose -f docker-compose.yml -f docker-compose.builder.yml build gui-builder
+	docker-compose -f docker-compose.yml -f docker-compose.builder.yml up --exit-code-from gui-builder gui-builder
+build-npm-cypress-docker:
+	cd e2e && [ -d node_modules ] || mkdir node_modules
+	cd e2e && chmod 777 node_modules
+	touch e2e/yarn.lock
+	chmod 777 e2e
+	chmod 777 e2e/yarn.lock
+	docker-compose -f docker-compose.yml -f docker-compose.builder.yml build cypress-builder
+	docker-compose -f docker-compose.yml -f docker-compose.builder.yml up --exit-code-from cypress-builder cypress-builder
 test:
 	mvn test
 test-maven:
@@ -27,6 +43,10 @@ docker-clean-start: docker-clean docker
 docker-delete: stop
 	docker ps -a --format '{{.ID}}' -q --filter="name=from_paris_to_berlin"| xargs -I {}  docker stop {}
 	docker ps -a --format '{{.ID}}' -q --filter="name=from_paris_to_berlin"| xargs -I {}  docker rm {}
+docker-action: build-npm-docker
+	docker-compose -f docker-compose.yml -f docker-compose.builder.yml up -d from_paris_to_berlin_web from_paris_to_berlin_fe
+docker-clean-network:
+	docker network prune
 stop:
 	docker-compose down --remove-orphans
 prune-all: docker-delete
@@ -43,3 +63,12 @@ install-update: update
 	npm i -g snyk
 audit:
 	cd from-paris-to-berlin-web && npm audit fix && yarn
+fptb-wait:
+	bash fptb_wait.sh
+dcd:
+	docker-compose down --remove-orphans
+dcp:
+	docker-compose stop
+dcup: dcd docker-clean docker fptb-wait
+dcup-full-action: dcd docker-clean no-test build-npm docker fptb-wait
+dcup-action: dcp docker-action fptb-wait

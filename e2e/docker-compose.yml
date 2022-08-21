@@ -1,0 +1,46 @@
+version: '3.7'
+services:
+  e2e-electron:
+    image: "cypress/included:10.6.0"
+    working_dir: /e2e
+    command: "--browser electron --config baseUrl=http://192.168.0.12:8080"
+    volumes:
+      - ./e2e:/e2e
+    networks:
+      - from-paris-to-berlin-kystrix_paris_to_berlin_net
+
+  e2e-chrome:
+    image: "cypress/included:10.6.0"
+    working_dir: /e2e
+    command: "--browser chrome --config baseUrl=http://192.168.0.12:8080"
+    volumes:
+      - ./e2e:/e2e
+    networks:
+      - from-paris-to-berlin-kystrix_paris_to_berlin_net
+
+  e2e-firefox:
+    image: "cypress/included:10.6.0"
+    working_dir: /e2e
+    command: "--browser firefox --config baseUrl=http://192.168.0.12:8080"
+    volumes:
+      - ./e2e:/e2e
+    networks:
+      - from-paris-to-berlin-kystrix_paris_to_berlin_net
+
+  e2e-firefox-full:
+    image: "cypress/included:10.6.0"
+    working_dir: /e2e
+    command: "--config-file full.cypress.config.ts --browser firefox --config baseUrl=http://192.168.0.12:8080"
+    volumes:
+      - ./e2e:/e2e
+    networks:
+      - from-paris-to-berlin-kystrix_paris_to_berlin_net
+
+  e2e-edge:
+    image: "cypress/included:10.6.0"
+    working_dir: /e2e
+    command: "--browser edge --config baseUrl=http://192.168.0.12:8080"
+    volumes:
+      - ./e2e:/e2e
+    networks:
+      - from-paris-to-berlin-kystrix_paris_to_berlin_net

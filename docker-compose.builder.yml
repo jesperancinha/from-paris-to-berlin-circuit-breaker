@@ -1,0 +1,22 @@
+version: "3.7"
+services:
+  gui-builder:
+    container_name: from-paris-to-berlin-web-build
+    build:
+      context: ./docker-files/build-node/.
+    volumes:
+      - ./from-paris-to-berlin-web:/opt/from-paris-to-berlin-web
+      - ./e2e:/opt/e2e
+    user: "root:1000"
+    networks:
+      - from-paris-to-berlin-kystrix_paris_to_berlin_net
+
+  cypress-builder:
+    container_name: from-paris-to-berlin-cypress-build
+    build:
+      context: ./docker-files/build-cypress/.
+    volumes:
+      - ./e2e:/opt/e2e
+    user: "root:1000"
+    networks:
+      - from-paris-to-berlin-kystrix_paris_to_berlin_net

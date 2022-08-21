@@ -53,6 +53,6 @@ class CarControllerTimeLimiter {
 
     @GetMapping("/suspend/{id}")
     private fun getCarros(@PathVariable id: Long): Car {
-        return Car("Laborghini")
+        return Car("Lamborghini")
     }
 }
