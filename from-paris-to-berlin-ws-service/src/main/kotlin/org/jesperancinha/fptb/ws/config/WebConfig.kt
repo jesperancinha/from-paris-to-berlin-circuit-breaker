@@ -1,4 +1,4 @@
-package org.jesperancinha.fptb.circuit.breaker.config
+package org.jesperancinha.fptb.ws.config
 
 import org.springframework.context.annotation.Configuration
 import org.springframework.messaging.simp.config.MessageBrokerRegistry
@@ -21,7 +21,7 @@ open class WebSocketConfig : WebSocketMessageBrokerConfigurer {
     override fun registerStompEndpoints(registry: StompEndpointRegistry) {
         registry
             .addEndpoint("/broker")
-            .setAllowedOrigins("http://localhost:4200")
+            .setAllowedOrigins("http://localhost:4200", "http://localhost:9000")
             .withSockJS()
     }
 }

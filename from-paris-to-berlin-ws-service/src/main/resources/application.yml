@@ -1,0 +1,13 @@
+server:
+  servlet.context-path: /api/fptb
+  port: 8081
+
+hazelcast:
+  serialization:
+    serializers:
+      - type-class: Location
+        class-name: LocationStreamSerializer
+      - type-class: Car
+        class-name: CarStreamSerializer
+      - type-class: RoadBlockTime
+        class-name: RoadBlockTimeStreamSerializer

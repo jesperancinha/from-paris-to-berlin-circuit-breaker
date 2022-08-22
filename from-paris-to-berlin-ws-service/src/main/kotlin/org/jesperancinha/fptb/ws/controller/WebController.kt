@@ -1,7 +1,7 @@
-package org.jesperancinha.fptb.circuit.breaker.controller
+package org.jesperancinha.fptb.ws.controller
 
 import org.jesperancinha.fptb.circuit.breaker.dto.RoadRaceDto
-import org.jesperancinha.fptb.circuit.breaker.service.RoadBlockageService
+import org.jesperancinha.fptb.ws.service.RoadBlockageWSService
 import org.springframework.messaging.handler.annotation.MessageMapping
 import org.springframework.messaging.handler.annotation.SendTo
 import org.springframework.stereotype.Controller
@@ -12,13 +12,12 @@ import java.time.LocalDateTime
  */
 @Controller
 class WebController(
-    private val roadBlockageService: RoadBlockageService,
+    private val roadBlockageWSService: RoadBlockageWSService,
 ) {
-
     @MessageMapping("/hello")
     @SendTo("/topic/game")
     fun game(message: String): RoadRaceDto {
-        return roadBlockageService.getCurrenRoadRace()
+        return roadBlockageWSService.getCurrenRoadRace()
     }
     @MessageMapping("/clock")
     @SendTo("/topic/clock")

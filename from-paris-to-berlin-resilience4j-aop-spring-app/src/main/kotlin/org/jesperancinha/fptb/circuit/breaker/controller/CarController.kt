@@ -17,23 +17,12 @@ import reactor.core.publisher.Mono
 class CarController(
     private val carService: CarService,
 ) {
-
     @GetMapping("/{id}")
-    private fun getCars(@PathVariable id: Int): Mono<Car> {
-        return carService.getCar()
-    }
+    private fun getCars(@PathVariable id: Int): Mono<Car> =  carService.getCar()
 
     @GetMapping("/test/{id}")
-    private fun getCarsTest(@PathVariable id: Int): Mono<Car> {
-        return carService.getCar()
-    }
+    private fun getCarsTest(@PathVariable id: Int): Mono<Car> = carService.getCar()
 
     @GetMapping("/carros/{id}")
-    private fun getCarros(@PathVariable id: Long): Mono<Car> {
-        return Mono.just(Car(3, "The boss bling bling man", "Lamborghini", Location()))
-    }
-
-    private fun fallback(ex: Throwable): Mono<Car> {
-        return Mono.just(Car(4, "Mega Mega Bills Bills", "Rolls Royce", Location()))
-    }
+    private fun getCarros(@PathVariable id: Long): Mono<Car> = Mono.just(Car(3, "The boss bling bling man", "Lamborghini", Location()))
 }

@@ -103,3 +103,16 @@ resilience4j.timelimiter:
       baseConfig: default
     roads:
       baseConfig: default
+
+hazelcast:
+  serialization:
+    serializers:
+      - type-class: Location
+        class-name: LocationStreamSerializer
+      - type-class: Car
+        class-name: CarStreamSerializer
+      - type-class: RoadBlockTime
+        class-name: RoadBlockTimeStreamSerializer
+
+fptb:
+  ws-service: http://localhost:8081/api/fptb/blockage

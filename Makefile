@@ -56,6 +56,9 @@ prune-all: docker-delete
 	docker system prune --all --volumes
 case:
 	cd from-paris-to-berlin-demo && ./make-demo.sh
+demo: case
+demo-direct:
+	cd from-paris-to-berlin-demo && ./make-demo-direct.sh
 audit:
 	cd from-paris-to-berlin-web && npm audit fix && yarn
 cypress-install:

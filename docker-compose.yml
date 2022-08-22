@@ -26,6 +26,22 @@ services:
       paris_to_berlin_net:
         ipv4_address: ${FPTB_BACK_END_WEB_IP}
 
+  from_paris_to_berlin_ws_service:
+    hostname: from_paris_to_berlin_ws_service
+    container_name: from_paris_to_berlin_ws_service
+    build:
+      context: from-paris-to-berlin-ws-service/.
+    restart: on-failure
+    deploy:
+      resources:
+        limits:
+          memory: 200M
+        reservations:
+          memory: 200M
+    networks:
+      paris_to_berlin_net:
+        ipv4_address: ${FPTB_BACK_END_WEB_IP}
+
   from_paris_to_berlin_fe:
     hostname: from_paris_to_berlin_fe
     container_name: from_paris_to_berlin_fe
