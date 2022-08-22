@@ -22,6 +22,8 @@ services:
           memory: 200M
         reservations:
           memory: 200M
+    environment:
+      - FPTB_BACK_END_WS_WEB_IP=${FPTB_BACK_END_WS_WEB_IP}
     networks:
       paris_to_berlin_net:
         ipv4_address: ${FPTB_BACK_END_WEB_IP}

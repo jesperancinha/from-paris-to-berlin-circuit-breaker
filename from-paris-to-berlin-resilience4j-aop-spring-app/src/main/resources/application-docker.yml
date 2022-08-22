@@ -1,2 +1,2 @@
 fptb:
-  ws-service: http://from_paris_to_berlin_ws_service:8081/api/fptb/blockage
+  ws-service: http://${FPTB_BACK_END_WS_WEB_IP}:8081/api/fptb/blockage

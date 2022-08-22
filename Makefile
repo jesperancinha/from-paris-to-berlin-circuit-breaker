@@ -59,6 +59,8 @@ case:
 demo: case
 demo-direct:
 	cd from-paris-to-berlin-demo && ./make-demo-direct.sh
+demo-docker:
+	cd from-paris-to-berlin-demo && ./make-demo-docker.sh
 audit:
 	cd from-paris-to-berlin-web && npm audit fix && yarn
 cypress-install:
