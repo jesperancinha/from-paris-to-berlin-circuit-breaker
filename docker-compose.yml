@@ -40,7 +40,7 @@ services:
           memory: 200M
     networks:
       paris_to_berlin_net:
-        ipv4_address: ${FPTB_BACK_END_WEB_IP}
+        ipv4_address: ${FPTB_BACK_END_WS_WEB_IP}
 
   from_paris_to_berlin_fe:
     hostname: from_paris_to_berlin_fe
