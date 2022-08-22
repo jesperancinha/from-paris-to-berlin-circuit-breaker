@@ -116,3 +116,11 @@ hazelcast:
 
 fptb:
   ws-service: http://localhost:8081/api/fptb/blockage
+spring:
+  main:
+    web-application-type: reactive
+  webflux:
+    base-path: /api/fptb
+springdoc:
+  swagger-ui:
+    disable-swagger-default-url: true

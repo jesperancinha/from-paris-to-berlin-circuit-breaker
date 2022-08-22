@@ -14,12 +14,12 @@ import java.time.Duration
  * Created by jofisaes on 13/10/2021
  */
 @Component
-open class  CarService {
+class  CarService {
 
     @TimeLimiter(name = CARS)
     @CircuitBreaker(name = CARS, fallbackMethod = "launch")
     @Bulkhead(name = CARS)
-    open fun getCar(): Mono<Car> {
+    fun getCar(): Mono<Car> {
         return Mono.just(Car(1, "Modest","Fiat", Location())).delayElement(Duration.ofSeconds(10));
     }
 
