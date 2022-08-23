@@ -112,12 +112,12 @@ make demo-docker
 ##### Local
 
 1. [from-paris-to-berlin-resilience4j-aop-spring-app](http://localhost:8080/api/fptb/webjars/swagger-ui/index.html)
-2. [from-paris-to-berlin-ws-service](http://localhost:8081/api/fptb/webjars/swagger-ui/index.html)
+2. [from-paris-to-berlin-ws-service](http://localhost:8081/api/fptb/swagger-ui/index.html#/)
 
 ##### Via Docker
 
 1. [from-paris-to-berlin-resilience4j-aop-spring-app](http://localhost:9000/api/fptb/webjars/swagger-ui/index.html)
-2. [from-paris-to-berlin-ws-service](http://localhost:9000/api/fptb/broker/webjars/swagger-ui/index.html)
+2. [from-paris-to-berlin-ws-service](http://localhost:9000/api/fptb/broker/ws/swagger-ui/index.html)
 
 ## Coverage report Graphs
 

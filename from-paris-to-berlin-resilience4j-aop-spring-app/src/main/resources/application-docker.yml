@@ -1,2 +1,5 @@
 fptb:
   ws-service: http://${FPTB_BACK_END_WS_WEB_IP}:8081/api/fptb/blockage
+springdoc:
+  api-docs:
+    path: /api/fptb/v3/api-docs

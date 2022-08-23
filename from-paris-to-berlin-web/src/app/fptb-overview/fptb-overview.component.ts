@@ -101,35 +101,37 @@ export class FptbOverviewComponent implements OnInit {
     let links: any[] = [];
     let location = roadRace.paris;
     let myCar = this.roadRace.cars.filter(car => car.id == 5)[0];
-    this.addNodesRecursively(nodes, links, location, myCar);
-    this.dia?.model.startTransaction("changing data");
-    this.nodeDataArray = Array.from(new Set(nodes.map(t => JSON.stringify(t)))).map(t => JSON.parse(t));
-    this.linkDataArray = Array.from(new Set(links.map(t => JSON.stringify(t)))).map(t => JSON.parse(t));
-    this.dia?.model.commitTransaction("changed data");
-    this.roadRace = roadRace;
-    this.locations = new Map()
-    this.addLocations(this.locations, roadRace.cars.map(car => car.location))
-    this.timeTables = [];
-    myCar.location.forward?.forEach((value, key) => {
-      this.locations?.get(value.name)?.forEach(blockage => {
-        this.timeTables?.push(new TimeTable(value.name, blockage.minute, blockage.blockageType))
+    if(myCar) {
+      this.addNodesRecursively(nodes, links, location, myCar);
+      this.dia?.model.startTransaction("changing data");
+      this.nodeDataArray = Array.from(new Set(nodes.map(t => JSON.stringify(t)))).map(t => JSON.parse(t));
+      this.linkDataArray = Array.from(new Set(links.map(t => JSON.stringify(t)))).map(t => JSON.parse(t));
+      this.dia?.model.commitTransaction("changed data");
+      this.roadRace = roadRace;
+      this.locations = new Map()
+      this.addLocations(this.locations, roadRace.cars.map(car => car.location))
+      this.timeTables = [];
+      myCar.location.forward?.forEach((value, key) => {
+        this.locations?.get(value.name)?.forEach(blockage => {
+          this.timeTables?.push(new TimeTable(value.name, blockage.minute, blockage.blockageType))
+        })
       })
-    })
-    this.timeTables.sort((a, b) => {
-      return (a.name as string).localeCompare(b.name as string)
-    })
-    this.secondsHold = myCar.secondsHold;
+      this.timeTables.sort((a, b) => {
+        return (a.name as string).localeCompare(b.name as string);
+      })
+      this.secondsHold = myCar.secondsHold;
+    }
   }
 
   private addNodesRecursively(nodes: any[], links: any[], location: Location, myCar: Car) {
-    nodes.push(FptbOverviewComponent.toNodeLocation(location, myCar))
-    location.forward.forEach(subLocation => {
-      links.push({
-        from: location.id,
-        to: subLocation.id
+      nodes.push(FptbOverviewComponent.toNodeLocation(location, myCar));
+      location.forward.forEach(subLocation => {
+        links.push({
+          from: location.id,
+          to: subLocation.id
+        });
+        this.addNodesRecursively(nodes, links, subLocation, myCar);
       })
-      this.addNodesRecursively(nodes, links, subLocation, myCar);
-    })
   }
 
   private static toNodeLocation(location: Location, myCar: Car) {

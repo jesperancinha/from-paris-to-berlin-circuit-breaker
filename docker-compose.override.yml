@@ -14,6 +14,10 @@ services:
     ports:
       - "8080:8080"
 
+  from_paris_to_berlin_ws_service:
+    ports:
+      - "8081:8081"
+
   from_paris_to_berlin_fe:
     ports:
       - "9000:9000"
