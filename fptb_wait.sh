@@ -25,6 +25,6 @@ function checkServiceByNameAndMessage() {
 
 checkServiceByNameAndMessage from_paris_to_berlin_ws_service 'Tomcat started on port(s): 8081'
 checkServiceByNameAndMessage from_paris_to_berlin_ws_service 'Members'
-checkServiceByNameAndMessage from_paris_to_berlin_service 'Tomcat started on port(s): 8080'
+checkServiceByNameAndMessage from_paris_to_berlin_service 'Netty started on port 8080'
 checkServiceByNameAndMessage from_paris_to_berlin_service 'Members'
 checkServiceByNameAndMessage from_paris_to_berlin_fe 'nginx: configuration file /etc/nginx/nginx.conf test is successful'
