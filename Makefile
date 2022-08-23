@@ -95,3 +95,8 @@ dcp:
 dcup: dcd docker-clean docker fptb-wait
 dcup-full-action: dcd docker-clean no-test build-npm docker fptb-wait
 dcup-action: dcp docker-action fptb-wait
+build-nginx: build-npm
+	docker-compose stop from_paris_to_berlin_fe
+	docker-compose rm from_paris_to_berlin_fe
+	docker-compose build --no-cache from_paris_to_berlin_fe
+	docker-compose up -d
