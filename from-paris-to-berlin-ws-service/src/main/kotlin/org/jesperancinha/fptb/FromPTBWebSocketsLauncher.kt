@@ -1,5 +1,8 @@
 package org.jesperancinha.fptb
 
+import io.swagger.v3.oas.annotations.OpenAPIDefinition
+import io.swagger.v3.oas.annotations.info.Info
+import io.swagger.v3.oas.annotations.servers.Server
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.boot.ApplicationArguments
@@ -13,6 +16,10 @@ import java.util.concurrent.TimeUnit
 import kotlin.concurrent.schedule
 
 @SpringBootApplication
+@OpenAPIDefinition(
+    info = Info(title = "OpenAPI definition"),
+    servers = [Server(url = "\${fptb.server.url}/api/fptb", description = "Server URL")]
+)
 open class FromPTBWebSocketsLauncher(
     private val template: SimpMessagingTemplate
 )  : ApplicationRunner{

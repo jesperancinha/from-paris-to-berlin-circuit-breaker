@@ -116,6 +116,8 @@ hazelcast:
 
 fptb:
   ws-service: http://localhost:8081/api/fptb/blockage
+  server:
+    url: "http://localhost:${server.port}"
 spring:
   main:
     web-application-type: reactive

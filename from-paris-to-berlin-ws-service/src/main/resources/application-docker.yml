@@ -1,3 +1,6 @@
 springdoc:
   api-docs:
     path: /broker/ws/v3/api-docs
+fptb:
+  server:
+    url: "http://localhost:9000"
