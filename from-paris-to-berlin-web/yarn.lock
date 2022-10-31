@@ -15,14 +15,6 @@
     "@jridgewell/gen-mapping" "^0.1.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@angular-devkit/architect@0.1402.6":
-  version "0.1402.6"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/architect/-/architect-0.1402.6.tgz#c51057f334863552c8fbc85be70896128ff83951"
-  integrity sha512-qTmPBD7fBXBtlSapGLUEcJvRuL/O556zCFFpH3kSlzPNTYxi2falBjGY+4aG+078RXT1vVZtFsvRTart6VbhAg==
-  dependencies:
-    "@angular-devkit/core" "14.2.6"
-    rxjs "6.6.7"
-
 "@angular-devkit/architect@0.1402.7":
   version "0.1402.7"
   resolved "https://registry.yarnpkg.com/@angular-devkit/architect/-/architect-0.1402.7.tgz#4382e9436ab541534891fc0da55512e226d86aa0"
@@ -108,17 +100,6 @@
   dependencies:
     "@angular-devkit/architect" "0.1402.7"
     rxjs "6.6.7"
-
-"@angular-devkit/core@14.2.6":
-  version "14.2.6"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-14.2.6.tgz#308c804b1d591d9072cc7b3c7cfe0623198c395e"
-  integrity sha512-qtRSdRm/h7C3ya04PJTDgQXV6mM8Y4RakANX1GTSXetCf9AVSxg74NJX76DWUgiHT4JiPYnJgJU6Hr/L0H6JOQ==
-  dependencies:
-    ajv "8.11.0"
-    ajv-formats "2.1.1"
-    jsonc-parser "3.1.0"
-    rxjs "6.6.7"
-    source-map "0.7.4"
 
 "@angular-devkit/core@14.2.7":
   version "14.2.7"
@@ -4245,10 +4226,10 @@ istanbul-reports@^3.0.5:
     html-escaper "^2.0.0"
     istanbul-lib-report "^3.0.0"
 
-jasmine-core@^4.1.0, jasmine-core@~4.4.0:
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/jasmine-core/-/jasmine-core-4.4.0.tgz#848fe45c1839cacaf1f2429d400d1d4f85d2856a"
-  integrity sha512-+l482uImx5BVd6brJYlaHe2UwfKoZBqQfNp20ZmdNfsjGFTemGfqHLsXjKEW23w9R/m8WYeFc9JmIgjj6dUtAA==
+jasmine-core@^4.1.0, jasmine-core@~4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/jasmine-core/-/jasmine-core-4.5.0.tgz#1a6bd0bde3f60996164311c88a0995d67ceda7c3"
+  integrity sha512-9PMzyvhtocxb3aXJVOPqBDswdgyAeSB81QnLop4npOpbqnheaTEwPc9ZloQeVswugPManznQBjD8kWDTjlnHuw==
 
 jest-worker@^27.4.5:
   version "27.5.1"
