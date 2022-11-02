@@ -92,19 +92,19 @@ sdk use java 17-open
 
 ##### Docker-Compose
 
-1. Start Image
+1.  Start Image
 
 ```shell
 make dcup-full-action
 ```
 
-2. Start Demo
+2.  Start Demo
 
 ```shell
 make demo-docker
 ```
 
-3. Go to [localhost:9000](http://localhost:9000)
+3.  Go to [localhost:9000](http://localhost:9000)
 
 ---
 
@@ -113,13 +113,13 @@ make demo-docker
 
 ##### Local
 
-1. [from-paris-to-berlin-resilience4j-aop-spring-app](http://localhost:8080/api/fptb/webjars/swagger-ui/index.html)
-2. [from-paris-to-berlin-ws-service](http://localhost:8081/api/fptb/swagger-ui/index.html#/)
+1.  [from-paris-to-berlin-resilience4j-aop-spring-app](http://localhost:8080/api/fptb/webjars/swagger-ui/index.html)
+2.  [from-paris-to-berlin-ws-service](http://localhost:8081/api/fptb/swagger-ui/index.html#/)
 
 ##### Via Docker
 
-1. [from-paris-to-berlin-resilience4j-aop-spring-app](http://localhost:9000/api/fptb/webjars/swagger-ui/index.html)
-2. [from-paris-to-berlin-ws-service](http://localhost:9000/api/fptb/broker/ws/swagger-ui/index.html)
+1.  [from-paris-to-berlin-resilience4j-aop-spring-app](http://localhost:9000/api/fptb/webjars/swagger-ui/index.html)
+2.  [from-paris-to-berlin-ws-service](http://localhost:9000/api/fptb/broker/ws/swagger-ui/index.html)
 
 ## Coverage report Graphs
 
