@@ -77,7 +77,7 @@
         <omni-coveragereporter-maven-plugin.version>0.3.0</omni-coveragereporter-maven-plugin.version>
         <maven-surefire-plugin.version>3.0.0-M7</maven-surefire-plugin.version>
         <spring-boot.version>2.7.5</spring-boot.version>
-        <kotest.version>5.5.3</kotest.version>
+        <kotest.version>5.5.4</kotest.version>
         <kotlinx-coroutines-debug.version>1.6.4</kotlinx-coroutines-debug.version>
         <springdoc-openapi-starter-webmvc-ui.version>2.0.0-RC1</springdoc-openapi-starter-webmvc-ui.version>
         <springdoc-openapi-starter-webflux-ui.version>2.0.0-RC1</springdoc-openapi-starter-webflux-ui.version>
