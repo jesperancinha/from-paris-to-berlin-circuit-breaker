@@ -22,7 +22,7 @@
     "@angular/router": "~14.1.2",
     "@stomp/stompjs": "^6.1.2",
     "build": "^0.1.4",
-    "gojs": "^2.2.18",
+    "gojs": "^2.2.19",
     "gojs-angular": "^2.0.6",
     "ng2-stomp-service": "^1.2.2",
     "rxjs": "~7.5.7",
