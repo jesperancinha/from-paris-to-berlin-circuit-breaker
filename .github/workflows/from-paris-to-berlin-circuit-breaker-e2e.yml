@@ -8,7 +8,7 @@ jobs:
   e2e-electron:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Start Docker
         run: make dcup-full-action
       - name: Run Cypress
@@ -17,7 +17,7 @@ jobs:
   e2e-chrome:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Start Docker
         run: make dcup-full-action
       - name: Run Cypress
@@ -26,7 +26,7 @@ jobs:
   e2e-firefox:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Start Docker
         run: make dcup-full-action
       - name: Run Cypress
@@ -36,7 +36,7 @@ jobs:
   e2e-edge:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Start Docker
         run: make dcup-full-action
       - name: Run Cypress
