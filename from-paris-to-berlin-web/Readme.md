@@ -1,9 +1,51 @@
-# from-paris-to-berlin-app
+# From Paris to Berlin Web
 
+## Installation
+
+```shell
+ncu -u
+npm update
+yarn
+```
 
 ## References
 
--   [Resilience4j Circuit Breaker](https://resilience4j.readme.io/docs/circuitbreaker)
+-   [angular-gojs-diagram](https://stackblitz.com/edit/angular-gojs-diagram)
+-   [angular-gojs-family-tree on StackBlitz](https://stackblitz.com/edit/angular-gojs-family-tree?file=src%2Fapp%2Fapp.component.html)
+-   [Angular 12 WebSocket example with Spring Boot WebSocket Server | SockJS + STOMP](https://kipalog.com/posts/Angular-12-WebSocket-example-with-Spring-Boot-WebSocket-Server---SockJS---STOMP)
+-   [GoJS – a JavaScript and TypeScript library for implementing interactive diagrams](https://modeling-languages.com/gojs-javascript-library-build-diagrams/)
+-   [Using GoJS with Angular](https://gojs.net/latest/intro/angular.html)
+-   [Node JS Releases](https://nodejs.org/en/about/releases/)
+
+---
+
+# FromParisToBerlinWeb
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.7.
+
+## Development server
+
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+## Code scaffolding
+
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+## Build
+
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+
+## Running unit tests
+
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 ## About me 👨🏽‍💻🚀🏳️‍🌈
 
