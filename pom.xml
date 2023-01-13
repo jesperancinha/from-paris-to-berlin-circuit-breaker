@@ -83,7 +83,6 @@
         <springdoc-openapi-starter-webflux-ui.version>2.0.2</springdoc-openapi-starter-webflux-ui.version>
         <from-paris-to-berlin-data.version>1.0.0</from-paris-to-berlin-data.version>
         <hazelcast.version>5.2.1</hazelcast.version>
-        <springdoc-openapi-webflux-ui.version>1.6.14</springdoc-openapi-webflux-ui.version>
     </properties>
 
     <modules>
@@ -154,13 +153,6 @@
                 <artifactId>spring-context</artifactId>
                 <version>${spring-context.version}</version>
             </dependency>
-            <dependency>
-                <groupId>org.springdoc</groupId>
-                <artifactId>springdoc-openapi-webflux-ui</artifactId>
-                <version>${springdoc-openapi-webflux-ui.version}</version>
-            </dependency>
-
-
             <dependency>
                 <groupId>org.jetbrains.kotlin</groupId>
                 <artifactId>kotlin-test-junit</artifactId>
