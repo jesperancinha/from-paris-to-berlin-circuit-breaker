@@ -4,4 +4,4 @@ fptb:
     url: "http://localhost:9000"
 springdoc:
   api-docs:
-    path: /api/fptb/v3/api-docs
+    path: /v3/api-docs
