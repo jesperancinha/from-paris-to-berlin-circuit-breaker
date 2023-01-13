@@ -38,6 +38,9 @@ docker:
 docker-local:
 	cd docker/local
 	docker-compose up -d --build --remove-orphans
+delete-all:
+	docker ps -a --format '{{.ID}}' | xargs -I {}  docker stop {}
+	docker ps -a --format '{{.ID}}' | xargs -I {}  docker rm {}
 docker-clean-build-start: docker-clean b docker
 docker-clean-start: docker-clean docker
 docker-delete: stop
@@ -95,8 +98,21 @@ dcp:
 dcup: dcd docker-clean docker fptb-wait
 dcup-full-action: dcd docker-clean no-test build-npm docker fptb-wait
 dcup-action: dcp docker-action fptb-wait
-build-nginx: build-npm
+build-fe-nginx: build-npm build-nginx
+build-nginx:
 	docker-compose stop from_paris_to_berlin_fe
 	docker-compose rm from_paris_to_berlin_fe
 	docker-compose build --no-cache from_paris_to_berlin_fe
 	docker-compose up -d
+build-ws:
+	cd from-paris-to-berlin-ws-service && mvn clean install -DskipTests
+	docker-compose stop from_paris_to_berlin_ws_service
+	docker-compose rm from_paris_to_berlin_ws_service
+	docker-compose build --no-cache from_paris_to_berlin_ws_service
+	docker-compose up -d from_paris_to_berlin_ws_service
+build-aop:
+	cd from-paris-to-berlin-resilience4j-aop-spring-app && mvn clean install -DskipTests
+	docker-compose stop from_paris_to_berlin_service
+	docker-compose rm from_paris_to_berlin_service
+	docker-compose build --no-cache from_paris_to_berlin_service
+	docker-compose up -d from_paris_to_berlin_service
