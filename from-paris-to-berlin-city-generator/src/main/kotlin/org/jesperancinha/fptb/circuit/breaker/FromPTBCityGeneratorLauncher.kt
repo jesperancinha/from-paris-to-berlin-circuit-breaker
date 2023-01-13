@@ -3,7 +3,7 @@ package org.jesperancinha.fptb.circuit.breaker
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.jesperancinha.fptb.circuit.breaker.domain.Location
 
-fun main(args: Array<String>) {
+fun main() {
     val berlin = Location(10, "Berlin", listOf())
 
     val wolfsburg = Location(8, "Wolfsburg", listOf(berlin))
