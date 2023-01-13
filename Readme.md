@@ -69,6 +69,9 @@ This repo is also the official support article to my article on medium:
       </a>
 </div>
 
+#### Stable releases
+
+-   [0.0.0](https://github.com/jesperancinha/from-paris-to-berlin-circuit-breaker/tree/0.0.0) - [d4ac27e32cdaeb99ec74a0fbfec9c0e195648f75](https://github.com/jesperancinha/from-paris-to-berlin-circuit-breaker/tree/0.0.0) - Docker with IP's / Kotlin 1.8 / JDK17
 	
 ## Project Layout
 
@@ -77,7 +80,7 @@ This repo is also the official support article to my article on medium:
 3.  [From Paris to Berlin Kystrix Demo](./from-paris-to-berlin-kystrix-runnable-app) - A simplified Kystrix demo independently of Spring
 4.  [From Paris to Berlin Resilience4J Runnable Demo](./from-paris-to-berlin-resilience4j-runnable-app) - Creating Circuit Breakers using programmatic Resilience4J independently of Spring
 5.  [From Paris to Berlin Resilience4J Spring Demo](./from-paris-to-berlin-resilience4j-spring-app) - Creating Circuit Breakers using programmatic Resilience4J using Spring
-6.  [From Paris to Berlin Resilience4J AOP Spring Demo](./from-paris-to-berlin-resilience4j-aop-app) - Creating Circuit Breakers using AOP(Aspect Oriented Programming) and declarative Resilience4J
+6.  [From Paris to Berlin Resilience4J AOP Spring Demo](./from-paris-to-berlin-resilience4j-aop-spring-app) - Creating Circuit Breakers using AOP(Aspect Oriented Programming) and declarative Resilience4J
 7.  [From Paris to Berlin Web](./from-paris-to-berlin-web) - Front end application to support the Paris to Berlin Game
 
 ## Java Setup

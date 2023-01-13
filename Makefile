@@ -38,6 +38,9 @@ docker:
 docker-local:
 	cd docker/local
 	docker-compose up -d --build --remove-orphans
+delete-all:
+	docker ps -a --format '{{.ID}}' | xargs -I {}  docker stop {}
+	docker ps -a --format '{{.ID}}' | xargs -I {}  docker rm {}
 docker-clean-build-start: docker-clean b docker
 docker-clean-start: docker-clean docker
 docker-delete: stop
