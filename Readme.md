@@ -71,7 +71,7 @@ This repo is also the official support article to my article on medium:
 
 #### Stable releases
 
--   [0.0.0](https://github.com/jesperancinha/from-paris-to-berlin-circuit-breaker/tree/0.0.0) - [d4ac27e32cdaeb99ec74a0fbfec9c0e195648f75](https://github.com/jesperancinha/from-paris-to-berlin-circuit-breaker/tree/0.0.0) - Docker with IP's / Kotlin 1.8 / JDK17
+-   [0.0.0](https://github.com/jesperancinha/from-paris-to-berlin-circuit-breaker/tree/0.0.0) - [bc013410e0f9db81b84979746cbb88fe32bdb5cf](https://github.com/jesperancinha/from-paris-to-berlin-circuit-breaker/tree/0.0.0) - Docker with IP's / Kotlin 1.8 / JDK17
 	
 ## Project Layout
 
