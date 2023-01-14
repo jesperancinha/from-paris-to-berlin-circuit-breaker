@@ -3,6 +3,8 @@ name: E2E from-paris-to-berlin-circuit-breaker
 on:
   push:
     branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   e2e-electron:
