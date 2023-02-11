@@ -174,7 +174,7 @@ curl -X POST http://localhost:8080/api/fptb/blockage -H "Content-Type: applicati
 -   [Kotlin's coroutines on Android](https://developer.android.com/kotlin/coroutines)
 -   [kotlinx-coroutines-reactor](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-reactor/index.html)
 
-## About me 👨🏽‍💻🚀🏳️‍🌈
+## About me
 
 [![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-20/JEOrgLogo-20.png "João Esperancinha Homepage")](http://joaofilipesabinoesperancinha.nl)
 [![GitHub followers](https://img.shields.io/github/followers/jesperancinha.svg?label=Jesperancinha&style=social "GitHub")](https://github.com/jesperancinha)
