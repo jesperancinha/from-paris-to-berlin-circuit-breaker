@@ -1,10 +1,6 @@
 name: E2E from-paris-to-berlin-circuit-breaker
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+on: push
 
 jobs:
   e2e-electron:
@@ -17,7 +13,13 @@ jobs:
           java-version: '17'
           distribution: 'adopt'
       - name: Start Docker
-        run: make dcup-full-action
+        uses: nick-fields/retry@v2
+        with:
+          max_attempts: 2
+          retry_on: error
+          timeout_seconds: 2400
+          command: |
+            make dcup-full-action
       - name: Run Cypress
         run: make cypress-electron
 
@@ -31,7 +33,13 @@ jobs:
           java-version: '17'
           distribution: 'adopt'
       - name: Start Docker
-        run: make dcup-full-action
+        uses: nick-fields/retry@v2
+        with:
+          max_attempts: 2
+          retry_on: error
+          timeout_seconds: 2400
+          command: |
+            make dcup-full-action
       - name: Run Cypress
         run: make cypress-chrome
 
@@ -45,7 +53,13 @@ jobs:
           java-version: '17'
           distribution: 'adopt'
       - name: Start Docker
-        run: make dcup-full-action
+        uses: nick-fields/retry@v2
+        with:
+          max_attempts: 2
+          retry_on: error
+          timeout_seconds: 2400
+          command: |
+            make dcup-full-action
       - name: Run Cypress
         run: make cypress-firefox
 
@@ -60,7 +74,13 @@ jobs:
           java-version: '17'
           distribution: 'adopt'
       - name: Start Docker
-        run: make dcup-full-action
+        uses: nick-fields/retry@v2
+        with:
+          max_attempts: 2
+          retry_on: error
+          timeout_seconds: 2400
+          command: |
+            make dcup-full-action
       - name: Run Cypress
         run: make cypress-edge
 
