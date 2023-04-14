@@ -18,7 +18,13 @@ jobs:
         distribution: 'adopt'
 
     - name: Maven Build and Test
-      run:  mvn clean install jacoco:prepare-agent package jacoco:report
+      uses: nick-fields/retry@v2
+      with:
+        max_attempts: 3
+        retry_on: error
+        timeout_seconds: 2400
+        command: |
+          mvn clean install jacoco:prepare-agent package jacoco:report
 
     - name: Set up Node 16
       uses: actions/setup-node@v3
