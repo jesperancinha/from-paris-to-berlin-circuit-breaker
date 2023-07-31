@@ -3765,10 +3765,10 @@ gojs-angular@^2.0.6:
     immer "^9.0.1"
     tslib "^2.0.0"
 
-gojs@^2.3.9:
-  version "2.3.9"
-  resolved "https://registry.yarnpkg.com/gojs/-/gojs-2.3.9.tgz#b130c233dfd14fb92af4e0c801db0d94994e1a61"
-  integrity sha512-yF0N0f4XmQahaLnS0iAcURlU+NZUBgrB17v9ZHQHdbhMch5yIUa1j8y7AGO+zoD02kpVMsWh14kDc1doQp4GtQ==
+gojs@^2.3.10:
+  version "2.3.10"
+  resolved "https://registry.yarnpkg.com/gojs/-/gojs-2.3.10.tgz#4beadc0a34667972abf782fc84c466c7b2c968b8"
+  integrity sha512-B+/74sLmD6iDYRr/wCwzBdhlqJ42VOQHYQcmbCKIa5KwSvKlktomr9Rn8vsN+M0+JyKz+lF61IaeNuXMd2Vwzg==
 
 graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.2.0, graceful-fs@^4.2.4, graceful-fs@^4.2.6, graceful-fs@^4.2.9:
   version "4.2.9"
