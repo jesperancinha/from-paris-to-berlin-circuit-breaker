@@ -1777,10 +1777,10 @@
     "@types/mime" "*"
     "@types/node" "*"
 
-"@types/sockjs-client@^1.5.1":
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/@types/sockjs-client/-/sockjs-client-1.5.1.tgz#7ed2093da89305af370511c4e3beb7e4ef0d7e87"
-  integrity sha512-bmZM6A1GPdjF0bcuIUC+50hZEMGkzMsiG9by6X9U+7IZFOiPtz7MJ9h05FSpPVxlj4i+TzzoG3ESo1FJlbLb6A==
+"@types/sockjs-client@^1.5.2":
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/@types/sockjs-client/-/sockjs-client-1.5.2.tgz#e2dc204ac0ca02d9635a11f0d2d124e97e130e5f"
+  integrity sha512-KYM0HvjLD5OsyXGpISnydbwy/VU9T06rRKOJPs2WEPR19/sBNSNh+CUjulu3Qg0jmd8bINCqJILrSKDLDGzZMA==
 
 "@types/sockjs@^0.3.33":
   version "0.3.33"
