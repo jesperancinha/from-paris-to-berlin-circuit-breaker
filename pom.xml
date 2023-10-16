@@ -62,7 +62,7 @@
         <kotlin.code.style>official</kotlin.code.style>
 
         <commons-io.version>2.6</commons-io.version>
-        <jacoco-maven-plugin.version>0.8.10</jacoco-maven-plugin.version>
+        <jacoco-maven-plugin.version>0.8.11</jacoco-maven-plugin.version>
         <jackson.version>2.15.3</jackson.version>
         <jackson.databind.version>2.15.3</jackson.databind.version>
         <spring-context.version>6.0.13</spring-context.version>
