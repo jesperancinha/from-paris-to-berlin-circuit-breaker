@@ -82,7 +82,7 @@
         <springdoc-openapi-starter-webmvc-ui.version>2.2.0</springdoc-openapi-starter-webmvc-ui.version>
         <springdoc-openapi-starter-webflux-ui.version>2.2.0</springdoc-openapi-starter-webflux-ui.version>
         <from-paris-to-berlin-data.version>1.0.0</from-paris-to-berlin-data.version>
-        <hazelcast.version>5.3.2</hazelcast.version>
+        <hazelcast.version>5.3.4</hazelcast.version>
     </properties>
 
     <modules>
