@@ -1844,10 +1844,10 @@
   dependencies:
     "@types/node" "*"
 
-"@types/stompjs@^2.3.8":
-  version "2.3.8"
-  resolved "https://registry.yarnpkg.com/@types/stompjs/-/stompjs-2.3.8.tgz#bd2be937ef9357dc975268ebe89c9f81b715fb87"
-  integrity sha512-byawHnGdmoD/Jdk1aZl72qp7jItJpPhZoaLh80bBv+qLIB6h7dUx71xk0SRlHOxgrKZwY9AMbVc/8lknV/vhDA==
+"@types/stompjs@^2.3.9":
+  version "2.3.9"
+  resolved "https://registry.yarnpkg.com/@types/stompjs/-/stompjs-2.3.9.tgz#02b1967681aac0aebc691208ad83f0a918ce9ef1"
+  integrity sha512-fu/GgkRdxwyEJ+JeUsGhDxGwmZQi+xeNElradGQ4ehWiG2z/o89gsi5Y7Gv0KC6VK1v78Cjh8zj3VF+RvqCGSA==
   dependencies:
     "@types/node" "*"
 
