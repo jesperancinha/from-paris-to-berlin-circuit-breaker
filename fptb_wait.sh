@@ -2,10 +2,12 @@
 
 GITHUB_RUN_ID=${GITHUB_RUN_ID:-''}
 
+echo "" >> "logs"
+
 function checkServiceByNameAndMessage() {
     name=$1
     message=$2
-    docker-compose -p "${GITHUB_RUN_ID}" logs "$name" > "logs"
+    docker-compose -p "${GITHUB_RUN_ID}" logs "$name" >> "logs"
     string=$(cat logs)
     counter=0
     echo "Project $GITHUB_RUN_ID"
@@ -13,7 +15,7 @@ function checkServiceByNameAndMessage() {
     while [[ "$string" != *"$message"* ]]
     do
       echo -e -n "\e[93m-\e[39m"
-      docker-compose -p "${GITHUB_RUN_ID}" logs "$name" > "logs"
+      docker-compose -p "${GITHUB_RUN_ID}" logs "$name" >> "logs"
       string=$(cat logs)
       sleep 1
       counter=$((counter+1))
