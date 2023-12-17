@@ -14,9 +14,9 @@ services:
     deploy:
       resources:
         limits:
-          memory: 200M
+          memory: 500M
         reservations:
-          memory: 200M
+          memory: 500M
     healthcheck:
       test: timeout 10s bash -c ':> /dev/tcp/127.0.0.1/8080' || exit 1
       interval: 5s
@@ -35,9 +35,9 @@ services:
     deploy:
       resources:
         limits:
-          memory: 200M
+          memory: 500M
         reservations:
-          memory: 200M
+          memory: 500M
     healthcheck:
       test: timeout 10s bash -c ':> /dev/tcp/127.0.0.1/8081' || exit 1
       interval: 5s
@@ -54,9 +54,9 @@ services:
     deploy:
       resources:
         limits:
-          memory: 300M
+          memory: 500M
         reservations:
-          memory: 300M
+          memory: 500M
     healthcheck:
       test: timeout 10s bash -c ':> /dev/tcp/127.0.0.1/9000' || exit 1
       interval: 5s
