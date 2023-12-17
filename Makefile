@@ -1,3 +1,5 @@
+GITHUB_RUN_ID ?=123
+
 b: build
 build: build-npm build-maven
 build-npm:
@@ -12,16 +14,16 @@ build-npm-docker:
 	touch from-paris-to-berlin-web/yarn.lock
 	chmod 777 from-paris-to-berlin-web
 	chmod 777 from-paris-to-berlin-web/yarn.lock
-	docker-compose -f docker-compose.yml -f docker-compose.builder.yml build gui-builder
-	docker-compose -f docker-compose.yml -f docker-compose.builder.yml up --exit-code-from gui-builder gui-builder
+	docker-compose -p ${GITHUB_RUN_ID} -f docker-compose.yml -f docker-compose.builder.yml build gui-builder
+	docker-compose -p ${GITHUB_RUN_ID} -f docker-compose.yml -f docker-compose.builder.yml up --exit-code-from gui-builder gui-builder
 build-npm-cypress-docker:
 	cd e2e && [ -d node_modules ] || mkdir node_modules
 	cd e2e && chmod 777 node_modules
 	touch e2e/yarn.lock
 	chmod 777 e2e
 	chmod 777 e2e/yarn.lock
-	docker-compose -f docker-compose.yml -f docker-compose.builder.yml build cypress-builder
-	docker-compose -f docker-compose.yml -f docker-compose.builder.yml up --exit-code-from cypress-builder cypress-builder
+	docker-compose -p ${GITHUB_RUN_ID} -f docker-compose.yml -f docker-compose.builder.yml build cypress-builder
+	docker-compose -p ${GITHUB_RUN_ID} -f docker-compose.yml -f docker-compose.builder.yml up --exit-code-from cypress-builder cypress-builder
 test:
 	mvn test
 test-maven:
@@ -31,13 +33,13 @@ local: no-test
 no-test:
 	mvn clean install -DskipTests
 docker-clean:
-	docker-compose rm -svf
+	docker-compose -p ${GITHUB_RUN_ID} rm -svf
 docker:
 	rm -rf out
-	docker-compose up -d --build --remove-orphans
+	docker-compose -p ${GITHUB_RUN_ID} up -d --build --remove-orphans
 docker-local:
 	cd docker/local
-	docker-compose up -d --build --remove-orphans
+	docker-compose -p ${GITHUB_RUN_ID} up -d --build --remove-orphans
 delete-all:
 	docker ps -a --format '{{.ID}}' | xargs -I {}  docker stop {}
 	docker ps -a --format '{{.ID}}' | xargs -I {}  docker rm {}
@@ -47,11 +49,11 @@ docker-delete: stop
 	docker ps -a --format '{{.ID}}' -q --filter="name=from_paris_to_berlin"| xargs -I {}  docker stop {}
 	docker ps -a --format '{{.ID}}' -q --filter="name=from_paris_to_berlin"| xargs -I {}  docker rm {}
 docker-action: build-npm-docker
-	docker-compose -f docker-compose.yml -f docker-compose.builder.yml up -d from-paris-to-berlin-service from-paris-to-berlin-fe
+	docker-compose -p ${GITHUB_RUN_ID} -f docker-compose.yml -f docker-compose.builder.yml up -d from-paris-to-berlin-service from-paris-to-berlin-fe
 docker-clean-network:
 	docker network prune
 stop:
-	docker-compose down --remove-orphans
+	docker-compose -p ${GITHUB_RUN_ID} down --remove-orphans
 prune-all: docker-delete
 	docker network prune
 	docker system prune --all
@@ -92,30 +94,32 @@ audit:
 fptb-wait:
 	bash fptb_wait.sh
 dcd:
+	docker-compose -p ${GITHUB_RUN_ID} down --remove-orphans
+dcd-all: dcd
 	docker-compose down --remove-orphans
 dcp:
-	docker-compose stop
+	docker-compose -p ${GITHUB_RUN_ID} stop
 dcup: dcd docker-clean docker fptb-wait
 dcup-full-action: dcd docker-clean no-test build-npm docker fptb-wait
 dcup-action: dcp docker-action fptb-wait
 build-fe-nginx: build-npm build-nginx
 build-nginx:
-	docker-compose stop from-paris-to-berlin-fe
-	docker-compose rm from-paris-to-berlin-fe
-	docker-compose build --no-cache from-paris-to-berlin-fe
-	docker-compose up -d
+	docker-compose -p ${GITHUB_RUN_ID} stop from-paris-to-berlin-fe
+	docker-compose -p ${GITHUB_RUN_ID} rm from-paris-to-berlin-fe
+	docker-compose -p ${GITHUB_RUN_ID} build --no-cache from-paris-to-berlin-fe
+	docker-compose -p ${GITHUB_RUN_ID} up -d
 build-ws:
 	cd from-paris-to-berlin-ws-service && mvn clean install -DskipTests
-	docker-compose stop from-paris-to-berlin-ws-service
-	docker-compose rm from-paris-to-berlin-ws-service
-	docker-compose build --no-cache from-paris-to-berlin-ws-service
-	docker-compose up -d from-paris-to-berlin-ws-service
+	docker-compose -p ${GITHUB_RUN_ID} stop from-paris-to-berlin-ws-service
+	docker-compose -p ${GITHUB_RUN_ID} rm from-paris-to-berlin-ws-service
+	docker-compose -p ${GITHUB_RUN_ID} build --no-cache from-paris-to-berlin-ws-service
+	docker-compose -p ${GITHUB_RUN_ID} up -d from-paris-to-berlin-ws-service
 build-aop:
 	cd from-paris-to-berlin-resilience4j-aop-spring-app && mvn clean install -DskipTests
-	docker-compose stop from-paris-to-berlin-service
-	docker-compose rm from-paris-to-berlin-service
-	docker-compose build --no-cache from-paris-to-berlin-service
-	docker-compose up -d from-paris-to-berlin-service
+	docker-compose -p ${GITHUB_RUN_ID} stop from-paris-to-berlin-service
+	docker-compose -p ${GITHUB_RUN_ID} rm from-paris-to-berlin-service
+	docker-compose -p ${GITHUB_RUN_ID} build --no-cache from-paris-to-berlin-service
+	docker-compose -p ${GITHUB_RUN_ID} up -d from-paris-to-berlin-service
 node-update:
 	curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
 	source ~/.nvm/nvm.sh
