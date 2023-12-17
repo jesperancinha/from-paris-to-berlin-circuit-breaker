@@ -2,17 +2,12 @@ version: "3.7"
 
 networks:
   paris_to_berlin_net:
-    driver: bridge
-    ipam:
-      driver: default
-      config:
-        - subnet: ${NETWORK_SUBNET}
 
 services:
 
-  from_paris_to_berlin_service:
-    hostname: from_paris_to_berlin_service
-    container_name: from_paris_to_berlin_service
+  from-paris-to-berlin-service:
+    hostname: from-paris-to-berlin-service
+    container_name: from-paris-to-berlin-service
     build:
       context: from-paris-to-berlin-resilience4j-aop-spring-app/.
     restart: on-failure
@@ -22,15 +17,18 @@ services:
           memory: 200M
         reservations:
           memory: 200M
+    healthcheck:
+      test: timeout 10s bash -c ':> /dev/tcp/127.0.0.1/8080' || exit 1
+      interval: 5s
+      retries: 30
     environment:
-      - FPTB_BACK_END_WS_WEB_IP=${FPTB_BACK_END_WS_WEB_IP}
+      - FPTB_BACK_END_WS_WEB_IP=from-paris-to-berlin-ws-service
     networks:
       paris_to_berlin_net:
-        ipv4_address: ${FPTB_BACK_END_WEB_IP}
 
-  from_paris_to_berlin_ws_service:
-    hostname: from_paris_to_berlin_ws_service
-    container_name: from_paris_to_berlin_ws_service
+  from-paris-to-berlin-ws-service:
+    hostname: from-paris-to-berlin-ws-service
+    container_name: from-paris-to-berlin-ws-service
     build:
       context: from-paris-to-berlin-ws-service/.
     restart: on-failure
@@ -40,13 +38,16 @@ services:
           memory: 200M
         reservations:
           memory: 200M
+    healthcheck:
+      test: timeout 10s bash -c ':> /dev/tcp/127.0.0.1/8081' || exit 1
+      interval: 5s
+      retries: 30
     networks:
       paris_to_berlin_net:
-        ipv4_address: ${FPTB_BACK_END_WS_WEB_IP}
 
-  from_paris_to_berlin_fe:
-    hostname: from_paris_to_berlin_fe
-    container_name: from_paris_to_berlin_fe
+  from-paris-to-berlin-fe:
+    hostname: from-paris-to-berlin-fe
+    container_name: from-paris-to-berlin-fe
     build:
       context: from-paris-to-berlin-web/.
     restart: on-failure
@@ -56,8 +57,16 @@ services:
           memory: 300M
         reservations:
           memory: 300M
+    healthcheck:
+      test: timeout 10s bash -c ':> /dev/tcp/127.0.0.1/9000' || exit 1
+      interval: 5s
+      retries: 30
     env_file:
       - .env
     networks:
       paris_to_berlin_net:
-        ipv4_address: ${FPTB_FRONT_END_WEB_IP}
+    depends_on:
+      from-paris-to-berlin-service:
+        condition: service_started
+      from-paris-to-berlin-ws-service:
+        condition: service_started

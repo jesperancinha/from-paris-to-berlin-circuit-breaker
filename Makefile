@@ -47,7 +47,7 @@ docker-delete: stop
 	docker ps -a --format '{{.ID}}' -q --filter="name=from_paris_to_berlin"| xargs -I {}  docker stop {}
 	docker ps -a --format '{{.ID}}' -q --filter="name=from_paris_to_berlin"| xargs -I {}  docker rm {}
 docker-action: build-npm-docker
-	docker-compose -f docker-compose.yml -f docker-compose.builder.yml up -d from_paris_to_berlin_service from_paris_to_berlin_fe
+	docker-compose -f docker-compose.yml -f docker-compose.builder.yml up -d from-paris-to-berlin-service from-paris-to-berlin-fe
 docker-clean-network:
 	docker network prune
 stop:
@@ -100,19 +100,24 @@ dcup-full-action: dcd docker-clean no-test build-npm docker fptb-wait
 dcup-action: dcp docker-action fptb-wait
 build-fe-nginx: build-npm build-nginx
 build-nginx:
-	docker-compose stop from_paris_to_berlin_fe
-	docker-compose rm from_paris_to_berlin_fe
-	docker-compose build --no-cache from_paris_to_berlin_fe
+	docker-compose stop from-paris-to-berlin-fe
+	docker-compose rm from-paris-to-berlin-fe
+	docker-compose build --no-cache from-paris-to-berlin-fe
 	docker-compose up -d
 build-ws:
 	cd from-paris-to-berlin-ws-service && mvn clean install -DskipTests
-	docker-compose stop from_paris_to_berlin_ws_service
-	docker-compose rm from_paris_to_berlin_ws_service
-	docker-compose build --no-cache from_paris_to_berlin_ws_service
-	docker-compose up -d from_paris_to_berlin_ws_service
+	docker-compose stop from-paris-to-berlin-ws-service
+	docker-compose rm from-paris-to-berlin-ws-service
+	docker-compose build --no-cache from-paris-to-berlin-ws-service
+	docker-compose up -d from-paris-to-berlin-ws-service
 build-aop:
 	cd from-paris-to-berlin-resilience4j-aop-spring-app && mvn clean install -DskipTests
-	docker-compose stop from_paris_to_berlin_service
-	docker-compose rm from_paris_to_berlin_service
-	docker-compose build --no-cache from_paris_to_berlin_service
-	docker-compose up -d from_paris_to_berlin_service
+	docker-compose stop from-paris-to-berlin-service
+	docker-compose rm from-paris-to-berlin-service
+	docker-compose build --no-cache from-paris-to-berlin-service
+	docker-compose up -d from-paris-to-berlin-service
+node-update:
+	curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+	source ~/.nvm/nvm.sh
+	nvm install --lts
+	nvm use --lts

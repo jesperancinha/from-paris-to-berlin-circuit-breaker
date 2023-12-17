@@ -1,30 +1,34 @@
 #!/bin/bash
 
+GITHUB_RUN_ID=${GITHUB_RUN_ID:-''}
+
 function checkServiceByNameAndMessage() {
     name=$1
     message=$2
-    docker-compose logs "$name" > "logs"
+    docker-compose -p "${GITHUB_RUN_ID}" logs "$name" > "logs"
     string=$(cat logs)
     counter=0
+    echo "Project $GITHUB_RUN_ID"
+    echo -n "Starting service $name "
     while [[ "$string" != *"$message"* ]]
     do
-      printf "."
-      docker-compose logs "$name" > "logs"
+      echo -e -n "\e[93m-\e[39m"
+      docker-compose -p "${GITHUB_RUN_ID}" logs "$name" > "logs"
       string=$(cat logs)
       sleep 1
       counter=$((counter+1))
       if [ $counter -eq 200 ]; then
-          echo "Failed after $counter tries! Cypress tests may fail!!"
+          echo -e "\e[91mFailed after $counter tries! Cypress tests may fail!!\e[39m"
           echo "$string"
           exit 1
       fi
     done
     counter=$((counter+1))
-    echo "Succeeded $name Service after $counter tries!"
+    echo -e "\e[92m Succeeded starting $name Service after $counter tries!\e[39m"
 }
 
-checkServiceByNameAndMessage from_paris_to_berlin_ws_service 'Tomcat started on port(s): 8081'
-checkServiceByNameAndMessage from_paris_to_berlin_ws_service 'Members'
-checkServiceByNameAndMessage from_paris_to_berlin_service 'Netty started on port 8080'
-checkServiceByNameAndMessage from_paris_to_berlin_service 'Members'
-checkServiceByNameAndMessage from_paris_to_berlin_fe 'nginx: configuration file /etc/nginx/nginx.conf test is successful'
+checkServiceByNameAndMessage from-paris-to-berlin-ws-service 'Tomcat started on port(s): 8081'
+checkServiceByNameAndMessage from-paris-to-berlin-ws-service 'Members'
+checkServiceByNameAndMessage from-paris-to-berlin-service 'Netty started on port 8080'
+checkServiceByNameAndMessage from-paris-to-berlin-service 'Members'
+checkServiceByNameAndMessage from-paris-to-berlin-fe 'nginx: configuration file /etc/nginx/nginx.conf test is successful'
