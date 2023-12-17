@@ -2,22 +2,17 @@ version: "3.7"
 
 networks:
   paris_to_berlin_net:
-    driver: bridge
-    ipam:
-      driver: default
-      config:
-        - subnet: ${NETWORK_SUBNET}
 
 services:
 
-  from_paris_to_berlin_service:
+  from-paris-to-berlin-service:
     ports:
       - "8080:8080"
 
-  from_paris_to_berlin_ws_service:
+  from-paris-to-berlin-ws-service:
     ports:
       - "8081:8081"
 
-  from_paris_to_berlin_fe:
+  from-paris-to-berlin-fe:
     ports:
       - "9000:9000"
