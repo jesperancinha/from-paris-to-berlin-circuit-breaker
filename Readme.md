@@ -33,21 +33,9 @@ The idea of this project is to take passengers from Paris to Berlin.	However, in
 
 The idea of [Kystrix](https://github.com/johanhaleby/kystrix) is the same as [Hystrix](https://github.com/Netflix/Hystrix). These are circuit-breakers responsible to stop the flow of requests to certain endpoints and make them fail or redirect to somewhere else.
 
-Hystrix is however no longer in development, and instead we have [Resilience4J](https://github.com/resilience4j/resilience4j).
+Hystrix is, however, no longer in development, and instead we have [Resilience4J](https://github.com/resilience4j/resilience4j).
 
 This means that although we can hope that [Kystrix](https://github.com/johanhaleby/kystrix) gets more standardized, it appears to be that [Resilience4J](https://github.com/resilience4j/resilience4j) is the way to go at this time.
-
-This repo is also the official support article to my article on medium:
-
-[![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-20/medium-20.png "Medium")](https://medium.com/@jofisaes/from-paris-to-berlin-creating-circuit-breakers-in-kotlin-3c8be96876ca) [From Paris to Berlin — Creating Circuit-Breakers in Kotlin](https://medium.com/@jofisaes/from-paris-to-berlin-creating-circuit-breakers-in-kotlin-3c8be96876ca)
-
-<div align="center">
-      <a title="From Paris to Berlin — Creating Circuit-Breakers in Kotlin" href="https://medium.com/@jofisaes/from-paris-to-berlin-creating-circuit-breakers-in-kotlin-3c8be96876ca">
-     <img 
-          src="./docs/images/article.paris.berlin.banner.png" 
-          style="width:100%;">
-      </a>
-</div>
 
 #### Stable releases
 
