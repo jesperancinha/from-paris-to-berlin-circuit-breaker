@@ -148,11 +148,6 @@
                 <version>${jackson.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-context</artifactId>
-                <version>${spring-context.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>org.jetbrains.kotlin</groupId>
                 <artifactId>kotlin-test-junit</artifactId>
                 <version>${kotlin.version}</version>
@@ -177,11 +172,6 @@
                 <groupId>se.haleby.kystrix</groupId>
                 <artifactId>kystrix-spring</artifactId>
                 <version>${kystrix-core.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-webflux</artifactId>
-                <version>${spring-context.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.rest-assured</groupId>
