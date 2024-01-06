@@ -29,8 +29,8 @@ function checkServiceByNameAndMessage() {
     echo -e "\e[92m Succeeded starting $name Service after $counter tries!\e[39m"
 }
 
-checkServiceByNameAndMessage from-paris-to-berlin-ws-service 'Tomcat started on port(s): 8081'
+checkServiceByNameAndMessage from-paris-to-berlin-ws-service 'Tomcat started on port'
 checkServiceByNameAndMessage from-paris-to-berlin-ws-service 'Members'
-checkServiceByNameAndMessage from-paris-to-berlin-service 'Netty started on port 8080'
+checkServiceByNameAndMessage from-paris-to-berlin-service 'Netty started on port'
 checkServiceByNameAndMessage from-paris-to-berlin-service 'Members'
 checkServiceByNameAndMessage from-paris-to-berlin-fe 'nginx: configuration file /etc/nginx/nginx.conf test is successful'

@@ -18,8 +18,8 @@ services:
         reservations:
           memory: 500M
     healthcheck:
-      test: timeout 10s bash -c ':> /dev/tcp/127.0.0.1/8080' || exit 1
-      interval: 5s
+      test: timeout 5s bash -c ':> /dev/tcp/127.0.0.1/8080' || exit 1
+      interval: 10s
       retries: 30
     environment:
       - FPTB_BACK_END_WS_WEB_IP=from-paris-to-berlin-ws-service
@@ -39,8 +39,8 @@ services:
         reservations:
           memory: 500M
     healthcheck:
-      test: timeout 10s bash -c ':> /dev/tcp/127.0.0.1/8081' || exit 1
-      interval: 5s
+      test: timeout 5s bash -c ':> /dev/tcp/127.0.0.1/8081' || exit 1
+      interval: 10s
       retries: 30
     networks:
       paris_to_berlin_net:
@@ -58,8 +58,8 @@ services:
         reservations:
           memory: 500M
     healthcheck:
-      test: timeout 10s bash -c ':> /dev/tcp/127.0.0.1/9000' || exit 1
-      interval: 5s
+      test: timeout 5s bash -c ':> /dev/tcp/127.0.0.1/9000' || exit 1
+      interval: 10s
       retries: 30
     env_file:
       - .env
