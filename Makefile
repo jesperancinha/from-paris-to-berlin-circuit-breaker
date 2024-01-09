@@ -86,7 +86,22 @@ cypress-edge:
 	cd e2e && make cypress-edge
 update:
 	npm install -g npm-check-updates
-	cd from-paris-to-berlin-web && npx browserslist --update-db && ncu -u && yarn
+	find . -name "package-lock.json" | xargs rm; \
+	find . -name "yarn.lock" | xargs rm; \
+	git pull
+	npm install caniuse-lite
+	npm install -g npm-check-updates
+	cd from-paris-to-berlin-web; \
+ 		yarn; \
+ 		npx browserslist --update-db; \
+ 		ncu -u; \
+ 		yarn; \
+ 		cd ..
+	cd from-paris-to-berlin-web; \
+ 		yarn; \
+ 		npx browserslist --update-db; \
+ 		ncu -u; \
+ 		yarn
 install-update: update
 	npm i -g snyk
 audit:
