@@ -4448,10 +4448,10 @@ globby@^13.1.1:
     merge2 "^1.4.1"
     slash "^4.0.0"
 
-gojs-angular@^2.0.6:
-  version "2.0.6"
-  resolved "https://registry.yarnpkg.com/gojs-angular/-/gojs-angular-2.0.6.tgz#c2172b9d6051f30fad6e5d7a8d5eda054efe7629"
-  integrity sha512-JW6jZAGkjTc8IvZyYW7XH/1sHCM/nV1XaVcOEDS5vRaZIgaBWbccZyirqI718hBnvxiw0utKloJNurdMNu13NQ==
+gojs-angular@^2.0.7:
+  version "2.0.7"
+  resolved "https://registry.yarnpkg.com/gojs-angular/-/gojs-angular-2.0.7.tgz#7ced4322fed06732760b4c61cc580dddd2ae92fb"
+  integrity sha512-AVX9Q+IFHT/W5WQWLjy+8wSgjYomxZNuumJe0QoDecheCgt3AWSHut0eDc5srfgzLenmiSGAxeXe0S9B5t1GDg==
   dependencies:
     immer "^9.0.1"
     tslib "^2.0.0"
