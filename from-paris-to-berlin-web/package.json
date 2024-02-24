@@ -34,11 +34,11 @@
     "zone.js": "~0.14.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~17.2.0",
-    "@angular/cli": "~17.2.0",
+    "@angular-devkit/build-angular": "~17.2.1",
+    "@angular/cli": "~17.2.1",
     "@angular/compiler-cli": "~17.0.8",
     "@types/jasmine": "~5.1.4",
-    "@types/node": "^20.11.19",
+    "@types/node": "^20.11.20",
     "@types/sockjs-client": "^1.5.4",
     "@types/stompjs": "^2.3.9",
     "jasmine-core": "~5.1.2",
