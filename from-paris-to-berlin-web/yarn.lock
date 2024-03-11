@@ -4640,10 +4640,10 @@ gojs-angular@^2.0.7:
     immer "^9.0.1"
     tslib "^2.0.0"
 
-gojs@^2.3.14:
-  version "2.3.14"
-  resolved "https://registry.yarnpkg.com/gojs/-/gojs-2.3.14.tgz#a5ab0943224bca752aab7bc8b3f0fa9d92d9e3ab"
-  integrity sha512-aCDuFz4Igo3lOaBHvo86l//uWttT2yGP2z1CIxcbnYdC/9Uy4/la6tlaflvsoQ3iQVHzPWI7a//3ZHDBn6fKaA==
+gojs@^2.3.15:
+  version "2.3.15"
+  resolved "https://registry.yarnpkg.com/gojs/-/gojs-2.3.15.tgz#976877dfdd09c3cfb98d0c460d950c5396110eaf"
+  integrity sha512-/CjCRqtYzEt1L5iNV3zoLbeA7Tcwblh5z0uyGvaVihv+pQmCJM+1tS+J9/EIAlsQiCpckdz17tAnOGxnnvZjcA==
 
 gopd@^1.0.1:
   version "1.0.1"
