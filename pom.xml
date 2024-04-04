@@ -57,6 +57,7 @@
         <java.version>17</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
+        <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
         <kotlin.version>1.9.23</kotlin.version>
         <kotlin.code.style>official</kotlin.code.style>
 
