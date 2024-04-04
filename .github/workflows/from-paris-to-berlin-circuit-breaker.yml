@@ -16,6 +16,9 @@ jobs:
       with:
         java-version: '17'
         distribution: 'adopt'
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 20
 
     - name: Maven Build and Test
       uses: nick-fields/retry@v2
