@@ -36,7 +36,7 @@
   "devDependencies": {
     "@angular-devkit/build-angular": "~17.3.4",
     "@angular/cli": "~17.3.4",
-    "@angular/compiler-cli": "~17.0.8",
+    "@angular/compiler-cli": "~17.3.4",
     "@types/jasmine": "~5.1.4",
     "@types/node": "^20.12.7",
     "@types/sockjs-client": "^1.5.4",
