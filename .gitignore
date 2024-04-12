@@ -32,6 +32,8 @@ target
 # Node
 node_modules
 .angular
+package-lock.json
+yarn.lock
 
 # MacOS
 .DS_store

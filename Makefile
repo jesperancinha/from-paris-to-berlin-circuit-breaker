@@ -66,8 +66,6 @@ demo-direct:
 	cd from-paris-to-berlin-demo && ./make-demo-direct.sh
 demo-docker:
 	cd from-paris-to-berlin-demo && ./make-demo-docker.sh
-audit:
-	cd from-paris-to-berlin-web && npm audit fix && yarn
 cypress-install:
 	cd e2e && make build
 cypress-open:
@@ -84,10 +82,11 @@ cypress-firefox-full:
 	cd e2e && make cypress-firefox-full
 cypress-edge:
 	cd e2e && make cypress-edge
-update:
+remove-lock-files:
+	find . -name "package-lock.json" | xargs -I {} rm {}; \
+	find . -name "yarn.lock" | xargs -I {} rm {};
+update: remove-lock-files
 	npm install -g npm-check-updates
-	find . -name "package-lock.json" | xargs rm; \
-	find . -name "yarn.lock" | xargs rm; \
 	git pull
 	npm install caniuse-lite
 	npm install -g npm-check-updates
