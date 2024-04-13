@@ -29,12 +29,6 @@ jobs:
         command: |
           mvn clean install jacoco:prepare-agent package jacoco:report
 
-
-    - name: Set up Node
-      uses: actions/setup-node@v3
-      with:
-        node-version: '18'
-
     - name: Node.js Build and Test
       run: cd from-paris-to-berlin-web && yarn && npm run build
 
