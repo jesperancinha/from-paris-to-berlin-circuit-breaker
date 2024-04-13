@@ -76,10 +76,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "from-paris-to-berlin-web:build:production"
+              "buildTarget": "from-paris-to-berlin-web:build:production"
             },
             "development": {
-              "browserTarget": "from-paris-to-berlin-web:build:development"
+              "buildTarget": "from-paris-to-berlin-web:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -87,7 +87,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "from-paris-to-berlin-web:build"
+            "buildTarget": "from-paris-to-berlin-web:build"
           }
         },
         "test": {
@@ -111,6 +111,5 @@
         }
       }
     }
-  },
-  "defaultProject": "from-paris-to-berlin-web"
+  }
 }
