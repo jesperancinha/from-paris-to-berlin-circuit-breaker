@@ -223,7 +223,7 @@ export class FptbOverviewComponent implements OnInit {
     );
 
     dia.linkTemplate = $(go.Link, {
-      routing: go.Link.Bezier,
+      routing: go.Link.Normal,
       corner: 5,
       selectable: false
     }, $(go.Shape, {
