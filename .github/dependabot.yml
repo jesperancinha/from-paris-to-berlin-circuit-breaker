@@ -18,8 +18,9 @@ updates:
     schedule:
       interval:   "daily"
     groups:
-      rubocop:
+      angular:
         patterns:
+          - "@angular*"
           - "angular*"
 
   - package-ecosystem: "npm"
