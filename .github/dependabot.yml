@@ -1,4 +1,5 @@
 version: 2
+
 updates:
   - package-ecosystem: "maven" # See documentation for possible values
     directory: "/" # Location of package manifests
@@ -15,7 +16,11 @@ updates:
   - package-ecosystem: "npm"
     directory: "/from-paris-to-berlin-web"
     schedule:
-      interval: "daily"
+      interval:   "daily"
+    groups:
+      rubocop:
+        patterns:
+          - "angular*"
 
   - package-ecosystem: "npm"
     directory: "/e2e"
