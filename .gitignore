@@ -62,3 +62,9 @@ okta.config.ts
 # Draw.IO
 *.bkp
 *.dtmp
+
+## Automation
+cypressUpdateOne.sh
+docker-composetmp.yml
+packagetmp.json
+pluginUpdatesOne.sh

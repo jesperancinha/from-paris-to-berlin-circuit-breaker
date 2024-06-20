@@ -17,7 +17,7 @@ jobs:
           node-version: 20
 
       - name: Start Docker
-        uses: nick-fields/retry@v2
+        uses: nick-fields/retry@v3
         with:
           max_attempts: 2
           retry_on: error
@@ -41,7 +41,7 @@ jobs:
           node-version: 20
 
       - name: Start Docker
-        uses: nick-fields/retry@v2
+        uses: nick-fields/retry@v3
         with:
           max_attempts: 2
           retry_on: error
@@ -65,7 +65,7 @@ jobs:
           node-version: 20
 
       - name: Start Docker
-        uses: nick-fields/retry@v2
+        uses: nick-fields/retry@v3
         with:
           max_attempts: 2
           retry_on: error
@@ -90,7 +90,7 @@ jobs:
           node-version: 20
 
       - name: Start Docker
-        uses: nick-fields/retry@v2
+        uses: nick-fields/retry@v3
         with:
           max_attempts: 2
           retry_on: error
