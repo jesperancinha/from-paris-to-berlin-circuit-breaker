@@ -2,7 +2,12 @@ name: PR from-paris-to-berlin-circuit-breaker-pull_request
 
 on:
   pull_request:
-    branches: [ main ]
+    branches:
+      - '**'
+  push:
+    branches:
+      - '**'
+      - '!main'
 
 jobs:
   build:
