@@ -6,7 +6,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: maven:3.8.2-openjdk-17
+      - image: eclipse-temurin:21-alpine
 
     working_directory: ~/repo
 
@@ -16,6 +16,8 @@ jobs:
 
     steps:
       - checkout
+
+      - run: apk update && apk add maven
 
       - run: mvn clean install
 
