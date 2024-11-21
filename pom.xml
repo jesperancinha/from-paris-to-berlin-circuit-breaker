@@ -75,7 +75,7 @@
         <gson.version>2.11.0</gson.version>
         <omni-coveragereporter-maven-plugin.version>0.4.4</omni-coveragereporter-maven-plugin.version>
         <maven-surefire-plugin.version>3.5.2</maven-surefire-plugin.version>
-        <spring-boot.version>3.3.5</spring-boot.version>
+        <spring-boot.version>3.4.0</spring-boot.version>
         <kotest.version>5.9.1</kotest.version>
         <kotlinx-coroutines-debug.version>1.9.0</kotlinx-coroutines-debug.version>
         <springdoc-openapi-starter-webmvc-ui.version>2.6.0</springdoc-openapi-starter-webmvc-ui.version>
