@@ -58,6 +58,7 @@ bin
 
 # Generated Files
 okta.config.ts
+./package.json
 
 # Draw.IO
 *.bkp
