@@ -13,7 +13,8 @@ import {Car} from "../model/car";
 @Component({
   selector: 'app-fptb-overview',
   templateUrl: './fptb-overview.component.html',
-  styleUrls: ['./fptb-overview.component.less']
+  styleUrls: ['./fptb-overview.component.less'],
+  standalone: false
 })
 export class FptbOverviewComponent implements OnInit {
 
