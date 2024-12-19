@@ -77,7 +77,7 @@
         <maven-surefire-plugin.version>3.5.2</maven-surefire-plugin.version>
         <spring-boot.version>3.4.0</spring-boot.version>
         <kotest.version>5.9.1</kotest.version>
-        <kotlinx-coroutines-debug.version>1.9.0</kotlinx-coroutines-debug.version>
+        <kotlinx-coroutines-debug.version>1.10.0</kotlinx-coroutines-debug.version>
         <springdoc-openapi-starter-webmvc-ui.version>2.7.0</springdoc-openapi-starter-webmvc-ui.version>
         <springdoc-openapi-starter-webflux-ui.version>2.7.0</springdoc-openapi-starter-webflux-ui.version>
         <from-paris-to-berlin-data.version>1.0.0</from-paris-to-berlin-data.version>
