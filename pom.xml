@@ -67,7 +67,7 @@
         <jackson.databind.version>2.18.2</jackson.databind.version>
         <rest-assured.version>5.5.0</rest-assured.version>
         <kystrix-core.version>0.1.16</kystrix-core.version>
-        <resilience4j.version>2.2.0</resilience4j.version>
+        <resilience4j.version>2.3.0</resilience4j.version>
         <kotlinx-coroutines-reactor.version>1.6.3-native-mt</kotlinx-coroutines-reactor.version>
         <kotlin-logging-jvm.version>3.0.5</kotlin-logging-jvm.version>
         <kotlinx-coroutines-core.version>1.6.3-native-mt</kotlinx-coroutines-core.version>
