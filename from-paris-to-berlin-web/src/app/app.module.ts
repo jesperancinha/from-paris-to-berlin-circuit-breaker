@@ -5,7 +5,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {FptbOverviewComponent} from './fptb-overview/fptb-overview.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {GojsAngularModule} from "gojs-angular";
+import {DiagramComponent} from "gojs-angular";
 import {MatCardModule} from "@angular/material/card";
 import {MatTableModule} from "@angular/material/table";
 import {MAT_DIALOG_DEFAULT_OPTIONS} from "@angular/material/dialog";
@@ -22,7 +22,7 @@ import {MatListModule} from "@angular/material/list";
         BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule,
-        GojsAngularModule,
+        DiagramComponent,
         MatCardModule,
         MatTableModule,
         HttpClientModule,
