@@ -12,6 +12,10 @@ updates:
         versions: ["1.6.0-RC2", "1.6.0-RC3", "1.6.0"]
       - dependency-name: "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm"
         versions: ["1.6.0-RC2", "1.6.0-RC3", "1.6.0"]
+    groups:
+       openapi:
+         patterns:
+           - "springdoc-openapi*"
 
   - package-ecosystem: "npm"
     directory: "/from-paris-to-berlin-web"
