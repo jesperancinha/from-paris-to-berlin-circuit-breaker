@@ -65,7 +65,7 @@
         <jacoco-maven-plugin.version>0.8.13</jacoco-maven-plugin.version>
         <jackson.version>2.19.0</jackson.version>
         <jackson.databind.version>2.19.0</jackson.databind.version>
-        <rest-assured.version>5.5.2</rest-assured.version>
+        <rest-assured.version>5.5.5</rest-assured.version>
         <kystrix-core.version>0.1.16</kystrix-core.version>
         <resilience4j.version>2.3.0</resilience4j.version>
         <kotlinx-coroutines-reactor.version>1.6.3-native-mt</kotlinx-coroutines-reactor.version>
