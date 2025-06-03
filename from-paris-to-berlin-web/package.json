@@ -39,7 +39,7 @@
     "@angular/cli": "~20.0.0",
     "@angular/compiler-cli": "~20.0.0",
     "@types/jasmine": "~5.1.8",
-    "@types/node": "^22.15.21",
+    "@types/node": "^22.15.29",
     "@types/sockjs-client": "^1.5.4",
     "@types/stompjs": "^2.3.9",
     "jasmine-core": "~5.7.1",
