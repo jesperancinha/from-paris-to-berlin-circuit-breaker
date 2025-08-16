@@ -58,14 +58,14 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven-compiler-plugin.version>3.14.0</maven-compiler-plugin.version>
-        <kotlin.version>2.2.0</kotlin.version>
+        <kotlin.version>2.2.10</kotlin.version>
         <kotlin.code.style>official</kotlin.code.style>
 
         <commons-io.version>2.6</commons-io.version>
         <jacoco-maven-plugin.version>0.8.13</jacoco-maven-plugin.version>
         <jackson.version>2.19.2</jackson.version>
         <jackson.databind.version>2.19.2</jackson.databind.version>
-        <rest-assured.version>5.5.5</rest-assured.version>
+        <rest-assured.version>5.5.6</rest-assured.version>
         <kystrix-core.version>0.1.16</kystrix-core.version>
         <resilience4j.version>2.3.0</resilience4j.version>
         <kotlinx-coroutines-reactor.version>1.6.3-native-mt</kotlinx-coroutines-reactor.version>
