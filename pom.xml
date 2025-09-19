@@ -73,7 +73,7 @@
         <gson.version>2.13.2</gson.version>
         <omni-coveragereporter-maven-plugin.version>0.4.5</omni-coveragereporter-maven-plugin.version>
         <maven-surefire-plugin.version>3.5.4</maven-surefire-plugin.version>
-        <spring-boot.version>3.5.5</spring-boot.version>
+        <spring-boot.version>3.5.6</spring-boot.version>
         <kotest.version>5.9.1</kotest.version>
         <kotlinx-coroutines-debug.version>1.10.2</kotlinx-coroutines-debug.version>
         <from-paris-to-berlin-data.version>1.0.0</from-paris-to-berlin-data.version>
