@@ -62,7 +62,7 @@
         <kotlin.code.style>official</kotlin.code.style>
 
         <commons-io.version>2.6</commons-io.version>
-        <jacoco-maven-plugin.version>0.8.13</jacoco-maven-plugin.version>
+        <jacoco-maven-plugin.version>0.8.14</jacoco-maven-plugin.version>
         <rest-assured.version>5.5.6</rest-assured.version>
         <kystrix-core.version>0.1.16</kystrix-core.version>
         <resilience4j.version>2.3.0</resilience4j.version>
