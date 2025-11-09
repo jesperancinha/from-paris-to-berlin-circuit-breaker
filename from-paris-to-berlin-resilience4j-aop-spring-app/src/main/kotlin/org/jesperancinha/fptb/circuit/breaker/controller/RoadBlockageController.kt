@@ -20,10 +20,10 @@ class RoadBlockageController(
     fun updateBlockage(@RequestBody location: Location) = roadBlockageService.setRoadBlock(location)
 
     @GetMapping
-    fun getCurrentBlockage(): Mono<Location?> = Mono.just(roadBlockageService.getStartLocation())
+    fun getCurrentBlockage(): Mono<Location> = Mono.just(roadBlockageService.getStartLocation())
 
     @GetMapping("/roadRace")
-    fun getCurrentRoadRace(): Mono<RoadRaceDto?> = Mono.just(roadBlockageService.getCurrenRoadRace())
+    fun getCurrentRoadRace(): Mono<RoadRaceDto> = Mono.just(roadBlockageService.getCurrenRoadRace())
 
     @GetMapping("/moveToCity/{cityId}")
     fun moveToCity(@PathVariable cityId: Long): Mono<RoadRaceCacheService> = roadBlockageService.moveToCity(cityId)
