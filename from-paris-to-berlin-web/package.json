@@ -10,6 +10,7 @@
   },
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
     "@angular/animations": "~21.0.3",
     "@angular/cdk": "^21.0.2",
     "@angular/common": "~21.0.3",
@@ -23,6 +24,21 @@
     "@stomp/stompjs": "^7.2.1",
     "build": "^0.1.4",
     "gojs": "^3.1.2",
+=======
+    "@angular/animations": "~21.0.5",
+    "@angular/cdk": "^21.0.3",
+    "@angular/common": "~21.0.5",
+    "@angular/compiler": "~21.0.5",
+    "@angular/core": "~21.0.5",
+    "@angular/forms": "~21.0.5",
+    "@angular/material": "^21.0.3",
+    "@angular/platform-browser": "~21.0.5",
+    "@angular/platform-browser-dynamic": "~21.0.5",
+    "@angular/router": "~21.0.5",
+    "@stomp/stompjs": "^7.2.1",
+    "build": "^0.1.4",
+    "gojs": "^3.1.3",
+>>>>>>> b0d906a140d75cb3f59a77e7e304e0b3948e80a0
     "gojs-angular": "^2.1.3",
     "immer": "^11.0.1",
     "ng2-stomp-service": "^1.2.2",
@@ -35,11 +51,17 @@
     "zone.js": "~0.16.0"
   },
   "devDependencies": {
+<<<<<<< HEAD
     "@angular-devkit/build-angular": "~21.0.2",
     "@angular/cli": "~21.0.2",
     "@angular/compiler-cli": "~21.0.3",
+=======
+    "@angular-devkit/build-angular": "~21.0.3",
+    "@angular/cli": "~21.0.3",
+    "@angular/compiler-cli": "~21.0.5",
+>>>>>>> b0d906a140d75cb3f59a77e7e304e0b3948e80a0
     "@types/jasmine": "~5.1.13",
-    "@types/node": "^24.10.1",
+    "@types/node": "^25.0.2",
     "@types/sockjs-client": "^1.5.4",
     "@types/stompjs": "^2.3.10",
     "jasmine-core": "~5.13.0",
